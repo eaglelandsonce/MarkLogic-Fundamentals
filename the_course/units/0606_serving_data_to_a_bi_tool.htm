@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>MarkLogic Fundamentals</title>
+<link href="../css/ml.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<p><img src="../images/general/Marklogic-University-RGB.png" alt="" width="130" height="38" class="logo-padding"/></p>
+<p class="topic-heading"><strong>Serving Data to a BI Tool</strong></p>
+<p>Steps can be done to serve data from a MarkLogic database as rows, so that business intelligence tools can make SQL queries against them. This is accomplished by defining a template, defining an ODBC server port, and installing the MarkLogic ODBC driver. </p>
+<p class="topic-sub-heading">Template</p>
+<p>Within a template, criteria for row data is specified. For any document content that matches the template context and column paths, the view is populated with rows.</p>
+<p><img src="../images/unit06/template_example.png" width="391" height="483" class="image-border"><br>
+</p>
+<p>By creating and inserting a template, a view is generated, containing rows that SQL queries can be run against. <br>
+  <br>
+  <img src="../images/unit06/select_query.png" width="700" height="231" class="image-border"><br>
+</p>
+<p class="topic-sub-heading">ODBC Server </p>
+<p>For being able to make SQL queries from outside of MarkLogic, an ODBC server port needs to have been created. This can be done via the Admin Interface or programmatically.</p>
+<p><img src="../images/unit06/odbc_tab.png" width="104" height="30" class="image-border"></p>
+<p class="topic-sub-heading">MarkLogic ODBC Driver</p>
+<p>On the server where the business intelligence tool (e.g. Tableau, Qlik, Power BI, etc.) is installed, the MarkLogic ODBC driver can be installed and configured, allowing  SQL queries to go to the MarkLogic database from the business intelligence tool, via the ODBC server port. </p>
+<p><br>
+Detail on the steps for making data  available to business intelligence tools is in the SQL Data Modeling Guide at docs.marklogic.com/guide/sql, as well as hands-on in the <strong>MarkLogic Data Integration</strong> course, available at www.marklogic.com/learn/courses/marklogic-data-integration.</p>
+<p><img src="../images/unit06/sql_guide.png" width="601" height="307" class="image-border"></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Next: <a href="0606_x_serve_data_to_a_bi_tool.htm" class="exercise-link">Exercise (Serve Data to a BI Tool)</a></p>
+<p>Back: <a href="0605_x_use_the_node.js_api.htm">Previous</a></p>
+<hr>
+<p class="copyright">©2015-2020 MarkLogic Corporation. All rights reserved. Copying, selling, or otherwise distributing any part of this course without prior written consent of an authorized representative of MarkLogic Corporation is prohibited.</p>
+</body>
+</html>

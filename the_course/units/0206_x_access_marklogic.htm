@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>MarkLogic Fundamentals</title>
+<link href="../css/ml.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<p><img src="../images/general/Marklogic-University-RGB.png" alt="" width="130" height="38" class="logo-padding"/></p>
+<p class="exercise-heading">Exercise: <strong>Access MarkLogic</strong></p>
+<p>In this walkthrough exercise, you access MarkLogic using a few of the interfaces.</p>
+<p>&nbsp;</p>
+<ol class="exercise-step">
+  <li class="exercise-step">To use Query Console, open a new browser window in the virtual machine, and enter the following URL:<span class="code"> <br>
+    <br>
+    http://localhost:8000</span></li>
+  <li class="exercise-step">If prompted, enter <span class="code">admin</span> and <span class="code">admin</span>, to log in to the application. </li>
+  <li class="exercise-step">In the Database drop-down list, view the list of databases that already exist, created when you installed MarkLogic:<br>
+    <br>
+    <img src="../images/unit02/database_list.png" width="700" height="409" class="image-border"><br>
+  </li>
+  <li class="exercise-step">With the Documents database selected, click the <strong>Explore</strong> button.</li>
+  <li class="exercise-step">In the lower panel, see that there are currently 0 documents in the Documents database:<br>
+    <br>
+    <img src="../images/unit02/zero_documents.png" width="385" height="110" class="image-border"><br>
+  </li>
+  <li class="exercise-step">In the Query Type drop-down list, notice the query languages that can be used in Query Console:<br>
+    <br>
+  <img src="../images/unit02/query_type.png" width="248" height="201" class="image-border"></li>
+  <li class="exercise-step">If desired, enter the following and, with <strong>JavaScript</strong> selected, press <strong>Run</strong>:<br>
+    <br>
+    <span class="code">cts.search('potato');</span><br>
+  </li>
+  <li class="exercise-step">Notice the response:<br>
+    <br>
+  <img src="../images/unit02/response.png" width="492" height="83" class="image-border"></li>
+  <li class="exercise-step">Realize this is because there were not any documents in the database with the word potato in them.</li>
+  <li class="exercise-step">If desired, in a new browser window within the virtual machine, enter<span class="code"> localhost:8002/history</span>. </li>
+  <li class="exercise-step">If prompted, enter <span class="code">admin</span> and <span class="code">admin</span>, to log in to the application.</li>
+  <li class="exercise-step">See that  you are viewing the Monitoring History dashboard, viewing resource activity for the past day:<br>
+    <br>
+    <img src="../images/unit02/monitoring_history.png" width="700" height="554" class="image-border"><br>
+    <em>Note: If 
+ you see a message of 'No resources to display' or 'No data to display', know that you can view the dashboard later, when there is data to display</em><br>
+  </li>
+  <li class="exercise-step">If desired, click the <strong>1h </strong>shortcut link, to view activity for the past hour:<br>
+    <br>
+    <img src="../images/unit02/shortcut_1h.png" width="114" height="35" class="image-border"><br>
+  </li>
+  <li class="exercise-step"><strong>Close</strong> the Monitoring History dashboard.</li>
+  <li class="exercise-step">Open a command prompt window (Applications - System Tools - Terminal).</li>
+  <li class="exercise-step">Enter the following (can copy from mls-fundamentals/unit02/<strong>ex06a.txt</strong>, and right-click to select Paste), to use the REST API to see the Documents database status:<br>
+    <br>
+    <span class="code">curl --anyauth --user admin:admin -X GET http://localhost:8002/manage/v2/databases/Documents?view=status</span><br>
+  </li>
+  <li class="exercise-step">Once the command completes, scroll back up, to the beginning of the response, to see that you are viewing status information for the Documents database:<br>
+    <br>
+  <img src="../images/unit02/database_status.png" width="700" height="226" class="image-border"></li>
+  <li class="exercise-step">Realize that you can use the REST API to do all sorts of activities including creating databases, writing documents, reading documents, creating users, etc.</li>
+  <li class="exercise-step">If desired, visit <a href="http://docs.marklogic.com/REST" target="_blank">docs.marklogic.com/REST</a> to learn about other REST API endpoints.<br>
+  </li>
+</ol>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Next: <a href="02f1_summary.htm">Summary (Unit 2)</a></p>
+<p>Back: <a href="0206_accessing_marklogic.htm">Previous</a></p>
+<hr>
+<p class="copyright">©2015-2020 MarkLogic Corporation. All rights reserved. Copying, selling, or otherwise distributing any part of this course without prior written consent of an authorized representative of MarkLogic Corporation is prohibited.</p>
+</body>
+</html>

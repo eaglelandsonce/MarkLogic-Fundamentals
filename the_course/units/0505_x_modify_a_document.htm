@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>MarkLogic Fundamentals</title>
+<link href="../css/ml.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<p><img src="../images/general/Marklogic-University-RGB.png" alt="" width="130" height="38" class="logo-padding"/></p>
+<p class="exercise-heading">Exercise: <strong>Modify a Document</strong></p>
+<p>In this walkthrough exercise, you use the xdmp.nodeInsertAfter() function to add  content to a document. </p>
+<p>&nbsp;</p>
+<ol class="exercise-step">
+  <li class="exercise-step">In <strong>Query Console</strong>,  in the workspace menu, select<strong> Import Workspace...</strong>:<br>
+  </li>
+  <li class="exercise-step">Click the <strong>Browse...</strong> button, and navigate to select <strong>mls-fundamentals</strong> - <strong>unit05</strong> - <strong>Modify a Document.xml</strong>.</li>
+  <li class="exercise-step">Select <strong>Open</strong>, and then click <strong>Import</strong>.</li>
+  <li class="exercise-step">Select the first tab, <strong>Create patents-admin-role</strong><strong></strong>:<br>
+    <br>
+  ﻿<span class="code">declareUpdate();  <br>
+  <br>
+  const sec = require(&quot;/MarkLogic/security.xqy&quot;);  <br>
+  <br>
+  sec.createRole('patents-admin-role', 'Role for updating patents documents', ['patents-user-role'], null, null);</span></li>
+  <li class="exercise-step">With the <strong>Security</strong> database selected, click <strong>Run</strong>.</li>
+  <li class="exercise-step">See that a role id is returned.</li>
+  <li class="exercise-step">Select the <strong>Create patents-admin</strong> tab:<br>
+    <br>
+    ﻿<span class="code">declareUpdate();  <br>
+    <br>
+    const sec = require(&quot;/MarkLogic/security.xqy&quot;);  <br>
+    <br>
+    sec.createUser('patents-admin', 'Admin for reading patents documents', 'admin', 'patents-admin-role', null, null); </span><br>
+  </li>
+  <li class="exercise-step">With the <strong>Security</strong> database selected, click <strong>Run</strong>.</li>
+  <li class="exercise-step">See that a user id is returned.</li>
+  <li class="exercise-step">Select the <strong>Add Permissions</strong> tab:<br>
+    <br>
+    ﻿<span class="code">declareUpdate();  <br>
+    <br>
+    const docs = xdmp.directory('/patents/');  <br>
+    <br>
+    docs.toArray().forEach(function(doc) {    <br>
+&nbsp;    let uri = fn.baseUri(doc);    <br>
+&nbsp;&nbsp;xdmp.documentAddPermissions(uri, [xdmp.permission('patents-admin-role', 'update')]); <br>
+});</span><br>
+  </li>
+  <li class="exercise-step">With the <strong>patents</strong> database selected, click <strong>Run</strong>.</li>
+  <li class="exercise-step">See that null is returned.</li>
+  <li class="exercise-step">Click the <strong>Explore</strong> button,  click <strong>/patents/waterski_drone.json</strong>, and click <strong>Permissions</strong>, to see that the patents-admin-role  now has the ability to update the document:<br>
+    <br>
+    <img src="../images/unit05/can_update.png" width="700" height="130" class="image-border"><br>
+  </li>
+  <li class="exercise-step">Select the <strong>Update a Node </strong>tab: <br>
+    <br>
+    <span class="code">﻿declareUpdate(); <br>
+    <br>
+    const builder = new NodeBuilder(); <br>
+    const node = builder.addText(&quot;Powerful drone for waterskiing without a boat, which includes intelligent navigation for finding smooth water&quot;).toNode(); <br>
+    <br>
+    xdmp.nodeReplace(cts.doc(&quot;/patents/waterski_drone.json&quot;).xpath(&quot;/patent/description&quot;), node);</span><br>
+  </li>
+  <li class="exercise-step">See that this code will replace the description value.</li>
+  <li class="exercise-step">With the <strong>patents</strong> database  selected, click <strong>Run</strong>.</li>
+  <li class="exercise-step">Click the <strong>Explore</strong> button, and then click the <strong>/patents/waterski_drone.json</strong> link, to see that the description value has been replaced:<br>
+    <br>
+  <img src="../images/unit05/node_updated.png" width="700" height="136" class="image-border"></li>
+  <li class="exercise-step">Select the <strong>Add a Node </strong>tab: <br>
+    <br>
+    <span class="code">﻿declareUpdate(); <br>
+      <br>
+      const builder = new NodeBuilder(); <br>
+      const node = builder.addNode({filed: '2020-02-20'}).toNode().xpath(&quot;./node('filed')&quot;); <br>
+  <br>
+      xdmp.nodeInsertAfter(cts.doc(&quot;/patents/waterski_drone.json&quot;).xpath(&quot;/patent/description&quot;), node);</span><br>
+  </li>
+  <li class="exercise-step">See that this code will add a  property named filed to the document, after the description property.</li>
+  <li class="exercise-step">With the <strong>patents</strong> database  selected, click <strong>Run</strong>.</li>
+  <li class="exercise-step">Click the <strong>Explore</strong> button, and then click the <strong>/patents/waterski_drone.json</strong> link, to see that the new property has been added:<br>
+    <br>
+    <img src="../images/unit05/node_added.png" width="700" height="151" class="image-border"><br>
+  </li>
+</ol>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Next: <a href="0506_using_marklogic_content_pump.htm" class="exercise-link">Topic (Using MarkLogic Content Pump)</a></p>
+<p>Back: <a href="0505_modifying_documents.htm">Previous</a></p>
+<hr>
+<p class="copyright">©2015-2020 MarkLogic Corporation. All rights reserved. Copying, selling, or otherwise distributing any part of this course without prior written consent of an authorized representative of MarkLogic Corporation is prohibited.</p>
+</body>
+</html>

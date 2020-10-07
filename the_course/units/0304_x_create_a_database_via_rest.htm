@@ -1,0 +1,77 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>MarkLogic Fundamentals</title>
+<link href="../css/ml.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<p><img src="../images/general/Marklogic-University-RGB.png" alt="" width="130" height="38" class="logo-padding"/></p>
+<p class="exercise-heading">Exercise: <strong>Create a Database via REST</strong></p>
+<p>In this walkthrough exercise, you use the MarkLogic REST API to create a patents database. </p>
+<p>&nbsp;</p>
+<ol class="exercise-step">
+  <li class="exercise-step">In the mls-fundamentals/<strong>unit03</strong> folder, double-click  the <strong>patents-config.json</strong> file, to display it in  a <strong>text editor</strong>, to see the contents of the file:<br>
+    <br>
+    <img src="../images/unit03/config_json.png" width="608" height="232" class="image-border"><br>
+  </li>
+  <li class="exercise-step"><strong>Realize</strong> that this file can be sent to MarkLogic to generate a database named patents, a forest for the database, and an application server that supports REST requests to the database via port 8060.</li>
+  <li class="exercise-step">In the <strong>Admin Interface</strong>, click <strong>Configure</strong> in the left navigation, to check in the App Servers list that port 8060 is not already taken: <br>
+    <br>
+    <img src="../images/unit04/available_8040.png" width="255" height="137" class="image-border"></li>
+  <li class="exercise-step">In a <strong>command prompt</strong> window, enter the following (can copy from unit03/<strong>ex04a.txt</strong>, and  right-click to select Paste):<br>
+    <br>
+    <span class="code">﻿curl --anyauth --user admin:admin -X POST -d@&quot;Desktop/mls-fundamentals/unit03/patents-config.json&quot; -i -H &quot;Content-type: application/json&quot; http://localhost:8002/v1/rest-apis</span><br>
+  </li>
+  <li class="exercise-step"><strong>Notice</strong> the reference to the patents-config.json file. </li>
+  <li class="exercise-step">Realize that this  command  will send the configuration file to MarkLogic.</li>
+  <li class="exercise-step">Press the <strong>Enter</strong> key, to run the command.</li>
+  <li class="exercise-step">After a few seconds, see that the response says HTTP/1.1 201 <strong>Created</strong>: <br>
+    <br>
+    <img src="../images/unit03/curl_created.png" width="672" height="393" class="image-border"><br>
+    <em>Note: The reason the first response says Unauthorized is because of --anyauth,  asking   the MarkLogic  endpoint what type of authentication it uses. 
+      Once the MarkLogic service responds with the authentication type it accepts, cURL resends the request using that authentication type.</em><br>
+  </li>
+  <li class="exercise-step">In the <strong>Admin Interface</strong>, click the <strong>Configure</strong> link on the left, to now see the <strong>patents</strong> database listed under Databases,  the<strong> patents-1</strong> forest listed under Forests, and the <strong>8060-patents</strong> application server listed under App Servers:<br>
+    <br>
+  <img src="../images/unit03/summary_8060_patents.png" width="700" height="504" class="image-border"></li>
+  <li class="exercise-step">If desired, within the virtual machine, in a <strong>browser</strong> window, enter<span class="code"> http://localhost:8060</span>, to see that the REST API instance port was created.</li>
+  <li class="exercise-step">If prompted, enter a user name of <span class="code">admin</span> and password of <span class="code">admin</span>. </li>
+  <li class="exercise-step">See  REST API endpoint examples listed:<br>
+    <br>
+  <img src="../images/unit03/info_8060.png" width="700" height="522" class="image-border"></li>
+  <li class="exercise-step">Realize that, by having set up a REST API instance for the patents database,  REST API calls can be made to the database from a wide variety of programming languages to do things like CRUD  (create, read, update, and delete) documents, or run search queries against the database.</li>
+</ol>
+<p>Set up port <strong>8070</strong> as a REST API instance for the <strong>star-wars </strong>database:</p>
+<ol start="14" class="exercise-step">
+  <li class="exercise-step">In the unit03 folder, double-click  the <strong>star-wars-config.json</strong> file, to display it in  a <strong>text editor</strong>, to see the contents of the file:<br>
+    <br>
+  <img src="../images/unit03/star-wars_config.png" width="609" height="212" class="image-border"></li>
+  <li class="exercise-step">In a <strong>command prompt</strong> window, enter the following (<strong>ex04b.txt</strong>):<br>
+    <br>
+    <span class="code">curl --anyauth --user admin:admin -X POST -d@&quot;Desktop/mls-fundamentals/unit03/star-wars-config.json&quot; -i -H &quot;Content-type: application/json&quot; http://localhost:8002/v1/rest-apis    </span><br>
+  </li>
+  <li class="exercise-step">Wait for the command to complete:<br>
+    <br>
+    <img src="../images/unit03/curl_rest_star-wars_done.png" width="692" height="349" class="image-border"><br>
+  </li>
+  <li class="exercise-step">In the <strong>Admin Interface</strong>, click <strong>Configure</strong> on the left, to refresh the page, to see that port 8070 is now listed:<br>
+    <br>
+    <img src="../images/unit03/app_servers_list.png" width="242" height="154" class="image-border"><br>
+  </li>
+  <li class="exercise-step">In a browser window, within the virtual machine, enter<span class="code"> localhost:8070</span>.</li>
+  <li class="exercise-step">If prompted, enter<span class="code"> admin </span>for the User Name and Password.</li>
+  <li class="exercise-step">See that port 8070 is set up as a REST API instance:<br>
+    <br>
+    <img src="../images/unit03/rest_instance_8070.png" width="433" height="228" class="image-border"><br>
+  </li>
+</ol>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Next: <a href="03f1_summary.htm">Summary (Unit 3)</a></p>
+<p>Back: <a href="0304_creating_a_database_via_rest.htm">Previous</a></p>
+<hr>
+<p class="copyright">©2015-2020 MarkLogic Corporation. All rights reserved. Copying, selling, or otherwise distributing any part of this course without prior written consent of an authorized representative of MarkLogic Corporation is prohibited.</p>
+</body>
+</html>

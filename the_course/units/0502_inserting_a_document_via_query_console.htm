@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>MarkLogic Fundamentals</title>
+<link href="../css/ml.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<p><img src="../images/general/Marklogic-University-RGB.png" alt="" width="130" height="38" class="logo-padding"/></p>
+<p class="topic-heading"><strong>Inserting a Document via Query Console</strong></p>
+<p>In Query Console, JavaScript or XQuery can be used to insert a document into a database.</p>
+<p>For example, the <strong>xdmp.documentLoad() </strong>function can be used to load a document from the file system into a database. </p>
+<p><span class="code">declareUpdate(); <br>
+xdmp.documentLoad(&quot;/home/cent/Desktop/mls-fundamentals/unit05/patents_data/waterski_drone.json&quot;)</span></p>
+<p><em>If running MarkLogic on Windows:</em></p>
+<p><em><span class="code">declareUpdate();<br>
+xdmp.documentLoad(&quot;C:\mls-fundamentals\unit05\patents_data\waterski_drone.json&quot;)</span></em></p>
+<p><em>Note: When running a JavaScript expression that makes changes to a  database, the expression needs to be preceded by the declareUpdate() function. </em></p>
+<p>For content that is in memory (e.g. submitted via a web form), the <strong>xdmp.documentInsert()</strong> function can be used to write a document into a database. </p>
+<p><span class="code">declareUpdate();<br>
+  xdmp.documentInsert('/patent/waterski_drone.json',<br>
+  {<br>
+  'title': 'Waterski drone',<br>
+  'inventor': 'Ruth',<br>
+  'description': 'Amazingly small but powerful drone for waterskiing without a boat'<br>
+  });</span></p>
+<p>Detail on the above JavaScript functions, as well as many more, is available in the <strong>JavaScript Function Reference</strong> at docs.marklogic.com/js/all.</p>
+<p>Detail on the equivalent XQuery functions is available in the <strong>XQuery/XSLT Function Reference</strong> at docs.marklogic.com/all, as well as in the MLU <strong>XQuery Developer </strong>course.</p>
+<p class="topic-sub-heading">URI</p>
+<p>To be able to address any given document in a MarkLogic database, every document must have a  unique URI (Uniform Resource Identifier).  </p>
+<p class="code">/patent/waterski_drone.json</p>
+<p>The URI is a string that is defined when a document is being loaded. It is common to put some thought into the URI pattern that you  use for your documents, as using a directory in the name can then be used to reference a group of documents in the database. </p>
+<p>The URI does not refer to the physical location of a document in the database, but rather, provides a unique name for referencing the document. </p>
+<p>If another document is inserted at the same URI, it will replace the old one.</p>
+<p class="topic-sub-heading">Deleting</p>
+<p>To delete all  of the documents in a database, the <strong>Clear</strong> button in the Admin Interface can be used.</p>
+<p><img src="../images/unit05/clear_button.png" width="81" height="31" class="image-border"></p>
+<p>To delete an individual document, the  <strong>xdmp.documentDelete()</strong> function can be used. </p>
+<p class="code">declareUpdate();<br>
+xdmp.documentDelete('/patents/waterski_drone.json');</p>
+<p class="topic-sub-heading">Accessing a Document</p>
+<p>For reading a document in a database, the  <strong>cts.doc()</strong> function can be used.  </p>
+<p class="code">cts.doc('/patents/waterski_drone.json');</p>
+<p><br>
+</p>
+<p>&nbsp;</p>
+<p>Next: <a href="0502_x_insert_a_document_via_query_console.htm" class="exercise-link">Exercise (Insert a Document via Query Console)</a>
+<p>Back: <a href="0501_bringing_in_documents.htm">Previous</a>
+<hr>
+<p class="copyright">©2015-2020 MarkLogic Corporation. All rights reserved. Copying, selling, or otherwise distributing any part of this course without prior written consent of an authorized representative of MarkLogic Corporation is prohibited.</p>
+</body>
+</html>

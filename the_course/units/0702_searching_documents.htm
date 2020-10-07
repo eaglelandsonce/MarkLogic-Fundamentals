@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>MarkLogic Fundamentals</title>
+<link href="../css/ml.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<p><img src="../images/general/Marklogic-University-RGB.png" alt="" width="130" height="38" class="logo-padding"/></p>
+<p class="topic-heading"><strong>Searching Documents</strong></p>
+<p>A simple search can be written using any of the MarkLogic search programming interfaces.</p>
+<p class="topic-sub-heading">cts.search()</p>
+<p>cts.search(), and its accompanying cts (core text search) functions,  is the lowest-level search interface. The cts functions have always existed in MarkLogic and  serve as the basis for the higher-level  APIs. </p>
+<p><span class="code">cts.search('rebel')</span></p>
+<p>There are over 300 cts functions, providing the ability to create highly sophisticated queries.</p>
+<p><img src="../images/unit07/cts_functions.png" width="264" height="178" class="image-border"></p>
+<p class="topic-sub-heading">JSearch</p>
+<p>JSearch is a higher-level search programming interface that includes ease-of-use capabilities for pagination, facets, aggregates, and snippets, as well as the ability to apply transformations to search results.</p>
+<p class="code">﻿const jsearch = require('/MarkLogic/jsearch.sjs');</p>
+<p class="code">jsearch.documents()<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.where(jsearch.byExample({weapon: 'lightsaber'}))<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.orderBy('name')  <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.result()</p>
+<p><br>
+Detail on JSearch is in a tutorial at developer.marklogic.com/learn/jsearch-in-5-minutes, as well as in the documentation at docs.marklogic.com/guide/search-dev/javascript#id_48662 and docs.marklogic.com/js/jsearch.<br>
+</p>
+<p class="topic-sub-heading"> REST API /v1/search</p>
+<p>Built on the Search API, the REST API search endpoint provides a way to query a database in a RESTful manner. This is  quite useful to developers who are writing their application code outside of MarkLogic.</p>
+<p><span class="code">curl --anyauth --user admin:admin -X GET &quot;http://localhost:8070/v1/<strong>search</strong>?q=darth&quot;</span></p>
+<p>The results returned include the number of results, and  snippet text as well as the URI for each document, providing information that a developer can use to construct a search results page. </p>
+<p><img src="../images/unit07/rest_api_results.png" width="733" height="292" class="image-border"></p>
+<p>Detail on the REST API search endpoint is available at docs.marklogic.com/REST/GET/v1/search.</p>
+<p class="topic-sub-heading">Java API and Node.js API</p>
+<p><strong>Built on</strong> the REST API, the Java and Node.js APIs provide MarkLogic search capabilities for Java and Node.js developers in their native language.</p>
+<p>Detail on using search via the Node.js API is available at docs.marklogic.com/guide/node-dev/search.</p>
+<p>Detail on using search via the Java API is available at docs.marklogic.com/guide/java/searches.</p>
+<p class="topic-sub-heading">Relevance Order</p>
+<p>Regardless of the search API used, MarkLogic uses a sophisticated algorithm (which can be  customized) to return the documents in relevance order, so that the best documents are at the top of the results. </p>
+<p>Detail on the algorithm used, and the ways it can be customized, is in the Search Developer's Guide at docs.marklogic.com/guide/search-dev/relevance.</p>
+<p><br>
+</p>
+<p>&nbsp;</p>
+<p>Next: <a href="0702_x_search_documents.htm" class="exercise-link">Exercise (Search Documents)</a></p>
+<p>Back: <a href="0701_x_learn_about_search.htm">Previous</a></p>
+<hr>
+<p class="copyright">©2015-2020 MarkLogic Corporation. All rights reserved. Copying, selling, or otherwise distributing any part of this course without prior written consent of an authorized representative of MarkLogic Corporation is prohibited.</p>
+</body>
+</html>

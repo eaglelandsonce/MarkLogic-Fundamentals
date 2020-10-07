@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>MarkLogic Fundamentals</title>
+<link href="../css/ml.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<p><img src="../images/general/Marklogic-University-RGB.png" alt="" width="130" height="38" class="logo-padding"/></p>
+<p class="topic-heading"><strong>Installing MarkLogic</strong></p>
+<p>MarkLogic can  be installed on CentOS via a command prompt window, as root, using yum.</p>
+<p class="code">yum install MarkLogic-10.0-3.x86_64.rpm<br>
+</p>
+<p class="topic-sub-heading">Configuring Which User MarkLogic Will Run As in CentOS</p>
+<p>By default, on UNIX-based operating systems, MarkLogic runs as a Unix user named daemon. </p>
+<p>In CentOS, to change which user  MarkLogic will run as (e.g. to provide MarkLogic with the directory and file permissions of a particular user), the  <strong>/etc/sysconfig/MarkLogic</strong> file can be edited, or a <strong>/etc/marklogic.conf</strong> file can be added. </p>
+<p><img src="../images/unit02/centos_marklogic_cent.png" width="659" height="356" class="image-border"></p>
+<p>The advantage of creating an /etc/marklogic.conf file, and putting any overrides in it, is that the /etc/marklogic.conf file survives MarkLogic upgrades. </p>
+<p>In non-Unix operating systems (e.g. Windows), it is not necessary to specify a user for running MarkLogic. </p>
+<p class="topic-sub-heading">Other Platforms</p>
+<p>The <strong>Installation Guide for All Platforms</strong> (docs.marklogic.com/guide/installation) contains  the steps for installing MarkLogic on each supported operating system.</p>
+<p><img src="../images/unit02/installation_all_platforms.png" width="700" height="552" class="image-border"></p>
+<p>Videos that demonstrate the installation steps for each platform are  at <strong>developer.marklogic.com/video/data-hub</strong> (located half way down the web page). </p>
+<p><img src="../images/unit02/videos_installation.png" width="700" height="572" class="image-border"></p>
+<p class="topic-sub-heading">Uninstalling MarkLogic</p>
+<p>To uninstall MarkLogic, the first step is to <strong>stop</strong> it running. The next step is to do the <strong>uninstall</strong> steps for the platform that it is on. The steps for each platform are  at docs.marklogic.com/guide/installation/procedures#id_53295.</p>
+<p><img src="../images/unit02/red_hat_uninstall.png" width="700" height="149" class="image-border"></p>
+<p>If desired, once MarkLogic has been uninstalled, the remaining data and configuration files can be removed by <strong>deleting</strong> the /var/opt/MarkLogic directory (Linux),  the C:\Program Files\MarkLogic folder (Windows), or the /Users/${user}/Library/Application Support/MarkLogic folder (Mac).</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Next: <a href="0203_x_install_marklogic.htm">Exercise (Install MarkLogic)</a></p>
+<p>Back: <a href="0202_x_access_the_installer.htm">Previous</a></p>
+<hr>
+<p class="copyright">©2015-2020 MarkLogic Corporation. All rights reserved. Copying, selling, or otherwise distributing any part of this course without prior written consent of an authorized representative of MarkLogic Corporation is prohibited.</p>
+</body>
+</html>

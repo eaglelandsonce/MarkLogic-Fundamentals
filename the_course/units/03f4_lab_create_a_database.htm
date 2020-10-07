@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>MarkLogic Fundamentals</title>
+<link href="../css/ml.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<p><img src="../images/general/Marklogic-University-RGB.png" alt="" width="130" height="38" class="logo-padding"/></p>
+<p class="exercise-heading">Lab: <strong>Create a  Database</strong></p>
+<p>In this lab exercise, you  either use the steps below (normal steps), or the  <a href="03f4_lab_alt_create_a_database.htm">alternate steps</a> (less detailed, so more challenging), to create a new database named playground, with a forest attached to it, and a REST API instance port of 8050 for communicating with it.</p>
+<p>&nbsp;</p>
+<ol class="exercise-step">
+  <li class="exercise-step">On the desktop, in the mls-fundamentals/<strong>unit03</strong> folder, open the <strong>playground-config.json</strong> file in a text editor to see a REST API instance configuration file for creating a  database named playground:<br>
+    <br>
+    <img src="../images/unit03/playground-config.png" width="603" height="238" class="image-border"><br>
+  </li>
+  <li class="exercise-step">In a command prompt window, enter the following text (can copy from unit03/<strong>laba.txt</strong> file):<br>
+    <span class="code"><br>
+    curl --anyauth --user admin:admin -X POST -d@&quot;Desktop/mls-fundamentals/unit03/playground-config.json&quot; -i -H &quot;Content-type: application/json&quot; http://localhost:8002/v1/rest-apis</span><br>
+  </li>
+  <li class="exercise-step"><strong>Notice</strong> the reference to the <strong>playground-config.json</strong> file.</li>
+  <li class="exercise-step">Press Enter, to generate a REST API instance for the playground database.</li>
+  <li class="exercise-step">Wait a few seconds, to see that the command is successful:<br>
+    <br>
+    <img src="../images/unit03/rest_created.png" width="252" height="107" class="image-border"><br>
+  </li>
+  <li class="exercise-step">In the <strong>Admin Interface</strong>, click the <strong>Configure</strong> link on the left, to see that the database, forest, and port all now exist:<br>
+    <br>
+    <img src="../images/unit03/lab_done.png" width="700" height="433" class="image-border"><br>
+  </li>
+  <li class="exercise-step">In the Databases column, click <strong>playground</strong>, and then select the  <strong>Status</strong> tab.</li>
+  <li class="exercise-step">See that  the number of forests is 1 and that the playground-1 forest is listed:<br>
+  
+  <br>
+  <img src="../images/unit03/playground_status.png" width="541" height="642" class="image-border"></li>
+</ol>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Unit 3 End: <a href="../index.htm">Course Home</a></p>
+<p>Back: <a href="03f3_quiz_answers.htm">Previous</a></p>
+<hr>
+<p class="copyright">©2015-2020 MarkLogic Corporation. All rights reserved. Copying, selling, or otherwise distributing any part of this course without prior written consent of an authorized representative of MarkLogic Corporation is prohibited.</p>
+</body>
+</html>

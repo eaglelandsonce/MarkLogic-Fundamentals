@@ -1,0 +1,74 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>MarkLogic Fundamentals</title>
+<link href="../css/ml.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<p><img src="../images/general/Marklogic-University-RGB.png" alt="" width="130" height="38" class="logo-padding"/></p>
+<p class="exercise-heading">Exercise: <strong>Use MarkLogic Content Pump</strong></p>
+<p>In this walkthrough exercise, you use MarkLogic Content Pump to  load documents and triples into the star-wars database. </p>
+<p>&nbsp;</p>
+<ol class="exercise-step">
+  <li class="exercise-step">In the virtual machine, in a <strong>command prompt</strong> window, enter<span class="code"> java -version </span>to see that JRE 1.8 or later is installed. </li>
+  <li class="exercise-step">On the desktop of the virtual machine, double-click the <strong>mlcp</strong> folder, to open it.</li>
+  <li class="exercise-step">Double-click the <strong>bin</strong> folder.</li>
+  <li class="exercise-step">Notice the <strong>mlcp.sh</strong> file.</li>
+  <li class="exercise-step">In the Admin Interface, click the <strong>Configure</strong> link to see that port <strong>8070</strong> is set up for communicating with the star-wars database:<br>
+    <br>
+  <img src="../images/unit05/app_servers_list.png" width="238" height="165" class="image-border"></li>
+  <li class="exercise-step">On the desktop, in the mls-fundamentals/<strong>unit05</strong> folder, open <strong>ex05a.txt</strong> in a text editor: <br>
+    <br>
+    <span class="code">Desktop/mlcp/bin/mlcp.sh import -mode local -host localhost -port 8070 -username admin -password admin -input_file_path Desktop/mls-fundamentals/data/star-wars -output_uri_replace &quot;home/cent/Desktop/mls-fundamentals/data/star-wars/characters,'character',home/cent/Desktop/mls-fundamentals/data/star-wars/images,'image'&quot;</span><br>
+  </li>
+  <li class="exercise-step">Notice <strong>-input_file_path</strong>, which references the location of the star-wars documents on the file system, and <strong>-output_uri_replace</strong>, which modifies the URIs of the documents as they are being loaded.</li>
+  <li class="exercise-step"><strong>Copy</strong> all of the text, and, in a new <strong>command prompt </strong>window, right-click to select <strong>Paste</strong>.</li>
+  <li class="exercise-step">Press the <strong>Enter</strong> key, to run the command.</li>
+  <li class="exercise-step">See that the command ran successfully, loading 51 documents:<br>
+    <br>
+  <img src="../images/unit05/centos_mlcp.png" width="700" height="345" class="image-border"></li>
+  <li class="exercise-step">In <strong>Query Console</strong>, select the <strong>star-wars</strong> database, and click the <strong>Explore</strong> button.</li>
+  <li class="exercise-step">See that the documents loaded:<br>
+    <br>
+  <img src="../images/unit05/star-wars_content.png" width="579" height="203" class="image-border"></li>
+</ol>
+<p>Load some triples:</p>
+<ol class="exercise-step" start="13">
+  <li class="exercise-step">On the <strong>desktop</strong> of the virtual machine, in the mls-fundamentals/<strong>data</strong>/<strong>triples</strong> folder, open the <strong>star-wars.nt</strong> file in a text editor:<br>
+    <br>
+    <img src="../images/unit05/star-wars_nt.png" width="566" height="320" class="image-border"><br>
+  </li>
+  <li class="exercise-step"><strong>Realize</strong> that these are triples, each separated by the dot character.<br>
+  </li>
+  <li class="exercise-step">In the mls-fundamentals/<strong>unit05</strong> folder, open <strong>ex05b.txt</strong> in a text editor:<br>
+    <br>
+    <span class="code">~/Desktop/mlcp/bin/mlcp.sh import -mode local -host localhost -port 8070 -username admin -password admin -input_file_path ~/Desktop/mls-fundamentals/data/triples/<strong>star-wars.nt -input_file_type RDF</strong> -output_uri_prefix /triplestore/</span><br>
+  </li>
+  <li class="exercise-step">Notice the <strong>-input_file_type RDF</strong> option, specifying that the file being loaded is triples.</li>
+  <li class="exercise-step"><strong>Copy</strong> all of the text. </li>
+  <li class="exercise-step">In a <strong>command prompt</strong> window, right-click to select <strong>Paste</strong>, and press the <strong>Enter</strong> key to run. </li>
+  <li class="exercise-step">See that the command ran successfully, loading the triples:<br>
+    <br>
+    <img src="../images/unit05/triples_mlcp.png" width="700" height="364" class="image-border"><br>
+  </li>
+  <li class="exercise-step">In <strong>Query Console</strong>, with the <strong>star-wars</strong> database selected, click the <strong>Explore</strong> button.</li>
+  <li class="exercise-step">At the bottom of the page 1 results, look for a /triplestore/ document.<br>
+    <br>
+    <em>Note: If there is not a /triplestore/ document on page 1, navigate to page 2 to look for it there:</em><br>
+    <br>
+    <img src="../images/unit05/page2.png" width="324" height="34" class="image-border"><br>
+  </li>
+  <li class="exercise-step">Realize that the /triplestore/ document contains the triples:<br>
+    <br>
+  <img src="../images/unit05/triplestore.png" width="508" height="30" class="image-border"></li>
+</ol>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Next: <a href="05f1_summary.htm">Summary (Unit 5)</a></p>
+<p>Back: <a href="0506_using_marklogic_content_pump.htm">Previous</a></p>
+<hr>
+<p class="copyright">©2015-2020 MarkLogic Corporation. All rights reserved. Copying, selling, or otherwise distributing any part of this course without prior written consent of an authorized representative of MarkLogic Corporation is prohibited.</p>
+</body>
+</html>

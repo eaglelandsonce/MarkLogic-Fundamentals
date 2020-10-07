@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>MarkLogic Fundamentals</title>
+<link href="../css/ml.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<p><img src="../images/general/Marklogic-University-RGB.png" alt="" width="130" height="38" class="logo-padding"/></p>
+<p class="topic-heading"><strong>Creating a Database via REST</strong></p>
+<p>The creation of a database, including the creation of forests, attaching of the forests to the database,  set up of a port for REST calls to the database, and association of a modules database, can all be created  at once, by sending a configuration file to MarkLogic. </p>
+<p><span class="code">curl --anyauth --user admin:admin -X POST -d@&quot;Desktop/mls-fundamentals/unit03/<strong>patents-config.json</strong>&quot; -i -H &quot;Content-type: application/json&quot; http://localhost:8002/v1/rest-apis</span></p>
+<p>patents-config.json file:</p>
+<p><img src="../images/unit03/config_json.png" width="608" height="232" class="image-border"><br>
+</p>
+<p>Sending the above JSON  file to MarkLogic would result in an REST API instance being set up at port 8060, for communication with a database named  patents, and, if the database does not already exist, creation of the database and its forests. </p>
+<p>If the number of forests per host is not specified, the default is <strong>3</strong>. </p>
+<p>A <strong>modules database</strong> is commonly used for any documents that are not suitable for a content database (e.g. configuration files, application files, etc.). </p>
+<p>Detail on all of the configuration options is available in a table at docs.marklogic.com/guide/rest-dev/service#id_12021.<br>
+</p>
+<p class="topic-sub-heading">cURL</p>
+<p>cURL is an <strong>open source command line tool</strong> that can be used to send data using various protocols, including HTTP. Available for 34 operating systems, it can be downloaded from curl.haxx.se/dlwiz/?type=bin.</p>
+<p><img src="../images/unit04/centos_curl.png" width="658" height="135" class="image-border"></p>
+<p>For detail on   cURL/HTTP arguments, see curl.haxx.se/docs/manpage.html.</p>
+<p class="topic-sub-heading">REST API</p>
+<p>The MarkLogic REST API is a full-featured, <strong>language-independent interface</strong> for communicating with MarkLogic. It is based on the REST architectural style, which is common throughout the Internet, using simple HTTP methods.</p>
+<p>Extensive detail on the  REST API is available in the <strong>REST Application Developer's Guide</strong> (docs.marklogic.com/guide/rest-dev).</p>
+<p><img src="../images/unit04/rest_guide.png" width="577" height="287" class="image-border"></p>
+<p class="topic-sub-heading">Testing a REST API Instance</p>
+<p>A REST API instance can be tested by  entering the name or IP address of the host and  the port number of the instance (e.g. http://localhost:8060) in a browser. If the instance is properly configured, sample endpoints  will be displayed.</p>
+<p><img src="../images/unit03/instance_8060.png" width="700" height="269" class="image-border"></p>
+<p class="topic-sub-heading">Deleting a REST API Instance</p>
+<p>To delete a REST API instance port and, optionally, the content database,  modules database, and corresponding forests, DELETE can be used.</p>
+<p><span class="code">curl -X <strong>DELETE</strong> --anyauth --user admin:admin 'http://localhost:8002/v1/rest-apis/<strong>8060-patents?include=content&amp;include=modules</strong></span>'</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Next: <a href="0304_x_create_a_database_via_rest.htm">Exercise (Create a Database via REST)</a></p>
+<p>Back: <a href="0303_x_create_a_database.htm">Previous</a></p>
+<hr>
+<p class="copyright">©2015-2020 MarkLogic Corporation. All rights reserved. Copying, selling, or otherwise distributing any part of this course without prior written consent of an authorized representative of MarkLogic Corporation is prohibited.</p>
+</body>
+</html>

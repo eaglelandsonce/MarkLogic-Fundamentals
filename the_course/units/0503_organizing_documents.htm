@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>MarkLogic Fundamentals</title>
+<link href="../css/ml.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<p><img src="../images/general/Marklogic-University-RGB.png" alt="" width="130" height="38" class="logo-padding"/></p>
+<p class="topic-heading"><strong>Organizing Documents</strong></p>
+<p>A subset of  documents in a database can be addressed through the use of directories (which are based on the URIs of documents) or collections.</p>
+<p class="topic-sub-heading">Directories</p>
+<p><strong>Directories</strong> come from document URIs. For example, if loading recipe documents, each document could  be assigned a URI that starts with /recipes/.</p>
+<p><span class="code"><strong>/recipes/</strong>tofu-soup.json</span></p>
+<p>Example JavaScript for  referencing /recipes/ documents:<span class="code"> <br>
+  <br>
+xdmp.directory('/recipes/')</span></p>
+<p class="topic-sub-heading">Collections</p>
+<p><strong>Collections</strong> provide a way to tag a document. </p>
+<p>Example collection assignment:<span class="code"> <br>
+  <br>
+  xdmp.documentAddCollections('/recipes/tofu-soup.json', ['<strong>vegetarian</strong>', <strong>'spicy'</strong>]</span>)</p>
+<p>Example JavaScript to reference the documents in a collection named vegetarian:<span class="code"> <br>
+  <br>
+  fn.collection('vegetarian')</span></p>
+<p>A document can belong to more than one collection, though it is recommended to not have a document belong to more than 100 collections. (MarkLogic can handle millions of collections in a database without difficulty.) </p>
+<p>Detail on the use of collections is at <strong>docs.marklogic.com/guide/search-dev/collections</strong>. </p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Next: <a href="0503_x_organize_documents.htm" class="exercise-link">Exercise (Organize Documents)</a></p>
+<p>Back: <a href="0502_x_insert_a_document_via_query_console.htm">Previous</a></p>
+<hr>
+<p class="copyright">©2015-2020 MarkLogic Corporation. All rights reserved. Copying, selling, or otherwise distributing any part of this course without prior written consent of an authorized representative of MarkLogic Corporation is prohibited.</p>
+</body>
+</html>

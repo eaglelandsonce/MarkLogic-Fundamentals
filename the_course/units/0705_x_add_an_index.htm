@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>MarkLogic Fundamentals</title>
+<link href="../css/ml.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<p><img src="../images/general/Marklogic-University-RGB.png" alt="" width="130" height="38" class="logo-padding"/></p>
+<p class="exercise-heading">Exercise: <strong>Add an Index</strong></p>
+<p>In this walkthrough exercise, you view the radio button indexes and then go on to create range indexes so that the Name and Role sort buttons can happen in real-time even if there are millions of documents in the star-wars database. </p>
+<p>&nbsp;</p>
+<ol class="exercise-step">
+  <li class="exercise-step">In the <strong>Admin Interface</strong>, select <strong>Configure</strong> - <strong>Databases</strong> - <strong>star-wars</strong>.</li>
+  <li class="exercise-step"><strong>Scroll</strong> down to view the  true and false radio buttons for a variety of indexes available for the database.</li>
+  <li class="exercise-step">Back towards the top, in the left navigation, <strong>notice</strong> additional types of indexes that you could set up for the database (e.g. Element Range Indexes, Path Range Indexes, Geospatial Point Indexes). </li>
+  <li class="exercise-step">In a browser, navigate to<span class="code"> http://localhost:8072</span>, to view the Star Wars application (or alternatively, open the <strong>star-wars_screenshot.pdf</strong> file from the mls-fundamentals/<strong>unit01</strong> folder).</li>
+  <li class="exercise-step">On the <strong>Characters</strong> page, notice the <strong>Name</strong> sort button:<br>
+    <br>
+    <img src="../images/unit08/name_button.png" width="86" height="42" class="image-border"><br>
+  </li>
+  <li class="exercise-step">Realize that clicking it will change the sorting order of the results.</li>
+  <li class="exercise-step">In <strong>Query Console</strong>, select the <strong>star-wars</strong> database and click the <strong>Explore</strong> button.</li>
+  <li class="exercise-step">Click the URI for one of the documents, to view its content (e.g. /character/c3po.json).</li>
+  <li class="exercise-step">Notice the property named <strong>name</strong>:<br>
+    <br>
+    <img src="../images/unit08/name_property.png" width="218" height="23" class="image-border"><br>
+  </li>
+  <li class="exercise-step">In the <strong>Admin Interface</strong>, select <strong>Configure</strong> - <strong>Databases</strong> - <strong>star-wars</strong>.</li>
+  <li class="exercise-step">In the left navigation, select <strong>Element Range Indexes</strong>.</li>
+  <li class="exercise-step">Select the <strong>Add</strong> tab.</li>
+  <li class="exercise-step">For scalar type, select <strong>string</strong>.</li>
+  <li class="exercise-step">For localname, enter <span class="code">name</span>.</li>
+  <li class="exercise-step">Click the <strong>ok</strong> button.</li>
+  <li class="exercise-step">If desired, as a test to see that the element range index now exists, in <strong>Query Console</strong>, create a new tab and run the following (unit07/<strong>ex05a.txt</strong>), with the database set to <strong>star-wars</strong> and the Query Type set to <strong>JavaScript</strong>:<br>
+    <br>
+    <span class="code">cts.search(cts.jsonPropertyRangeQuery(&quot;name&quot;, &quot;&lt;&quot;, &quot;e&quot;));</span><br>
+    <br>
+    <em>Notice that only the three documents that satisfy the query (C-3PO, Darth Vader, and  Darth Sidious) </em><em>are returned. </em></li>
+  <li class="exercise-step">In a browser, on the <span class="code"> http://localhost:8072/#/characters </span>page, know that, even if there were a very large number of documents in the database, the index would make it so that the sorting performance could still happen in real-time.</li>
+  <li class="exercise-step"><strong>Repeat steps 11-15</strong> to create an index for the <strong>role</strong> property. </li>
+</ol>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Next: <a href="07f1_summary.htm">Summary (Unit 7)</a></p>
+<p>Back: <a href="0705_understanding_indexes.htm">Previous<br>
+</a></p>
+<hr>
+<p class="copyright">©2015-2020 MarkLogic Corporation. All rights reserved. Copying, selling, or otherwise distributing any part of this course without prior written consent of an authorized representative of MarkLogic Corporation is prohibited.</p>
+</body>
+</html>

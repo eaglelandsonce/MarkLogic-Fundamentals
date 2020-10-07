@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>MarkLogic Fundamentals</title>
+<link href="../css/ml.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<p><img src="../images/general/Marklogic-University-RGB.png" alt="" width="130" height="38" class="logo-padding"/></p>
+<p class="topic-heading"><strong>Using MarkLogic Content Pump</strong></p>
+<p>MarkLogic Content Pump (MLCP) is a popular Java-based command line tool that is <strong>highly scalable</strong>, commonly used to <strong>bulk load</strong> files into a MarkLogic database.</p>
+<p class="topic-sub-heading">Setting up MLCP</p>
+<p>As a Java-based command line tool, MLCP requires <strong> JRE 1.8 or later</strong>. </p>
+<p>MLCP can be downloaded for free from <strong>developer.marklogic.com/products/mlcp</strong>. Once it has been downloaded, it can be unzipped to anywhere on the file system. </p>
+<p>For MLCP to be able to communicate with a MarkLogic database, there needs to be a <strong>REST API instance port </strong>or an<strong> XDBC  server port</strong> for the database. </p>
+<p class="topic-sub-heading">Using MLCP</p>
+<p>To use MLCP, a command can be run on the command line, from the directory where MLCP is located. </p>
+<p>For example, the following  could be run in a command prompt window, to bulk upload documents from the file system to the patents database via port 8060. </p>
+<p class="code"><strong>mlcp.sh</strong> import -host localhost -port 8060 -username admin -password admin -mode local -input_file_path Desktop/mls-fundamentals/data/patents -output_uri_replace &quot;home/cent/Desktop/mls-fundamentals/data/patents, 'patents'&quot; -output_permissions patents-user-role,read,patents-admin-role,update</p>
+<p><em>If running MarkLogic on Windows, mlcp.bat would be used instead of mlcp.sh:</em></p>
+<p class="code"><em>C:\mlcp\bin\<strong>mlcp.bat</strong> import -host localhost -port 8060 -username admin -password admin -mode local -input_file_path C:\mls-fundamentals\data\patents -output_uri_replace &quot;C:/mls-fundamentals/data/patents, 'patents'&quot; -output_permissions patents-user-role,read,patents-admin-role,update</em></p>
+<p class="topic-sub-heading">Loading Triples</p>
+<p>To load triples via MLCP, <span class="exercise-step">the <strong>-input_file_type RDF</strong> option</span> can be used.</p>
+<p class="code">~/Desktop/mlcp/bin/mlcp.sh import -mode local -host localhost -port 8060 -username admin -password admin -input_file_path ~/Desktop/mls-fundamentals/data/triples/<strong>patents.nt -input_file_type RDF</strong> -output_uri_prefix /triplestore/</p>
+<p>To learn about triples, see the <strong>MarkLogic Semantics</strong> course, available at www.marklogic.com/learn/courses/using-marklogic-semantics.</p>
+<p class="topic-sub-heading">More Info</p>
+<p>Detail on MLCP is available in the MLCP User Guide at docs.marklogic.com/guide/mlcp. </p>
+<p><img src="../images/unit05/mlcp.png" width="635" height="287" class="image-border"></p>
+<p>In addition to the coverage of MLCP in the instructor-led training courses, MLU also offers a <strong>video tutorial on using MLCP</strong>, available   at mlu.marklogic.com/ondemand/82764289.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Next: <a href="0506_x_use_marklogic_content_pump.htm">Exercise (Use MarkLogic Content Pump)</a></p>
+<p>Back: <a href="0505_x_modify_a_document.htm">Previous</a></p>
+<hr>
+<p class="copyright">©2015-2020 MarkLogic Corporation. All rights reserved. Copying, selling, or otherwise distributing any part of this course without prior written consent of an authorized representative of MarkLogic Corporation is prohibited.</p>
+</body>
+</html>

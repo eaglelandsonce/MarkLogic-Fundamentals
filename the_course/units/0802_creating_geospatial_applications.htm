@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>MarkLogic Fundamentals</title>
+<link href="../css/ml.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<p><img src="../images/general/Marklogic-University-RGB.png" alt="" width="130" height="38" class="logo-padding"/></p>
+<p class="topic-heading"><strong>Creating Geospatial Applications</strong></p>
+<p>MarkLogic offers  geospatial capabilities, used in a wide range of applications, with the ability to query points, polygons, and other regions.</p>
+<p class="topic-sub-heading">Examples</p>
+<p>For example, MarkLogic's geospatial capabilities can be used for querying <strong>mortgages</strong>.</p>
+<p><img src="../images/unit08/mortgage_map.png" width="700" height="430" class="image-border"></p>
+<p><strong>Sensing Clues</strong> uses MarkLogic's geospatial capabilities   to help prevent the illegal poaching of animals. For detail, see the Geospatial Intelligence Saving Wildlife video recording at <strong>www.marklogic.com/solutions/industry/public-sector/geospatial</strong>.</p>
+<p><img src="../images/unit08/sudan.png" width="398" height="222" class="image-border"></p>
+<p><strong>Yell</strong> uses MarkLogic's geospatial capabilities for users to be able to locate nearby services.</p>
+<p><img src="../images/unit08/gym_ascot.png" width="700" height="524" class="image-border"></p>
+<p class="topic-sub-heading">Latitude and Longitude</p>
+<p>Latitude and longitude values can be defined within JSON and XML documents, providing a way to associate  the document's content with a location.</p>
+<p><img src="../images/unit08/lat_lon.png" width="258" height="79" class="image-border"></p>
+<p>Geospatial standards supported include the  common WGS84 coordinate system, ETRS89, and raw. Detail on  coordinate systems is at docs.marklogic.com/guide/search-dev/geospatial#id_98149.</p>
+<p class="topic-sub-heading">Querying</p>
+<p>Geospatial queries can be made via the extensive cts geospatial functions.</p>
+<p><img src="../images/unit08/cts_geo.png" width="264" height="368" class="image-border"></p>
+<p>For example, a query could be written to find any documents that have  latitude and longitude values within a 30-mile radius of a given point (e.g. downtown Vancouver).</p>
+<p class="code">﻿cts.search(<br>
+cts.jsonPropertyPairGeospatialQuery(&quot;location&quot;, &quot;lat&quot;, &quot;long&quot;, <br>
+cts.circle(30, cts.point(49.2745813, -123.1240661))));</p>
+<p class="topic-sub-heading">Index</p>
+<p>It is common to define a geospatial index, for high performance when making geospatial queries. </p>
+<p><img src="../images/unit08/geo_indexes.png" width="265" height="143" class="image-border"></p>
+<p>The index to use is based on the structure of the latitude and longitude values in the documents. </p>
+<p class="topic-sub-heading">More Information</p>
+<p>Detail on creating geospatial applications is in the <strong>documentation</strong> at docs.marklogic.com/guide/search-dev/geospatial, as well as hands-on in the <strong>MLU Node.js Developer course</strong> and <strong>XQuery Developer course</strong>.</p>
+<p>In addition, there is a Using Geospatial Data <strong>video tutorial</strong> at <span class="exercise-step">mlu.marklogic.com/ondemand/f12659ac</span>, a <strong>MarkLogic World presentation</strong> recording at marklogic.com/product/marklogic-database-overview/database-features/geospatial, <strong>examples of geospatial in use</strong> at www.marklogic.com/solutions/industry/public-sector/geospatial, and <strong>MarkLogic geospatial features</strong> described at cdn1.marklogic.com/wp-content/uploads/2018/01/Geospatial-Datasheet.pdf and www.marklogic.com/product/marklogic-database-overview/database-features/geospatial.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Next: <a href="0802_x_make_a_geospatial_search.htm">Exercise (Make a Geospatial Search)</a></p>
+<p>Back: <a href="0801_x_learn_about_machine_learning.htm">Previous</a><br>
+</p>
+<hr>
+<p class="copyright">©2015-2020 MarkLogic Corporation. All rights reserved. Copying, selling, or otherwise distributing any part of this course without prior written consent of an authorized representative of MarkLogic Corporation is prohibited.</p>
+</body>
+</html>

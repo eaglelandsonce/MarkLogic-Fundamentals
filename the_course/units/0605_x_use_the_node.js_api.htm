@@ -1,0 +1,171 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>MarkLogic Fundamentals</title>
+<link href="../css/ml.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<p><img src="../images/general/Marklogic-University-RGB.png" alt="" width="130" height="38" class="logo-padding"/></p>
+<p class="exercise-heading">Exercise: <strong>Use the  Node.js API</strong> (optional)</p>
+<p>In this walkthrough exercise, you first view information on the MarkLogic Node.js  API in GitHub. Then you stand up the Star Wars Node.js application, which reads from the star-wars database. </p>
+<p>&nbsp;</p>
+<ol class="exercise-step">
+  <li class="exercise-step">In a browser, navigate to    <a href="http://github.com/marklogic/node-client-api" target="_blank">github.com/marklogic/node-client-api</a>, to learn about the MarkLogic Node.js API.</li>
+  <li class="exercise-step">See that you are viewing the  GitHub page for the <strong>MarkLogic Node.js API</strong>: <br>
+    <br>
+    <img src="../images/unit06/github_nodejs_api.png" width="700" height="583" class="image-border"><br>
+  </li>
+  <li class="exercise-step"><strong>Scroll down</strong> the  page, skimming the text as you go, especially noting the Getting Started and Resources sections.  </li>
+  <li class="exercise-step">In a browser window, navigate to <a href="http://www.npmjs.com/package/marklogic" target="_blank">www.npmjs.com/package/marklogic</a>, to see that there is an npm package for the MarkLogic Node.js API.</li>
+  <li class="exercise-step">To see the steps that were done in the virtual machine to set you up with a Node.js development environment, view  <a href="xb02_x_see_the_steps_that_were_done.htm#node" target="_blank">See the Steps That Were Done</a>, steps 305-313.</li>
+  <li class="exercise-step">In your virtual machine,  open a <strong>command prompt</strong> window. </li>
+  <li class="exercise-step">Enter<span class="code"> node -v</span>, to see that Node.js is installed:<br>
+    <br>
+    <img src="../images/unit06/node_version.png" width="473" height="122" class="image-border"><br>
+  </li>
+  <li class="exercise-step">Enter<span class="code"> npm -v</span>, to see that npm is installed:<br>
+    <br>
+    <img src="../images/unit06/npm_version.png" width="477" height="60" class="image-border"><br>
+  </li>
+  <li class="exercise-step">Enter<span class="code"> git --version</span>, to see that Git is installed: <br>
+    <br>
+  <img src="../images/unit06/git_version.png" width="474" height="60" class="image-border"></li>
+  <li class="exercise-step">Enter<span class="code"> bower -v</span>, to see that Bower is installed: <br>
+    <br>
+  <img src="../images/unit06/bower_version.png" width="473" height="60" class="image-border"></li>
+  <li class="exercise-step">In the mls-fundamentals/<strong>unit06 </strong>folder, open the <strong>star-wars.pdf</strong> file to see a screenshot of the application that we will be standing up:<br>
+    <br>
+    <img src="../images/unit06/starwarspdf.png" width="634" height="496" class="image-border"><br>
+  </li>
+  <li class="exercise-step">In <strong>Query Console</strong>, select <strong>star-wars</strong> in the Database list, and click the <strong>Explore</strong> button, to see the 53 documents in the database.</li>
+  <li class="exercise-step">On the desktop of the virtual machine, <strong>copy</strong> the <strong>star-wars</strong> folder from mls-fundamentals/<strong>unit06</strong> folder to the <strong>mls-projects</strong> folder.<br>
+    <br>
+  <em>Note: If you do not already have an mls-projects folder on the desktop, create one. </em></li>
+  <li class="exercise-step">In the <strong>mls-projects/star-wars</strong> folder, open <strong>package.json</strong> in a text editor to see marklogic listed in the dependencies.</li>
+  <li class="exercise-step">In a <strong>command prompt</strong> window, enter<span class="code"> cd Desktop/mls-projects/star-wars</span>, to navigate to the star-wars application  folder.</li>
+  <li class="exercise-step">Enter <span class="code">npm install</span>, to install the dependencies listed in the package.json file<em>.</em><br>
+    <br>
+    <em>Note: Requires Internet access. <br>
+    Note: You can ignore the WARN messages. </em><br>
+      <br>
+      <em>Note: If you receive an ERR! code ENOTFOUND message, </em>add the IP address for registry.npmjs.org to your /etc/hosts file by:<br>
+      <em><br>
+      </em>
+      <ol type="a">
+      <li><em>On your own computer (not in the virtual machine), open a command prompt window and enter</em><span class="code"> nslookup registry.npmjs.org</span><em>.<br>
+<br>
+      </em></li>
+<li><em><strong>Copy</strong> one of the IP addresses that is returned (e.g. 104.16.18.35).<br>
+  <br>
+</em></li>
+<li><em>In the virtual machine, in a command prompt window, enter</em><span class="code"> su</span><em>.<br>
+  <br>
+</em></li>
+<li><em>Enter</em><span class="code"> centos</span><em>.<br>
+  <br>
+  </em></li>
+<li><em>Enter</em><span class="code"> vim /etc/hosts</span><em>.</em><br>
+  <br>
+</li>
+<li><em>Press the</em><span class="code"> i </span><em>key, to be able to edit the file.<br>
+  <br>
+</em></li>
+<li><em>On a new line, enter</em><span class="code"> 104.16.18.35 registry.npmjs.org</span><em> (substituting in your IP address).</em><br>
+  <br>
+</li>
+<li><em>Press the <strong>Esc</strong> key, and then enter</em><span class="code"> :wq</span>.<br>
+  <br>
+</li>
+<li><em>Enter</em><span class="code"> reboot now</span><em>.</em> <br>
+  <br>
+</li>
+<li><em>Once the virtual machine has rebooted, open a <strong>command prompt </strong>window and  enter</em><span class="code"> cd Desktop/mls-projects/star-wars</span><em>, and then enter</em><span class="code"> npm install</span>. <br>
+</li>
+      </ol>
+  </li>
+  <li class="exercise-step">In<strong> </strong>the mls-projects/<strong>star-wars</strong> folder, see that there is now a folder called <strong>node_modules</strong> and that, in it,  there is a folder named <strong>marklogic</strong>.</li>
+  <li class="exercise-step">Back in the mls-projects/<strong>star-wars</strong> folder, open the <strong>app.js</strong> file in a text editor.</li>
+  <li class="exercise-step">See  that the port of <strong>8072</strong> will be used for accessing the Node.js application:<br>
+    <br>
+    <img src="../images/unit06/centos_port_8072.png" width="202" height="22" class="image-border"><br>
+  </li>
+  <li class="exercise-step"><strong>Notice </strong>the <strong>require('./routes')</strong> lines:<br>
+    <br>
+    <img src="../images/unit06/centos_routes.png" width="395" height="38" class="image-border"><br>
+  </li>
+  <li class="exercise-step">In the mls-projects/<strong>star-wars</strong> folder, open the <strong>routes.js</strong> file in a text editor. </li>
+  <li class="exercise-step">Notice the <strong>require('marklogic')</strong> line, the <strong>require('./settings')</strong> line, as well as additional variables to implement the application's functionality: <br>
+    <br>
+    <img src="../images/unit06/centos_star-wars_vars.png" width="418" height="44" class="image-border"></li>
+  <li class="exercise-step">In the mls-projects/<strong>star-wars</strong> folder, open the <strong>settings.js</strong> file in a text editor.</li>
+  <li class="exercise-step">See that this file contains  settings for the application to connect to the star-wars database through the  REST  API instance at port <strong>8070</strong>:<br>
+    <br>
+    <img src="../images/unit06/star-wars_settings.png" width="672" height="290" class="image-border"></li>
+  <li class="exercise-step"><strong>Remember</strong> setting up port 8070 as a REST API instance for communicating with the star-wars database.</li>
+  <li class="exercise-step">Back in the <strong>routes.js</strong> file, on <strong>line 48</strong>, notice a reference to a collection named <strong>character</strong>:<br>
+    <br>
+    <img src="../images/unit06/line48.png" width="644" height="115" class="image-border"><br>
+  </li>
+  <li class="exercise-step">In <strong>Query Console</strong>, notice that the star-wars documents are not currently in any collections:<br>
+    <br>
+    <img src="../images/unit06/collections_none.png" width="538" height="120" class="image-border"><br>
+  </li>
+  <li class="exercise-step">Create a new tab in Query Console, and enter the following (unit06/<strong>ex05a.txt</strong>):<br>
+    <br>
+    <span class="code">﻿declareUpdate();<br>
+    var characters = xdmp.directory('/character/');<br>
+    characters.toArray().forEach(function(character) {<br>
+&nbsp;&nbsp;var c_uri = fn.baseUri(character);<br>
+&nbsp;&nbsp;xdmp.documentAddCollections(c_uri, 'character');<br>
+});<br>
+var images = xdmp.directory('/image/');<br>
+images.toArray().forEach(function(image) {<br>
+&nbsp;&nbsp;var i_uri = fn.baseUri(image);<br>
+&nbsp;&nbsp;xdmp.documentAddCollections(i_uri, 'image');<br>
+});</span><br>
+  </li>
+  <li class="exercise-step">Ensure that the <strong>star-wars</strong> database and <strong>JavaScript</strong> are selected, and click the <strong>Run</strong> button. </li>
+  <li class="exercise-step"><strong>Wait</strong> for the <em>null</em> message. </li>
+  <li class="exercise-step">Click the <strong>Explore</strong> button, to see that the documents are now in collections named character and image:<br>
+    <br>
+  <img src="../images/unit06/collections_showing.png" width="521" height="120" class="image-border"></li>
+  <li class="exercise-step">In a <strong>command prompt</strong> window, in the <strong> mls-projects/star-wars </strong>directory, enter<span class="code"> bower install</span>, to install application dependencies. <br>
+    <br>
+    <em>Note: Requires Internet access. </em></li>
+  <li class="exercise-step"><strong>Wait</strong> for Bower to finish installing.</li>
+  <li class="exercise-step">In the command prompt window, in the <strong> mls-projects/star-wars </strong>directory, enter<span class="code"> node app.js</span>, to start   the star-wars application running. </li>
+  <li class="exercise-step">Leave the command prompt window open, to leave the application running.</li>
+  <li class="exercise-step">In a browser, enter<span class="code"> http://localhost:8072 </span>to access the application: <br>
+    <br>
+    <img src="../images/unit06/star-wars_home_page_showing.png" width="700" height="419" class="image-border"><br>
+  </li>
+  <li class="exercise-step">In the menu bar, click <strong>Characters</strong>.</li>
+  <li class="exercise-step"><strong>Wait</strong> for the characters display:<br>
+    <br>
+    <img src="../images/unit06/star-wars_characters_page_showing.png" width="704" height="509" class="image-border"><br>
+  </li>
+  <li class="exercise-step">Click <strong>Search</strong>.</li>
+  <li class="exercise-step">See the search page display:<br>
+    <br>
+    <img src="../images/unit06/star-wars_search_page_showing.png" width="700" height="420" class="image-border"><br>
+  </li>
+  <li class="exercise-step">In the search field, enter<span class="code"> darth</span>.</li>
+  <li class="exercise-step">See that there are 5 results:<br>
+    <br>
+    <img src="../images/unit06/star-wars_search_results_darth.png" width="238" height="145" class="image-border"></li>
+  <li class="exercise-step">Select the <strong>More info</strong> link for one of them (e.g. Darth Vader), to see details for that character:<br>
+    <br>
+    <img src="../images/unit06/star-wars_search_result_darth.png" width="696" height="425" class="image-border"><br>
+  </li>
+  <li class="exercise-step">Continue perusing, as desired.</li></ol>
+<p>&nbsp;</p>
+<p><br>
+</p>
+<p>Next: <a href="0606_serving_data_to_a_bi_tool.htm" class="exercise-link">Topic (Serving Data to a BI Tool)</a></p>
+<p>Back: <a href="0605_using_the_nodejs_api.htm">Previous</a></p>
+<hr>
+<p class="copyright">©2015-2020 MarkLogic Corporation. All rights reserved. Copying, selling, or otherwise distributing any part of this course without prior written consent of an authorized representative of MarkLogic Corporation is prohibited.</p>
+</body>
+</html>

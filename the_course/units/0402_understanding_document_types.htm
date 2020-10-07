@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>MarkLogic Fundamentals</title>
+<link href="../css/ml.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<p><img src="../images/general/Marklogic-University-RGB.png" alt="" width="130" height="38" class="logo-padding"/></p>
+<p class="topic-heading"><strong>Understanding Document Types</strong></p>
+<p>Document types are <strong>JSON</strong>, <strong>XML</strong>, <strong>text</strong>, and <strong>binary</strong>.</p>
+<p>JSON and XML documents are especially interesting, as queries can be done not only for the existence of text, but also based on document structure.</p>
+<p><strong>JSON</strong> document example:</p>
+<p class="code">{<br>
+  &nbsp;&quot;recipe&quot;: <br>
+  &nbsp;&nbsp;{<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&quot;name&quot;: &quot;tofu soup&quot;,<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&quot;ingredients&quot;:  [&quot;tofu block&quot;, &quot;carrots&quot;, &quot;mushrooms&quot;,  &quot;green onions&quot;, &quot;coconut milk&quot;],<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&quot;directions&quot;: <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;preparation&quot;: &quot;Chop ingredients into medium-size cubes.&quot;,<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;cooking&quot;: <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;step1&quot;: &quot;In a large pot, combine all ingredients.&quot;,<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;step2&quot;: &quot;Cook on medium heat for 45 minutes.&quot;<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+  &nbsp;&nbsp;}<br>
+  }</p>
+<p>Example (JavaScript) search:</p>
+<p class="code">cts.search(cts.jsonPropertyWordQuery('ingredients', 'carrots'));</p>
+<p><br>
+<strong>XML</strong> document example:</p>
+<p class="code">&lt;recipe&gt;<br>
+  &nbsp;&nbsp;&lt;name&gt;tofu soup&lt;/name&gt;<br>
+  &nbsp;&nbsp;&lt;ingredients&gt;<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&lt;ingredient&gt;tofu block&lt;/ingredient&gt;<br>
+  &nbsp;&nbsp;&nbsp;  &lt;ingredient&gt;carrots&lt;/ingredient&gt;<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&lt;ingredient&gt;mushrooms&lt;/ingredient&gt;<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&lt;ingredient&gt;green onions&lt;/ingredient&gt;<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&lt;ingredient&gt;coconut milk&lt;/ingredient&gt;<br>
+  &nbsp;&nbsp;&lt;/ingredients&gt;<br>
+  &nbsp;  &lt;directions&gt;<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&lt;preparation&gt;Chop ingredients into medium-size cubes.&lt;/preparation&gt;<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&lt;cooking&gt;<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;step1&gt;In a large pot, combine all ingredients.&lt;/step1&gt;<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;step2&gt;Cook on medium heat for 45 minutes.&lt;/step2&gt;<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;&lt;/cooking&gt;<br>
+  &nbsp;&nbsp;&lt;/directions&gt;<br>
+  &lt;/recipe&gt;</p>
+<p>Example (XQuery) search:</p>
+<p class="code">cts:search(fn:doc(), cts:element-word-query(xs:QName(&quot;ingredient&quot;), &quot;carrots&quot;));</p>
+<p><em>Note: Although it is common to use JavaScript with JSON files, and XQuery with XML files, it is also possible to mix and match (e.g. JavaScript with XML, XQuery with JSON). </em></p>
+<p><br> 
+  <strong>Text</strong> documents can  be searched  for the existence of text, but not based on document structure.</p>
+<p class="code">The ingredients for tofu soup are tofu block, carrots, mushrooms, green onions, and coconut milk. Chop all of the ingredients into medium-size cubes. Then, to cook, in a large pot, combine all ingredients, and cook on medium heat for 45 minutes.</p>
+<p>Example search:</p>
+<p class="code">cts.search(cts.wordQuery('carrots'));</p>
+<p><br>
+  With MarkLogic's support for <strong>binary</strong> files, pretty much any document type (e.g. images, sounds, video, etc.) can be stored in a MarkLogic database. </p>
+<p>The contents of <strong>binary</strong> files cannot be searched, but any metadata stored in the properties  of  any  type of document   can be searched.</p>
+<p>Using MarkLogic's conversion functions, documents in some binary formats (e.g. PDF, Word, Excel, PowerPoint, and HTML) can be converted to XML, which allows for searching the document's content, including by structure.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Next: <a href="0402_x_view_documents.htm" class="exercise-link">Exercise (View Documents)</a></p>
+<p>Back: <a href="0401_x_access_multi-model_resources.htm">Previous</a></p>
+<hr>
+<p class="copyright">©2015-2020 MarkLogic Corporation. All rights reserved. Copying, selling, or otherwise distributing any part of this course without prior written consent of an authorized representative of MarkLogic Corporation is prohibited.</p>
+</body>
+</html>

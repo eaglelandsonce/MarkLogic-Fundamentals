@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>MarkLogic Fundamentals</title>
+<link href="../css/ml.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<p><img src="../images/general/Marklogic-University-RGB.png" alt="" width="130" height="38" class="logo-padding"/></p>
+<p class="exercise-heading">Exercise: <strong>Learn About Search</strong></p>
+<p>In this walkthrough exercise, you learn about search by viewing the Concepts Guide, and then exploring a search application.</p>
+<p>&nbsp;</p>
+<ol class="exercise-step">
+  <li class="exercise-step">In a browser window, navigate to <a href="http://docs.marklogic.com/guide/concepts/search" target="_blank">docs.marklogic.com/guide/concepts/search</a>.</li>
+  <li class="exercise-step">See that you are viewing the Search chapter in the Concepts Guide:<br>
+    <br>
+  <img src="../images/unit07/concepts_search.png" width="691" height="526" class="image-border">  </li>
+  <li class="exercise-step">Select a topic of interest (e.g. <strong>Search APIs</strong>).</li>
+  <li class="exercise-step">Skim through the topic.</li>
+  <li class="exercise-step">Continue perusing as desired.</li>
+  <li class="exercise-step">If desired, access the Search Developer's Guide by navigating to <a href="https://docs.marklogic.com/guide/search-dev" target="_blank">docs.marklogic.com/guide/search-dev</a>.</li>
+  <li class="exercise-step">Skim the table of contents, to get an idea of the search capabilities in MarkLogic:<br>
+    <br>
+    <img src="../images/unit07/search_guide.png" width="473" height="611" class="image-border"><br>
+  </li>
+  <li class="exercise-step">In a browser, navigate to <a href="http://mlu.marklogic.com/top-songs" target="_blank">mlu.marklogic.com/top-songs</a>.</li>
+  <li class="exercise-step"><strong>Notice</strong> the faceted navigation, the search field,  the advanced search link, and the birthday search field:<br>
+    <br>
+    <img src="../images/unit07/top-songs_search.png" width="700" height="656" class="image-border"><br>
+  </li>
+  <li class="exercise-step">In the results area, <strong>notice</strong> the number of results, the paging links, the sort options, and the more links.</li>
+  <li class="exercise-step"><strong>Notice</strong> that the default results are the 10 most recent songs in the database.</li>
+  <li class="exercise-step">In the <strong>search field</strong>, enter <span class="code">seeing</span>.</li>
+  <li class="exercise-step">See that, with MarkLogic's ability to do <strong>stemming</strong>, results are returned for see, seen, and seeing.</li>
+  <li class="exercise-step">Realize that the facets are also narrowed down.</li>
+  <li class="exercise-step">Click on the page banner, to display  the facet values  based on all of the documents in the database.</li>
+  <li class="exercise-step">In the <strong>search field</strong>, enter <span class="code">love</span>.</li>
+  <li class="exercise-step">See that the facet values are narrowed down to only documents that contain the word love.</li>
+  <li class="exercise-step">In the decade list, select  <strong>1960s</strong>, to further narrow down the list to songs that were a number 1 hit in the 1960s.</li>
+  <li class="exercise-step">In the artist list, select <strong>the beatles</strong> to additionally narrow down the results to songs where the artist is The Beatles. </li>
+  <li class="exercise-step">See that there are  recommendations:<br>
+    <br>
+    <img src="../images/unit07/recommendations.png" width="620" height="190" class="image-border"><br>
+  </li>
+  <li class="exercise-step"><strong>Realize</strong> that these recommendations are made possible by triples in the database (e.g. The Beatles - band member - John Lennon).</li>
+  <li class="exercise-step">If desired, in the <strong>birthday search field</strong>, enter your birthday to see what song was #1 in the U.S. the week you were born.</li>
+  <li class="exercise-step">Click the <strong>advanced search</strong> link.</li>
+  <li class="exercise-step"><strong>See</strong> that you could do a very specific search.</li>
+  <li class="exercise-step">Continue perusing, as desired.</li>
+</ol>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Next: <a href="0702_searching_documents.htm">Topic (Searching Documents)</a></p>
+<p>Back: <a href="0701_introducing_search.htm">Previous<br>
+</a></p>
+<hr>
+<p class="copyright">©2015-2020 MarkLogic Corporation. All rights reserved. Copying, selling, or otherwise distributing any part of this course without prior written consent of an authorized representative of MarkLogic Corporation is prohibited.</p>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>MarkLogic Fundamentals</title>
+<link href="../css/ml.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<p><img src="../images/general/Marklogic-University-RGB.png" alt="" width="130" height="38" class="logo-padding"/></p>
+<p class="exercise-heading">Exercise: <strong>Search Rows</strong> (optional)</p>
+<p>In this walkthrough exercise, you use SQL, and then  the Optic API, to query  rows that you created via the Unit 6 template (unit06/Use a Template.xml workspace).</p>
+<p>&nbsp;</p>
+<ol class="exercise-step">
+  <li class="exercise-step">In <strong>Query Console</strong>, import the <strong>Search Rows</strong>.xml workspace. </li>
+  <li class="exercise-step">On the first tab, <strong>View Definition</strong>, with the <strong>star-wars </strong>database and <strong>JavaScript</strong> selected, click <strong>Run</strong>:<br>
+    <br>
+  <span class="code">﻿tde.getView('starwars', 'characters');</span></li>
+  <li class="exercise-step">See that the names of the columns in  the characters view are returned:<br>
+    <br>
+    <img src="../images/unit07/view_def.png" width="411" height="532" class="image-border"><br>
+  </li>
+  <li class="exercise-step">Select the <strong>SQL</strong> tab:<br>
+    <br>
+    <span class="code">SELECT * FROM characters</span><br>
+  </li>
+  <li class="exercise-step">With the <strong>star-wars</strong> database and <strong>SQL</strong> selected, click <strong>Run</strong>.</li>
+  <li class="exercise-step">See that all of the rows are returned:<br>
+    <br>
+    <img src="../images/unit07/sql_results.png" width="700" height="239" class="image-border"><br>
+  </li>
+  <li class="exercise-step">Select the <strong>SQL More</strong> tab:<br>
+    <span class="code"><br>
+    ﻿SELECT *  <br>
+    FROM characters  <br>
+    WHERE alliance = 'rebel' AND height &lt; 1.8 <br>
+    ORDER BY height ASC</span><br>
+  </li>
+  <li class="exercise-step">With the <strong>star-wars</strong> database and <strong>SQL</strong> selected, click <strong>Run</strong>.</li>
+  <li class="exercise-step">See that only star-wars characters which are rebels that are less than 1.8 in height are returned, ordered by height:<br>
+    <br>
+    <img src="../images/unit07/sql_more_results.png" width="700" height="110" class="image-border"><br>
+  </li>
+  <li class="exercise-step">Select the <strong>Optic API</strong> tab:<br>
+    <br>
+    ﻿<span class="code">const op = require('/MarkLogic/optic'); <br>
+    <br>
+    op.fromView('starwars', 'characters')<br>
+&nbsp; .limit(100)   <br>
+&nbsp; .result();</span><br>
+  </li>
+  <li class="exercise-step">With the <strong>star-wars</strong> database and <strong>JavaScript</strong> selected, click <strong>Run</strong>.</li>
+  <li class="exercise-step">See that all of the rows are returned:<br>
+    <br>
+    <img src="../images/unit07/optic_all.png" width="498" height="419" class="image-border"><br>
+  </li>
+  <li class="exercise-step">Select the <strong>Optic API</strong> <strong>More</strong> tab:<br>
+    <br>
+    <span class="code">﻿const op = require('/MarkLogic/optic'); <br>
+    <br>
+    op.fromView('starwars', 'characters')   <br>
+&nbsp;    .select(['name', 'role', 'height', 'homeworld', 'alliance'])   <br>
+&nbsp; .where(op.eq(op.col('alliance'), 'rebel'))   <br>
+&nbsp; .where(op.lt(op.col('height'), 1.8))   <br>
+&nbsp; .orderBy('height')   <br>
+&nbsp; .result();</span><br>
+  </li>
+  <li class="exercise-step">With the <strong>star-wars</strong> database and <strong>JavaScript</strong> selected, click <strong>Run</strong>.</li>
+  <li class="exercise-step">See that only star-wars characters which are rebels that are less than 1.8 in height are returned, ordered by height:<br>
+    <br>
+    <img src="../images/unit07/optic_more.png" width="460" height="403" class="image-border"><br>
+  </li>
+  <li class="exercise-step">Select the <strong>Optic API</strong> <strong>Triples</strong> tab:<br>
+    <br>
+    <span class="code">﻿﻿const op = require('/MarkLogic/optic'); <br>
+    <br>
+    const resource = op.prefixer('http://marklogic.com/mlu/resource/'); <br>
+    const onto = op.prefixer('http://marklogic.com/mlu/star-wars/ontology/'); <br>
+    <br>
+    const s = op.col('character'); <br>
+    <br>
+    op.fromTriples([op.pattern(s, onto('playedBy'), resource('Harrison_Ford'))])   <br>
+&nbsp;    .result();</span><br>
+  </li>
+  <li class="exercise-step">See that this is to return the IRIs of characters that Harrison Ford has played.</li>
+  <li class="exercise-step">With the <strong>star-wars</strong> database and <strong>JavaScript</strong> selected, click <strong>Run</strong>.</li>
+  <li class="exercise-step">See that the IRI for the character Han Solo is returned:<br>
+    <br>
+    <img src="../images/unit07/result_han.png" width="624" height="72" class="image-border"><br>
+  </li>
+  <li class="exercise-step">Select the <strong>Optic API</strong> <strong>Rows and Triples</strong> tab:<br>
+    <br>
+    <span class="code">﻿﻿﻿const op = require('/MarkLogic/optic'); <br>
+    <br>
+    const resource = op.prefixer('http://marklogic.com/mlu/resource/'); <br>
+    const onto = op.prefixer('http://marklogic.com/mlu/star-wars/ontology/'); <br>
+    const foaf = op.prefixer('http://xmlns.com/foaf/0.1/'); <br>
+    <br>
+    const c = op.col('character'); <br>
+    const foafName = op.col('foafName'); <br>
+    <br>
+    const charactersRows = op.fromView('starwars', 'characters'); <br>
+    <br>
+    op.fromTriples([ <br>
+    op.pattern(c, onto('playedBy'), resource('Harrison_Ford')), <br>
+    op.pattern(c, foaf('name'), foafName) <br>
+    ])   <br>
+&nbsp;    .joinInner(charactersRows, op.on(foafName, charactersRows.col('name')))   <br>
+&nbsp; .select(['name', 'role', 'height', 'homeworld', 'alliance'])   <br>
+&nbsp; .result();</span><br>
+  </li>
+  <li class="exercise-step">Realize that this query is using the triples to find any star-wars characters that Harrison Ford  played, and then returning data from the rows, for those characters.</li>
+  <li class="exercise-step">With the <strong>star-wars</strong> database and <strong>JavaScript</strong> selected, click <strong>Run</strong>.</li>
+  <li class="exercise-step">See that the row for Han Solo is returned: <br>
+    <br>
+  <img src="../images/unit07/optic_rows_and_triples.png" width="439" height="173" class="image-border"></li>
+</ol>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Next: <a href="0705_understanding_indexes.htm" class="exercise-link">Topic (Understanding Indexes)</a></p>
+<p>Back: <a href="0704_searching_rows.htm">Previous<br>
+</a></p>
+<hr>
+<p class="copyright">©2015-2020 MarkLogic Corporation. All rights reserved. Copying, selling, or otherwise distributing any part of this course without prior written consent of an authorized representative of MarkLogic Corporation is prohibited.</p>
+</body>
+</html>

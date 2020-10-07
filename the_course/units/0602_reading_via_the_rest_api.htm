@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>MarkLogic Fundamentals</title>
+<link href="../css/ml.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<p><img src="../images/general/Marklogic-University-RGB.png" alt="" width="130" height="38" class="logo-padding"/></p>
+<p class="topic-heading"><strong>Reading via the REST API</strong></p>
+<p>A document can be read via the MarkLogic REST API  by using the <strong>/v1/documents</strong> endpoint and specifying the URI of the document to read.<br>
+</p>
+<p><span class="code">curl --anyauth --user admin:admin -X <strong>GET</strong> &quot;http://localhost:8060<strong>/v1/documents?uri=/patents/waterski_drone.json</strong>&quot;</span></p>
+<p>By having database documents available via the REST API, pretty much any programming language (i.e. any that can make HTTP requests) can be used to read data from a MarkLogic database. </p>
+<p class="topic-sub-heading">Writing via the REST API</p>
+<p>A document can be <strong>written</strong> via the MarkLogic REST API by using the<strong> /v1/documents</strong> endpoint and specifying a URI and content for the document. </p>
+<p><span class="code">curl --anyauth --user admin:admin -X <strong>PUT</strong> -i -H &quot;Content-Type: application/json&quot; -d '<strong>{&quot;patent&quot;: {&quot;title&quot;: &quot;﻿Smart tennis racket&quot;, &quot;inventor&quot;: &quot;﻿Ashutosh&quot;, &quot;description&quot;: &quot;﻿AI-powered tennis racket that dynamically calculates the incoming ball speed to automatically adjust the elasticity of the strings for an optimum shot&quot;}}</strong>' &quot;http://localhost:8060<strong>/v1/documents</strong>?<strong>uri=/patents/smart_racket.json</strong>&quot;</span></p>
+<p class="topic-sub-heading">Creating a Custom Endpoint</p>
+<p>Along with being able to use the built-in REST API endpoints, custom endpoints can also be created (e.g. microservices). </p>
+<p class="code">curl --anyauth --user admin:admin -X GET -i -H &quot;Content-type: application/json&quot; http://localhost:8025/<strong>v1/resources/inventions?rs:inventor=Ashutosh</strong></p>
+<p>Detail on creating custom endpoints is in the Extending the REST API chapter of the <strong>REST Application Developer's Guide</strong> at docs.marklogic.com/guide/rest-dev/extensions.</p>
+<p><img src="../images/unit06/rest_guide.png" width="643" height="310" class="image-border"></p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Next: <a href="0602_x_read_via_the_rest_api.htm">Exercise (Read via the REST API)</a></p>
+<p>Back: <a href="0601_accessing_data.htm">Previous<br>
+</a></p>
+<hr>
+<p class="copyright">©2015-2020 MarkLogic Corporation. All rights reserved. Copying, selling, or otherwise distributing any part of this course without prior written consent of an authorized representative of MarkLogic Corporation is prohibited.</p>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>MarkLogic Fundamentals</title>
+<link href="../css/ml.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<p><img src="../images/general/Marklogic-University-RGB.png" alt="" width="130" height="38" class="logo-padding"/></p>
+<p class="topic-heading"><strong>Understanding Indexes</strong></p>
+<p>Indexes are MarkLogic's secret sauce for being able to execute queries in real-time even when there are  millions (or billions or trillions) of documents in a database.</p>
+<p>At a minimum, MarkLogic provides <strong>baseline indexing</strong> of the words and structure of every document that is loaded into a MarkLogic database. As a document is being loaded, MarkLogic creates an index of all of the words in the document, as well as the structure of the document. This not only allows for real-time  search for words in the documents, but also real-time  search based on paths in the documents. (For example, searching only in the song title or artist element of a song document.)</p>
+<p>Along with the baseline indexing of a document's words and structure, <strong>additional indexes</strong> can be defined for a database, to speed up the performance of an application. Which indexes would help the performance of a given application depend on the application itself. For example, in the Star Wars application, having an index for the Name values and an index for the Role values would enable sorting to happen in real-time even if there were millions of documents in the database.</p>
+<p> In addition, some MarkLogic search features, such facets and semantics, <strong>require</strong> indexes. </p>
+<p class="topic-sub-heading">Optional Indexes</p>
+<p>For each database, there are a number of  optional indexes available.</p>
+<p><img src="../images/unit07/radio_button_indexes.png" width="668" height="326" class="image-border"></p>
+<p>To turn on an index, the true button can be selected and then  the ok button pressed.</p>
+<p>Adding an index does not require a restart or system delay. As an index is being populated, MarkLogic re-indexes the database in the background. While it is re-indexing in the background, any queries to the database  continue to be served. Once the index is available, any new queries  take advantage of the index if it is useful to the query.</p>
+<p>As adding indexes  takes up additional disk space, and can make the loading of  documents take longer, the recommendation is to proceed with the default indexes  first, and then add additional indexes as needed.</p>
+<p>Detail on the indexes is available in the documentation or by selecting the <strong>Help</strong> tab.</p>
+<p><img src="../images/unit07/help_tab.png" width="162" height="31" class="image-border"></p>
+<p class="topic-sub-heading">Defining Range Indexes</p>
+<p>A range index can be defined that contains the values of a JSON property or an XML element from  documents in a database. For example, a range index could be set up for all of the name values in the documents in the star-wars database.</p>
+<p><img src="../images/unit07/element_range_index.png" width="700" height="658" class="image-border"></p>
+<p>By creating a range index of all the values in the name property of the characters documents, the Name sort  can happen in real-time, even if  there are millions of documents in the database.</p>
+<p><img src="../images/unit08/star-wars.png" width="595" height="120" class="image-border"></p>
+<p>Indexes can be configured via the Admin Interface or programmatically via the  APIs.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Next: <a href="0705_x_add_an_index.htm">Exercise (Add an Index)</a></p>
+<p>Back: <a href="0704_x_search_rows.htm">Previous</a><br>
+</p>
+<hr>
+<p class="copyright">©2015-2020 MarkLogic Corporation. All rights reserved. Copying, selling, or otherwise distributing any part of this course without prior written consent of an authorized representative of MarkLogic Corporation is prohibited.</p>
+</body>
+</html>

@@ -1,0 +1,608 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>MarkLogic Fundamentals</title>
+<link href="../css/ml.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<p><img src="../images/general/Marklogic-University-RGB.png" alt="" width="130" height="38" class="logo-padding"/></p>
+<p class="exercise-heading">Exercise: <strong>See the Steps That Were Done</strong></p>
+<p>In this  exercise, you  view the steps that were done to create the CentOS 7 virtual machine for this course. Realize that, if you go to reproduce these steps, some of the versions and URLs may have moved on. </p>
+<p><em>Note: It is not necessary to build the virtual machine yourself. You can download it from MarkLogic University.</em></p>
+<p>&nbsp;</p>
+<ol class="exercise-step">
+  <li class="exercise-step">Downloaded and installed <strong>VirtualBox</strong> (VirtualBox-5.2.34-133893-OSX.dmg).</li>
+  <li class="exercise-step">Downloaded <strong>CentOS ISO</strong> (CentOS-7-x86_64-Minimal-1908.iso). </li>
+</ol>
+<p>To create the   virtual machine:</p>
+<ol start="3" class="exercise-step">
+  <li class="exercise-step">In VirtualBox, clicked the <strong>New</strong> button. </li>
+  <li class="exercise-step">For Name, entered<span class="code"> centos7_64</span>.</li>
+  <li class="exercise-step">For Type, left <strong>Linux</strong> selected.</li>
+  <li class="exercise-step">For Version, left <strong>Red Hat (64 bit)</strong> selected. </li>
+  <li class="exercise-step">Clicked the Continue button. </li>
+  <li class="exercise-step">For Memory size, entered <strong>4096</strong> (4 GB), and clicked the Continue button.</li>
+  <li class="exercise-step">Left <strong>Create a virtual hard drive now</strong> selected, and clicked the Create button.</li>
+  <li class="exercise-step">Left <strong>VDI (VirtualBox Disk Image)</strong> selected, and clicked the Continue button.</li>
+  <li class="exercise-step">Left <strong>Dynamically allocated </strong>selected, and clicked the Continue button.</li>
+  <li class="exercise-step">For File location and size, left the default name of centos7_64, left the default location  (/Users/rstryker/VirtualBox VMs/centos7_64), and entered <strong>20 GB</strong>.</li>
+  <li class="exercise-step">Clicked the Create button. <br>
+  </li>
+</ol>
+<p>To increase the performance of the virtual machine, specified 2 CPUs:</p>
+<ol start="14" class="exercise-step">
+  <li class="exercise-step">In VirtualBox, with the virtual machine selected, clicked the <strong>Settings</strong> icon.</li>
+  <li class="exercise-step">Clicked the <strong>System</strong> category.</li>
+  <li class="exercise-step">Clicked the <strong>Processor</strong> tab.</li>
+  <li class="exercise-step">For Processor(s), entered<span class="code"> 2</span>.</li>
+  <li class="exercise-step">Clicked OK.</li>
+</ol>
+<p>To use a CentOS 7 ISO image for the virtual machine:</p>
+<ol start="19" class="exercise-step">
+  <li class="exercise-step">With the virtual machine selected on the left, clicked the Settings icon.</li>
+  <li class="exercise-step">Clicked the <strong>Storage</strong> category.</li>
+  <li class="exercise-step">In the Storage Tree section, under <strong>Controller: IDE</strong>, selected <strong>Empty</strong>:<br>
+    <br>
+    <img src="../images/unit02/empty_selection.png" width="652" height="545" class="image-border"><br>
+  </li>
+  <li class="exercise-step">In the Attributes section, for Optical Drive, clicked the CD icon to the right of the drop-down list box, to select <strong>Choose Virtual Optical Disk File...</strong>.<br>
+  </li>
+  <li class="exercise-step">Navigated to select the CentOS ISO downloaded in Step 2. </li>
+  <li class="exercise-step">Clicked the Open button and clicked the OK button. </li>
+</ol>
+<p>To initialize the virtual machine:</p>
+<ol start="25" class="exercise-step">
+  <li class="exercise-step">Clicked the <strong>Start</strong> button, to start the virtual machine.</li>
+  <li class="exercise-step">In the boot screen, pressed the up arrow key to select <strong>Install CentOS Linux 7</strong>, and pressed the Enter key.</li>
+  <li class="exercise-step">Watched the installation steps begin.</li>
+  <li class="exercise-step">Waited for the WELCOME TO CENTOS 7 page to display.<br>
+  </li>
+  <li class="exercise-step">Left <strong>English</strong> and <strong>English (United States)</strong> selected, and clicked the Continue button.</li>
+  <li class="exercise-step">In the dialog box, which explains that the host key for being able to move the mouse outside of the virtual machine window is the <strong>left Command</strong> <strong>key</strong>, clicked <strong>Capture</strong>.<br>
+    <br>
+    <em>Note: On Windows, the host key for being able to move the mouse outside of the virtual window is the <strong>right Control key</strong>. </em></li>
+  <li class="exercise-step">Clicked the Continue button.</li>
+  <li class="exercise-step">Clicked <strong>DATE &amp; TIME</strong>.</li>
+  <li class="exercise-step">Selected the time zone for <strong>London</strong>.</li>
+  <li class="exercise-step">Clicked the Done button.<br>
+    <br>
+    <em>Note: Can close the information panel(s) at top, if it is blocking the view. </em></li>
+  <li class="exercise-step">Clicked <strong>SOFTWARE SELECTION</strong>.</li>
+  <li class="exercise-step">In the first column, left <strong>Minimal Install</strong> selected.</li>
+  <li class="exercise-step">In the second column, if displayed, selected <strong>Compatibility Libraries</strong>.</li>
+  <li class="exercise-step">Clicked the Done button.<br>
+  </li>
+  <li class="exercise-step">Under SYSTEM, selected <strong>INSTALLATION DESTINATION</strong>.</li>
+  <li class="exercise-step">Left default settings and clicked the Done button.</li>
+  <li class="exercise-step">Selected <strong>NETWORK &amp; HOST NAME</strong>.<br>
+    <br>
+    <em>Note: Can scroll down to find this, if needed. </em></li>
+  <li class="exercise-step">Selected Ethernet (enp0s3), and dragged the slider to <strong>ON</strong>.</li>
+  <li class="exercise-step">For Hostname, entered <span class="code">centos7-vm</span>.</li>
+  <li class="exercise-step">Clicked the Apply button.</li>
+  <li class="exercise-step">Clicked the Done button.</li>
+  <li class="exercise-step">Clicked the <strong>Begin Installation</strong> button:<br>
+    <br>
+  <img src="../images/unit02/installation_summary.png" width="700" height="552" class="image-border"></li>
+  <li class="exercise-step">Saw that the installation  started.</li>
+  <li class="exercise-step">Clicked <strong>ROOT PASSWORD</strong>.</li>
+  <li class="exercise-step">For Root Password, entered<span class="code"> centos</span>.</li>
+  <li class="exercise-step">For Confirm, entered<span class="code"> centos</span>.</li>
+  <li class="exercise-step">Clicked the Done button.</li>
+  <li class="exercise-step">Noticed the weak password message.</li>
+  <li class="exercise-step">Clicked the Done button again.</li>
+  <li class="exercise-step">Clicked <strong>USER CREATION</strong>.</li>
+  <li class="exercise-step">For Full Name, entered<span class="code"> cent</span>. </li>
+  <li class="exercise-step">For User name, entered<span class="code"> cent</span>.</li>
+  <li class="exercise-step">For Password and Confirm password, entered<span class="code"> centos</span>.</li>
+  <li class="exercise-step">Clicked the Done button.</li>
+  <li class="exercise-step">Noticed the weak password message.</li>
+  <li class="exercise-step">Clicked the Done button again.</li>
+  <li class="exercise-step">Waited for the installation to finish.</li>
+  <li class="exercise-step">Clicked the <strong>Reboot</strong> button.</li>
+  <li class="exercise-step">Waited for the virtual machine to reboot.</li>
+  <li class="exercise-step">At the command prompt login, entered<span class="code"> cent</span>.</li>
+  <li class="exercise-step">For Password, entered<span class="code"> centos</span>.<br>
+    <br>
+    <em>Note: Can press the <strong>left Command key</strong> at any time, to use mouse outside of the virtual machine. </em></li>
+</ol>
+<p>To check the networking:</p>
+<ol start="66" class="exercise-step">
+  <li class="exercise-step">Entered<span class="code"> su</span>.</li>
+  <li class="exercise-step">For Password, entered<span class="code"> centos</span>.</li>
+  <li class="exercise-step">Entered<span class="code"> cd /etc/sysconfig/network-scripts</span>.</li>
+  <li class="exercise-step">Entered<span class="code"> ls</span>, to see  ifcfg-enp0s3  listed.</li>
+  <li class="exercise-step">To view the file, entered<span class="code"> vi ifcfg-enp0s3</span>.</li>
+  <li class="exercise-step">Saw  ONBOOT=&quot;yes&quot;.</li>
+  <li class="exercise-step">To exit the file, pressed the<span class="code"> Esc </span>key, then<span class="code"> :q</span>.</li>
+  <li class="exercise-step">To bring up the adapter, entered<span class="code"> ifup ifcfg-enp0s3</span>.</li>
+</ol>
+<p>To install the graphical user interface and development tools:</p>
+<ol start="74" class="exercise-step">
+  <li class="exercise-step">Still as root (<span class="code">su</span>), entered<span class="code"> yum groupinstall &quot;X Window System&quot;</span>.</li>
+  <li class="exercise-step">Entered<span class="code"> y </span>when prompted.</li>
+  <li class="exercise-step">Entered<span class="code"> y </span>when prompted again.</li>
+  <li class="exercise-step">Entered<span class="code"> y </span>when prompted again.</li>
+  <li class="exercise-step">To install additional UI components, entered <span class="code"> yum install gnome-classic-session</span>.</li>
+  <li class="exercise-step">Entered<span class="code"> y </span>when prompted.</li>
+  <li class="exercise-step">Entered <span class="code"> yum install gnome-terminal</span>.</li>
+  <li class="exercise-step">Entered<span class="code"> y </span>when prompted.</li>
+  <li class="exercise-step">Entered <span class="code"> yum install nautilus-open-terminal</span>. (If no package available, perhaps not needed?) </li>
+  <li class="exercise-step">Entered<span class="code"> y </span>when prompted.</li>
+  <li class="exercise-step">Entered <span class="code"> yum install control-center</span>.</li>
+  <li class="exercise-step">Entered <span class="code"> yum install liberation-mono-fonts</span>.</li>
+  <li class="exercise-step">Entered<span class="code"> y </span>when prompted.</li>
+  <li class="exercise-step">Entered <span class="code"> yum install vim</span>.</li>
+  <li class="exercise-step">Entered<span class="code"> y </span>when prompted.</li>
+  <li class="exercise-step">To see the OS kernel version, entered<span class="code"> uname  –r</span>.</li>
+  <li class="exercise-step">To install the kernel development tools needed by VirtualBox Guest Additions, entered<span class="code"> yum  install kernel-devel-{version} </span>(e.g. yum install kernel-devel-3.10.0-1062.el7.x86_64).</li>
+  <li class="exercise-step">Entered<span class="code"> y </span>when prompted.</li>
+  <li class="exercise-step">Entered<span class="code"> yum  groupinstall &quot;Development Tools&quot;</span>.</li>
+  <li class="exercise-step">Entered<span class="code"> y </span>when prompted.</li>
+  <li class="exercise-step">To unlink the default target for startup, entered<span class="code"> unlink  /etc/systemd/system/default.target</span>.</li>
+  <li class="exercise-step">To link the graphic target for startup, entered<span class="code"> ln  –sf /lib/systemd/system/graphical.target /etc/systemd/system/default.target</span>.</li>
+  <li class="exercise-step">To reboot, entered<span class="code"> reboot now</span>.</li>
+  <li class="exercise-step">Clicked <strong>cent</strong>.</li>
+  <li class="exercise-step">Entered the password of<span class="code"> centos</span>.</li>
+  <li class="exercise-step">Saw that the CentOS GUI desktop is now displayed.</li>
+</ol>
+<p>To make the desktop icons smaller:</p>
+<ol start="100" class="exercise-step">
+  <li class="exercise-step">In the Terminal window, entered<span class="code"> exit </span>to stop being the root user.</li>
+  <li class="exercise-step">Entered<span class="code"> ﻿gsettings set org.gnome.nautilus.icon-view default-zoom-level small</span>.<br>
+  </li>
+  <li class="exercise-step">Saw that the desktop icons are now small.</li>
+</ol>
+<p>To specify fonts:</p>
+<ol start="103" class="exercise-step">
+  <li class="exercise-step">Entered<span class="code"> su </span>to become root.</li>
+  <li class="exercise-step">Entered<span class="code"> centos </span>when prompted for password.</li>
+  <li class="exercise-step">Entered<span class="code"> yum install gnome-tweak-tool  dejavu-sans-mono-fonts</span>.</li>
+  <li class="exercise-step">Entered<span class="code"> y </span>when prompted.</li>
+  <li class="exercise-step">Selected <strong>Applications</strong> - <strong>Accessories</strong> - <strong>Tweaks</strong>.</li>
+  <li class="exercise-step">Clicked the x to close the application, leaving the default settings.</li>
+</ol>
+<p>To turn off transparent huge pages, set the I/O scheduler to deadline, and set huge pages to 3/8 system memory (virtual machine  has 4 GB RAM, so 4096 * 0.375 = 1536, and then 1536 / 2.048 = 750 huge pages):</p>
+<ol start="109" class="exercise-step">
+  <li class="exercise-step">Selected <strong>Applications</strong> - <strong>System Tools</strong> - <strong>Terminal</strong> to open a terminal window.</li>
+  <li class="exercise-step">Entered<span class="code"> su </span>to be root.</li>
+  <li class="exercise-step">Entered<span class="code"> centos </span>when prompted for password.</li>
+  <li class="exercise-step">Entered<span class="code"> vim /etc/default/grub</span>.</li>
+  <li class="exercise-step">Pressed the <strong>i</strong> key to be able to edit the file.</li>
+  <li class="exercise-step">At the end of GRUB_CMDLINE_LINUX, after quiet, entered:<br>
+    <br>
+    <span class="code">&nbsp;transparent_hugepage=never elevator=deadline</span></li>
+  <li class="exercise-step">Pressed the <strong>Esc</strong> key.</li>
+  <li class="exercise-step">Typed<span class="code"> :wq </span>and then pressed the <strong>Enter</strong> key to exit the file.</li>
+  <li class="exercise-step">To regenerate the boot configuration, entered:<br>
+    <span class="code"><br>
+      grub2-mkconfig  –o /boot/grub2/grub.cfg </span><br>
+  </li>
+  <li class="exercise-step">To be able to set the number of huge pages to 3/8 of the system memory, entered<span class="code"> vim /etc/sysctl.conf</span>.</li>
+  <li class="exercise-step">Pressed the <strong>i</strong> key to be able to edit the file.</li>
+  <li class="exercise-step">Scrolled to the end of the file.</li>
+  <li class="exercise-step">Added<span class="code"> vm.nr_hugepages=750</span>.</li>
+  <li class="exercise-step">Ensured that there was not a comment character (#) at the beginning of the line.</li>
+  <li class="exercise-step">Pressed the <strong>Esc</strong> key.</li>
+  <li class="exercise-step">Typed<span class="code"> :wq </span>and then pressed the <strong>Enter</strong> key to exit the file.</li>
+</ol>
+<p>To install Firefox:</p>
+<ol start="125" class="exercise-step">
+  <li class="exercise-step">Still as root (<span class="code">su</span>), entered<span class="code"> yum install firefox</span>.</li>
+  <li class="exercise-step">Entered<span class="code"> y </span>when prompted.</li>
+</ol>
+<p>To install gedit, to be able to edit text files (for Unit 4 onward):</p>
+<ol start="127" class="exercise-step">
+  <li class="exercise-step">Still as root, entered<span class="code"> yum install gedit</span>.</li>
+  <li class="exercise-step">Entered<span class="code"> y </span>when prompted.</li>
+</ol>
+<p>To install  evince, to be able to view PDF files  (for Unit 1 lab and Unit 6 lab):</p>
+<ol start="129" class="exercise-step">
+  <li class="exercise-step">Still as root, entered<span class="code"> yum install evince</span>.</li>
+  <li class="exercise-step">Entered<span class="code"> y </span>when prompted.</li>
+</ol>
+<p>To install  wget, to be able to download files through the command line:</p>
+<ol start="131" class="exercise-step">
+  <li class="exercise-step">Still as root, entered<span class="code"> yum install wget</span>.</li>
+  <li class="exercise-step">Entered<span class="code"> y </span>when prompted.</li>
+</ol>
+<p>To check that curl is installed (for Unit 4 onward):</p>
+<ol start="133" class="exercise-step">
+  <li class="exercise-step">Entered<span class="code"> curl --version</span>.</li>
+</ol>
+<p>To reboot, for all settings to take effect:</p>
+<ol start="134" class="exercise-step">
+  <li class="exercise-step">Entered<span class="code"> reboot now</span>.</li>
+  <li class="exercise-step">Waited for the virtual machine to reboot.</li>
+  <li class="exercise-step">Clicked <strong>cent</strong> and entered<span class="code"> centos </span>for the password.</li>
+  <li class="exercise-step">Selected <strong>Applications</strong> - <strong>System Tools</strong> - <strong>Terminal</strong> to open a terminal window.</li>
+  <li class="exercise-step">To see that the huge pages setting has been applied, entered<span class="code"> grep -i HugePages_Total /proc/meminfo</span>.</li></ol>
+To install  Flash Player (for viewing a Unit 1 web page):
+<ol start="139">
+  <li class="exercise-step">Selected <strong>Applications</strong> - <strong>Internet</strong> - <strong>Firefox </strong> to launch Firefox.</li>
+  <li class="exercise-step">Entered<span class="code"> http://get.adobe.com/flashplayer</span>.</li>
+  <li class="exercise-step"> In the drop-down list, selected <strong>.rpm for  Linux</strong>.</li>
+  <li class="exercise-step"> Clicked the <strong>Download now</strong> button.</li>
+  <li class="exercise-step"> Left the <strong>Save File</strong> radio button selected, and clicked OK.</li>
+  <li class="exercise-step"> Clicked the Next button.</li>
+  <li class="exercise-step">Waited for the .rpm file to download, by watching the blue arrow.</li>
+  <li class="exercise-step"> In a <strong>new</strong> terminal window (<strong>Applications - System Tools - Terminal</strong>),  as the <strong>cent</strong> user, entered<span class="code"> cd Downloads</span>.</li>
+  <li class="exercise-step"> Entered<span class="code"> ls</span>, to see the .rpm file.</li>
+  <li class="exercise-step"> Entered<span class="code"> su root</span>.</li>
+  <li class="exercise-step">Entered the password of<span class="code"> centos</span>.</li>
+  <li class="exercise-step"> Entered<span class="code"> rpm -Uvh flash-player-npapi-32.0.0.270-release.x86_64.rpm</span>.<br>
+  </li>
+</ol>
+<p><br>
+To install  Guest Additions (to be able to copy and paste text between the virtual machine and the host computer, and easily use the mouse between the virtual machine and the host computer):</p>
+<ol start="151" class="exercise-step">
+  <li class="exercise-step">Selected <strong>Devices</strong> - <strong>Insert Guest Additions CD image...</strong>.</li>
+  <li class="exercise-step">In the dialog box, clicked <strong>Run</strong>.</li>
+  <li class="exercise-step">Entered the root password of<span class="code"> centos </span>and clicked the <strong>Authenticate</strong> button. </li>
+  <li class="exercise-step"><strong>Waited</strong> for it to install.</li>
+  <li class="exercise-step">Pressed  Enter  at the end of the script.</li>
+  <li class="exercise-step">Selected <strong>Devices</strong> - <strong>Shared Clipboard</strong> - <strong>Bidirectional</strong>.</li>
+  <li class="exercise-step">Selected <strong>Devices</strong> - <strong>Drag and Drop</strong> - <strong>Bidirectional</strong>.</li>
+  <li class="exercise-step">Restarted the virtual machine by clicking on the<strong> triangle icon</strong> in the upper-right corner in CentOS, clicking the <strong>shut down</strong> button, and clicking the <strong>Restart</strong> button.</li>
+  <li class="exercise-step">Waited for the virtual machine to restart.</li>
+  <li class="exercise-step">Clicked <strong>cent</strong> and entered the password of<span class="code"> centos</span>.</li>
+  <li class="exercise-step">Right-clicked the guest additions CD on the desktop, to then select <strong>Eject</strong>, to eject the CD.</li>
+</ol>
+<p>To turn off automatic screen locking and screensaver for the virtual machine: </p>
+<ol start="162" class="exercise-step">
+  <li class="exercise-step">Clicked in the <strong>upper-right</strong> corner of the virtual machine,  to access the wrench icon.</li>
+  <li class="exercise-step">Clicked the <strong>wrench</strong> <strong>icon</strong>. </li>
+  <li class="exercise-step">Selected  the <strong>Privacy</strong> category.</li>
+  <li class="exercise-step">Clicked <strong>Screen Lock</strong>. </li>
+  <li class="exercise-step">For Automatic Screen Lock, dragged the slider to <strong>OFF</strong>.</li>
+  <li class="exercise-step">Clicked the 'x' to close the window.</li>
+  <li class="exercise-step">Clicked the 'x' again to close the window.</li>
+  <li class="exercise-step">Clicked in the <strong>upper-right</strong> corner of the virtual machine,  to  select the <strong>wrench icon</strong>.</li>
+  <li class="exercise-step">Selected  the <strong>Power</strong> category (scrolled down to find it, if necessary).<br>
+  </li>
+  <li class="exercise-step">For Blank screen, changed it to <strong>Never</strong>.</li>
+  <li class="exercise-step">Clicked the 'x' to close the window.</li>
+</ol>
+<p>To enable the option to create a new file via the right-click menu: </p>
+<ol start="173" class="exercise-step">
+  <li class="exercise-step">Opened a new terminal window (<strong>Applications</strong> - <strong>System Tools</strong> - <strong>Terminal</strong>).</li>
+  <li class="exercise-step">Entered<span class="code"> mkdir Templates</span>.</li>
+  <li class="exercise-step">Entered<span class="code"> touch ~/Templates/Text\ File.txt</span>.</li>
+  <li class="exercise-step">Entered<span class="code"> vim ~/.config/user-dirs.dirs</span>.</li>
+  <li class="exercise-step">Pressed the <strong>i</strong> key, to be able to insert text.</li>
+  <li class="exercise-step">Entered<span class="code"> XDG_TEMPLATES_DIR=&quot;$HOME/Templates&quot;</span>.</li>
+  <li class="exercise-step">Pressed the <strong>Esc</strong> key, then typed<span class="code"> :wq</span>, then pressed Enter.</li>
+  <li class="exercise-step">Closed all windows.</li>
+  <li class="exercise-step">Restarted the virtual machine by clicking in the upper-right corner of the virtual machine, clicking the <strong>shut down</strong> button, and clicking the <strong>Restart</strong> button.</li>
+  <li class="exercise-step">Waited for the virtual machine to reboot.</li>
+  <li class="exercise-step">Clicked <strong>cent</strong> and entered<span class="code"> centos </span>for the password.</li>
+  <li class="exercise-step">Right-clicked on the desktop, to see  that New Document - Text File is now available.</li>
+</ol>
+<p>To download  MarkLogic Content Pump (for Unit 5):</p>
+<ol start="185" class="exercise-step">
+  <li class="exercise-step">In Firefox, entered<span class="code"> http://developer.marklogic.com/products/mlcp</span>.</li>
+  <li class="exercise-step">In the Download section, clicked the <strong>Release 10.0.2 binaries zip package</strong> link.</li>
+  <li class="exercise-step">Left the <strong>Save File</strong> radio button selected, and clicked OK.</li>
+  <li class="exercise-step">Waited for the file to download, by watching the blue arrow.</li>
+  <li class="exercise-step">Opened a new terminal window,  and, as the <strong>cent</strong> user, entered<span class="code"> cd Downloads</span>.</li>
+  <li class="exercise-step">Entered<span class="code"> ls </span>to see the mlcp-10.0.2-bin.zip file listed.</li>
+  <li class="exercise-step">Entered<span class="code"> unzip mlcp-10.0.2-bin.zip</span>. </li>
+  <li class="exercise-step">On the desktop of the virtual machine, double-clicked the<strong> Home </strong>folder.</li>
+  <li class="exercise-step">Double-clicked the <strong>Downloads</strong> folder.</li>
+  <li class="exercise-step"><strong>Dragged</strong> the expanded <strong>mlcp-10.0.2</strong> folder to the <strong>desktop</strong>.</li>
+  <li class="exercise-step">Right-clicked on the folder, to then select <strong>Rename...</strong>, to enter<span class="code"> mlcp</span>.</li>
+  <a name="java" id="node2"></a>
+</ol>
+<p>For using the MarkLogic Java API (in Unit 6), downloaded and installed JDK, Maven, Tomcat, and Eclipse:</p>
+<ol start="196" class="exercise-step">
+  <li class="exercise-step">In the virtual machine, opened Firefox and went to <span class="code">http://www.oracle.com/technetwork/java/javase/downloads/index.html</span>.</li>
+  <li class="exercise-step">Selected the <strong>DOWNLOAD</strong> button for JDK 8:<br>
+    <br>
+    <img src="../images/app0b/download_jdk.png" width="539" height="141" class="image-border"><br>
+  </li>
+  <li class="exercise-step"> Selected the <strong>Accept License Agreement</strong> radio button.</li>
+  <li class="exercise-step">Selected the <strong>Linux x64 rpm</strong> download:<br>
+    <br>
+    <img src="../images/app0b/jdk_rpm.png" width="495" height="20" class="image-border"><br>
+  </li>
+  <li class="exercise-step">Selected the <strong>Save File</strong> radio button, and clicked the OK button.</li>
+  <li class="exercise-step">Waited for the .rpm file to download by watching the blue arrow.</li>
+  <li class="exercise-step">In a terminal window, entered<span class="code"> su </span>to be root.</li>
+  <li class="exercise-step">Entered the password of<span class="code"> centos</span>. </li>
+  <li class="exercise-step">Entered<span class="code"> cd /home/cent/Downloads</span>.</li>
+  <li class="exercise-step">Entered<span class="code"> ls </span>to see the jdk-8u121-linux-x64.rpm file listed.</li>
+  <li class="exercise-step">Entered<span class="code"> rpm -ivh jdk-8u121-linux-x64.rpm</span>. </li>
+  <li class="exercise-step">Waited for it to finish installing. </li>
+  <li class="exercise-step">Entered<span class="code"> java -version</span>, to see that it  installed:<br>
+    <br>
+    <img src="../images/app0b/java_version.png" width="654" height="94" class="image-border"><br>
+  </li>
+  <li class="exercise-step">Entered<span class="code"> javac -version</span>, to see that javac is set up:<br>
+    <br>
+    <img src="../images/app0b/javac_version.png" width="486" height="59" class="image-border"><br>
+  </li>
+  <li class="exercise-step"> Entered the following  commands, to set up global environment variables:<br>
+    <br>
+    <span class="code">export JAVA_HOME=/usr/java/jdk1.8.0_231-amd64/<br>
+      export PATH=$PATH:$JAVA_HOME </span><br>
+  </li>
+  <li class="exercise-step"> Entered<span class="code"> echo $JAVA_HOME </span>and<span class="code"> echo $PATH </span>to see that they are set up:<br>
+    <br>
+    <img src="../images/app0b/echo.png" width="691" height="112" class="image-border"><br>
+  </li>
+  <li class="exercise-step">To create a permanent file (so that the variables  can still exist after rebooting the virtual machine), entered<span class="code"> vim /etc/profile.d/java.sh</span>.</li>
+  <li class="exercise-step">Pressed the <strong>i</strong> key to be able to edit the file.</li>
+  <li class="exercise-step">In the file, entered:<br>
+    <br>
+    <span class="code">#!/bin/bash <br>
+      JAVA_HOME=/usr/java/jdk1.8.0_231-amd64/ <br>
+      PATH=$JAVA_HOME/bin:$PATH <br>
+      export PATH JAVA_HOME <br>
+      export CLASSPATH=. </span></li>
+  <li class="exercise-step">Pressed the <strong>Esc</strong> key. </li>
+  <li class="exercise-step">Typed<span class="code"> :wq </span>and then pressed the <strong>Enter</strong> key to exit the file. </li>
+  <li class="exercise-step">On the command line, entered<span class="code"> chmod +x /etc/profile.d/java.sh </span>to make the file executable.</li>
+  <li class="exercise-step">Entered<span class="code"> source /etc/profile.d/java.sh </span>to set the environment variables permanently.<br>
+    <br>
+    <br>
+  </li>
+  <li class="exercise-step">To install <strong>Maven</strong>, in Firefox within the virtual machine, went to <span class="code">http://maven.apache.org/download.cgi</span>. </li>
+  <li class="exercise-step">Scrolled down to the list of files.</li>
+  <li class="exercise-step">Selected the binary zip file for Maven:<br>
+    <br>
+  <img src="../images/unit02/maven.png" width="275" height="56" class="image-border"></li>
+  <li class="exercise-step">Left the <strong>Save File</strong> radio button selected and clicked the OK button.</li>
+  <li class="exercise-step">Waited for the .zip file to download (by watching the blue arrow).</li>
+  <li class="exercise-step">In a terminal window, as <strong>root</strong> (<span class="code">su</span>/<span class="code">centos</span>), entered<span class="code"> cd /home/cent/Downloads</span>.</li>
+  <li class="exercise-step">Entered<span class="code"> ls </span>to see the apache-maven-3.6.2-bin.zip file listed.</li>
+  <li class="exercise-step">Entered<span class="code"> unzip apache-maven-3.6.2-bin.zip</span>. </li>
+  <li class="exercise-step">Entered<span class="code"> ls </span>to see the apache-maven-3.6.2 directory listed.</li>
+  <li class="exercise-step">Entered<span class="code"> mv apache-maven-3.6.2 /opt </span>to move the expanded Maven files to the /opt directory.</li>
+  <li class="exercise-step">Entered<span class="code"> export PATH=/opt/apache-maven-3.6.2/bin:$PATH </span>to add Maven's bin directory to the PATH  variable.</li>
+  <li class="exercise-step">Entered<span class="code"> mvn -version </span>to see that Maven is set up:<br>
+    <br>
+  <img src="../images/app0b/maven_installed.png" width="700" height="199" class="image-border"></li>
+  <li class="exercise-step">To add Maven to the PATH variable permanently (so that it is still in the PATH variable even after rebooting the virtual machine), entered<span class="code"> vim /etc/profile.d/java.sh</span>.</li>
+  <li class="exercise-step">Pressed the <strong>i</strong> key to be able to edit the file.</li>
+  <li class="exercise-step">In the file, added the fourth line:<br>
+    <br>
+    <span class="code">#!/bin/bash <br>
+      JAVA_HOME=/usr/java/jdk1.8.0_231/ <br>
+      PATH=$JAVA_HOME/bin:$PATH <br>
+  <strong>PATH=/opt/apache-maven-3.6.2/bin:$PATH</strong><br>
+      export PATH JAVA_HOME <br>
+      export CLASSPATH=. </span></li>
+  <li class="exercise-step">Pressed the <strong>Esc</strong> key.</li>
+  <li class="exercise-step">Typed<span class="code"> :wq </span>and then pressed the <strong>Enter</strong> key to exit the file.<br>
+    <br>
+    <br>
+  </li>
+  <li class="exercise-step">To download <strong>Tomcat</strong> (in Unit 6, used for running a Java servlet), in Firefox, went  to <span class="code">http://tomcat.apache.org/download-90.cgi</span>.</li>
+  <li class="exercise-step">In the Binary Distributions section, in the Core list, clicked the <strong>zip</strong> link:<br>
+    <br>
+  <img src="../images/unit02/tomcat.png" width="694" height="248" class="image-border"></li>
+  <li class="exercise-step">Left the <strong>Save File</strong> radio button selected and clicked the OK button.</li>
+  <li class="exercise-step">In a terminal window, as root, entered<span class="code"> cd /home/cent/Downloads</span>.</li>
+  <li class="exercise-step">Entered<span class="code"> ls </span>to see the apache-tomcat-9.0.27.zip file listed.</li>
+  <li class="exercise-step">Entered<span class="code"> unzip apache-tomcat-9.0.27.zip</span>.</li>
+  <li class="exercise-step">Entered<span class="code"> ls </span>to see the apache-tomcat-9.0.27 directory listed.</li>
+  <li class="exercise-step">Entered<span class="code"> mv apache-tomcat-9.0.27 /opt </span>to move the  Tomcat directory to the /opt directory.</li>
+  <li class="exercise-step">Entered<span class="code"> ls /opt </span>to see the tomcat directory.<br>
+    <br>
+    <br>
+  </li>
+  <li class="exercise-step"> In Firefox, to download <strong>Eclipse</strong>,  went to<span class="code"> http://eclipse.org/downloads</span>.</li>
+  <li class="exercise-step">Clicked the <strong>Download 64 bit</strong> button for Eclipse IDE 2019-09:<br>
+    <br>
+  <img src="../images/app0b/eclipse.png" width="320" height="251" class="image-border"></li>
+  <li class="exercise-step">Clicked the DOWNLOAD button:<br>
+    <br>
+  <img src="../images/app0b/download_button.png" width="512" height="191" class="image-border"></li>
+  <li class="exercise-step">Selected the <strong>Save File</strong> radio button, and clicked OK.</li>
+  <li class="exercise-step">Waited for the .zip file to download.</li>
+  <li class="exercise-step">In a terminal window, as <strong>root</strong>, entered<span class="code"> cd /home/cent/Downloads</span>.</li>
+  <li class="exercise-step">Entered<span class="code"> ls </span>to see the eclipse-inst-linux64.tar.gz file listed.</li>
+  <li class="exercise-step">Entered<span class="code"> tar xvf eclipse-inst-linux64.tar.gz</span>.</li>
+  <li class="exercise-step">Entered<span class="code"> ls </span>to see the eclipse-installer directory listed.</li>
+  <li class="exercise-step">Entered<span class="code"> ls eclipse-installer</span>, to see the contents of the directory.</li>
+  <li class="exercise-step">Entered<span class="code"> eclipse-installer/eclipse-inst </span>to launch the installer.</li>
+  <li class="exercise-step">Waited for the installer to launch.</li>
+  <li class="exercise-step">Noticed the yellow exclamation icon in the upper-right corner.</li>
+  <li class="exercise-step">Clicked the <strong>yellow exclamation icon</strong>, and then selected <strong>UPDATE</strong>.</li>
+  <li class="exercise-step">Clicked the <strong>Accept</strong> button.</li>
+  <li class="exercise-step">Waited for the update to finish.</li>
+  <li class="exercise-step">Clicked the <strong>OK</strong> button to restart.</li>
+  <li class="exercise-step">Waited for the installer to restart.</li>
+  <li class="exercise-step"><strong>Closed</strong> the installer.</li>
+  <li class="exercise-step">In the terminal window, entered<span class="code"> exit</span>, to exit being root.</li>
+  <li class="exercise-step">As <strong>cent</strong>, entered<span class="code"> ~/Downloads/eclipse-installer/eclipse-inst </span>to launch the installer.</li>
+  <li class="exercise-step">Selected <strong>Eclipse IDE for Enterprise Java Developers</strong>.</li>
+  <li class="exercise-step">For Installation Folder, left the default of<span class="code"> /home/cent/eclipse/jee-latest-released</span>.</li>
+  <li class="exercise-step">Clicked the <strong>INSTALL</strong> button.</li>
+  <li class="exercise-step">Clicked the <strong>Accept Now</strong> button. </li>
+  <li class="exercise-step">Selected the <strong>Remember accepted licenses</strong> checkbox, and clicked the <strong>Accept</strong> button.</li>
+  <li class="exercise-step">Waited for the installer to progress. </li>
+  <li class="exercise-step">Ignored the message about the installation process taking longer than normal.</li>
+  <li class="exercise-step"><strong>Selected</strong> the checkbox for the Eclipse Foundation certificate, <strong>selected</strong> the Always accept certificates checkbox, and clicked the <strong>Accept selected</strong> button.</li>
+  <li class="exercise-step">Waited for the installer to finish.</li>
+  <li class="exercise-step">Saw  the LAUNCH button.</li>
+  <li class="exercise-step"><strong>Closed</strong> the window.</li>
+  <li class="exercise-step">Clicked the No button, to not launch it now.</li>
+  <li class="exercise-step">On the desktop, opened the <strong>Home</strong>/<strong>eclipse</strong>/<strong>jee-latest-released</strong>/<strong>eclipse</strong> folder.</li>
+  <li class="exercise-step">Saw the <strong>eclipse</strong> file listed.</li>
+  <li class="exercise-step">In a Terminal window, to create a shortcut on the desktop, entered<span class="code"> ﻿ln -s /home/cent/eclipse/jee-latest-released/eclipse/eclipse /home/cent/Desktop/eclipse</span>.<br>
+  </li>
+  <li class="exercise-step"><strong>Saw</strong> that the shortcut was created on the desktop, <strong>right-clicked</strong> it to select <strong>Rename...</strong>, entered<span class="code"> Eclipse</span>, and clicked the Rename button.</li>
+  <li class="exercise-step"><strong>Double-clicked</strong> the <strong>Eclipse</strong> shortcut, to launch Eclipse.</li>
+  <li class="exercise-step">In the Workspace Launcher window, clicked <strong>Launch</strong>, accepting the default workspace directory. </li>
+  <li class="exercise-step">If prompted with the Requirements Update dialog box, clicked the <strong>Install</strong> button.</li>
+  <li class="exercise-step">Waited for the updates to install.</li>
+  <li class="exercise-step">Clicked the Accept button.</li>
+  <li class="exercise-step">Clicked the <strong>X</strong> in the Welcome tab, to close the Welcome window. </li>
+  <li class="exercise-step">Clicked the <strong>X</strong> in the Outline tab, to close the Outline panel. </li>
+  <li class="exercise-step">Clicked the <strong>X</strong> in the Task List tab, to close the Task List panel.</li>
+  <li class="exercise-step"> Selected <strong>File</strong> - <strong>New</strong> - <strong>Other...</strong>. </li>
+  <li class="exercise-step">Selected <strong>Server</strong> - <strong>Server</strong>: <br>
+    <br>
+    <img src="../images/app0b/server_server.png" width="242" height="67" class="image-border"><br>
+  </li>
+  <li class="exercise-step">Clicked <strong>Next</strong>. </li>
+  <li class="exercise-step">In the field for Select the server type, typed<span class="code"> tomcat</span>.</li>
+  <li class="exercise-step">Under the  <strong>Apache </strong>folder, selected<strong> Tomcat v9.0 Server</strong>. </li>
+  <li class="exercise-step">Clicked <strong>Next</strong>. </li>
+  <li class="exercise-step">For the Tomcat installation directory, clicked the <strong>Browse...</strong> button. </li>
+  <li class="exercise-step">Selected <strong>Other Locations - Computer</strong> - <strong>opt</strong> - <strong>apache-tomcat-9.0.27</strong>. </li>
+  <li class="exercise-step">Clicked <strong>Open</strong>. </li>
+  <li class="exercise-step">Clicked <strong>Finish</strong>. </li>
+  <li class="exercise-step">Selected the <strong>Servers</strong> tab. </li>
+  <li class="exercise-step"><strong>Saw</strong> Tomcat v9.0 Server listed: <br>
+    <br>
+    <img src="../images/app0b/tomcat_9.png" width="579" height="115" class="image-border"><br>
+  </li>
+  <li class="exercise-step"><strong>Closed</strong> Eclipse.</li>
+  <li class="exercise-step">If any updates were installed, <strong>relaunched</strong> Eclipse, to agree to any dialog box messages.</li>
+  <li class="exercise-step"><strong>Closed</strong> Eclipse.</li>
+  <a id="node"></a>
+</ol>
+<p>For using the Node.js API (in Unit 6), downloaded and installed Node.js, npm,   Git, and Bower:</p>
+<ol start="305" class="exercise-step">
+  <li class="exercise-step">In a command prompt window as <strong>root</strong> (<span class="code">su</span>/<span class="code">centos</span>), entered: <br>
+    <br>
+    <span class="code">curl --silent --location https://rpm.nodesource.com/setup_6.x | bash - </span></li>
+  <li class="exercise-step">Entered<span class="code"> yum install -y nodejs</span>. </li>
+  <li class="exercise-step">Waited for it to install.</li>
+  <li class="exercise-step">Entered<span class="code"> node -v</span>, to see that Node.js is set up: <br>
+    <br>
+  <img src="../images/app0b/node_-v.png" width="321" height="55" class="image-border"></li>
+  <li class="exercise-step">Entered<span class="code"> npm -v </span>to see that npm is also set up:<br>
+    <br>
+    <img src="../images/app0b/npm_-v.png" width="302" height="58" class="image-border"><br>
+  </li>
+  <li class="exercise-step">Entered<span class="code"> git --version </span>to see that Git is also set up:<br>
+    <br>
+    <img src="../images/app0b/git_version.png" width="361" height="41" class="image-border"><br>
+  </li>
+  <li class="exercise-step">Still as root, entered<span class="code"> npm install bower -g </span>to install Bower globally.</li>
+  <li class="exercise-step">Waited for Bower to install. </li>
+  <li class="exercise-step">Entered<span class="code"> bower -v </span> to see that Bower is installed:<br>
+    <br>
+  <img src="../images/app0b/bower_-v.png" width="348" height="59" class="image-border"><br>
+  </li>
+</ol>
+<p>Optionally, set up a shared folder, to be able to copy files and folders between the host computer and the virtual machine:</p>
+<ol start="314" class="exercise-step">
+  <li class="exercise-step">Shut down the virtual machine.</li>
+  <li class="exercise-step">Created a folder on the host computer, to share.</li>
+  <li class="exercise-step">In Oracle VM VirtualBox Manager, with the virtual machine selected, clicked the <strong>Settings</strong> icon.</li>
+  <li class="exercise-step">Clicked the <strong>Shared Folders</strong> heading.</li>
+  <li class="exercise-step">Clicked the <strong>Add Share folder icon</strong> (folder with plus sign, in the upper-right corner).</li>
+  <li class="exercise-step">For Folder Path, in the the drop-down list, selected <strong>Other...</strong></li>
+  <li class="exercise-step">In the dialog box, selected the folder on the host computer.</li>
+  <li class="exercise-step">Clicked the <strong>Open</strong> button.</li>
+  <li class="exercise-step">Selected the <strong>Auto-mount</strong> checkbox.</li>
+  <li class="exercise-step">Clicked the OK button.</li>
+  <li class="exercise-step">Clicked the OK button again.</li>
+  <li class="exercise-step">With the virtual machine selected, clicked the <strong>Start</strong> icon.</li>
+  <li class="exercise-step">In the virtual machine, in a terminal window, entered<span class="code"> su</span>.</li>
+  <li class="exercise-step">Entered the password of<span class="code"> centos</span>.</li>
+  <li class="exercise-step">Entered<span class="code"> usermod -a -G vboxsf cent</span>, to give cent permissions for the folder.</li>
+  <li class="exercise-step">Entered<span class="code"> id cent</span>, to see that cent is now in the vboxsf group.</li>
+  <li class="exercise-step">Entered<span class="code"> reboot now</span>, to restart the virtual machine, to be able to access the shared folder.</li>
+  <li class="exercise-step">Once the virtual machine rebooted, saw the shared folder on the desktop of the virtual machine.</li>
+</ol>
+<p>To get the mls-fundamentals class files   to the virtual machine:</p>
+<ol start="332" class="exercise-step">
+  <li class="exercise-step">In Firefox, entered<span class="code"> https://mlu.marklogic.com/downloads/ml10-fundamentals-sp.zip</span>. </li>
+  <li class="exercise-step">Left the <strong>Save File</strong> radio button selected, and clicked OK.</li>
+  <li class="exercise-step">Waited for the .zip file to download (by watching the blue arrow).</li>
+  <li class="exercise-step">In a new terminal window, as the <strong>cent</strong> user, entered<span class="code"> cd Downloads</span>.</li>
+  <li class="exercise-step">Entered<span class="code"> ls </span>to see the mls-fundamentals-centos.zip file listed.<br>
+  </li>
+  <li class="exercise-step">Entered<span class="code"> unzip ml10-fundamentals-sp.zip</span>.</li>
+  <li class="exercise-step">Entered<span class="code"> ls </span>to see the unzipped mls-fundamentals folder listed.</li>
+  <li class="exercise-step">On the desktop, double-clicked the <strong>Home</strong> folder.</li>
+  <li class="exercise-step">Double-clicked the <strong>Downloads</strong> folder.</li>
+  <li class="exercise-step"><strong>Dragged</strong> the  <strong>mls-fundamentals</strong> folder to the <strong>desktop</strong>.</li>
+  <li class="exercise-step">Closed all open windows. </li>
+  <li class="exercise-step">Arranged the desktop items as shown:<br>
+    <br>
+  <img src="../images/app0b/centos_desktop.png" width="700" height="532" class="image-border"></li>
+</ol>
+<p>To shrink the size of the virtual machine: </p>
+<ol start="344" class="exercise-step">
+  <li class="exercise-step">Opened a terminal window, entered<span class="code"> su</span>, and then the password of<span class="code"> centos</span>, to be root. </li>
+  <li class="exercise-step">Entered<span class="code"> cd /home/cent/Downloads</span>.</li>
+  <li class="exercise-step">Entered<span class="code"> ls </span>to see the files in the Downloads folder.</li>
+  <li class="exercise-step">Entered<span class="code"> rm -rf *</span>.</li>
+  <li class="exercise-step">Entered<span class="code"> ls </span>to see that the files in the Downloads folder are gone.</li>
+  <li class="exercise-step">Entered<span class="code"> dd if=/dev/zero | dd of=/bigemptyfile bs=4096k</span>.</li>
+  <li class="exercise-step">Waited for the command to finish running.</li>
+  <li class="exercise-step">Entered<span class="code"> rm -rf /bigemptyfile</span><span class="code"> </span>(and then<span class="code"> y </span>when prompted).</li>
+  <li class="exercise-step">Entered<span class="code"> exit</span>, to exit from being root.</li>
+  <li class="exercise-step">Closed any open windows. </li>
+  <li class="exercise-step">Clicked in  the upper-right corner of the virtual machine, to select the <strong>shut down</strong> button, and then the <strong>Power Off </strong> button, to shut down the virtual machine.</li>
+  <li class="exercise-step">Closed VirtualBox Manager.</li>
+  <li class="exercise-step">On the Mac (i.e. the host computer), opened a terminal window.</li>
+  <li class="exercise-step">Entered<span class="code"> cd /Applications/VirtualBox.app/Contents/Resources/VirtualBoxVM.app/Contents/MacOS/</span>.</li>
+  <li class="exercise-step">Entered<span class="code"> VBoxManage modifyhd --compact /Users/rstryker/VirtualBox\ VMs/centos7_64/centos7_64.vdi</span><span class="code"></span>.</li>
+  <li class="exercise-step"><strong>Waited</strong> for it to finish.</li>
+  <li class="exercise-step">Opened VirtualBox Manager.</li>
+  <li class="exercise-step">In VirtualBox Manager, with the virtual machine selected, clicked <strong>Start</strong>, and logged in by clicking <strong>cent</strong> and entering the password of<span class="code"> centos</span>.</li>
+</ol>
+<p>To download the MarkLogic installer for CentOS:</p>
+<ol start="362" class="exercise-step">
+  <li class="exercise-step">Inside the virtual machine, in Firefox,  entered<span class="code"> developer.marklogic.com/downloads</span>.</li>
+  <li class="exercise-step">Under MarkLogic 10, for Red Hat Enterprise Linux / CentOS, Version 7, clicked the <strong>MarkLogic Server x64 (AMD64, Intel EM64T) 64-bit Linux RPM</strong> link.</li>
+  <li class="exercise-step">Filled in the MarkLogic Community email and password fields, selected the terms checkbox, and clicked the <strong>Download</strong> button. </li>
+  <li class="exercise-step">Left the Save File radio button selected, and clicked the OK button.</li>
+  <li class="exercise-step"><strong>Waited</strong> for the file to download, by watching the progress in the blue arrow.</li>
+  <li class="exercise-step">In   a terminal window,  entered<span class="code"> su</span>.</li>
+  <li class="exercise-step">For password, entered<span class="code"> centos</span>.</li>
+  <li class="exercise-step">Entered<span class="code"> cd /home/cent/Downloads</span>.</li>
+  <li class="exercise-step">Entered<span class="code"> ls</span>.</li>
+  <li class="exercise-step">Saw the  MarkLogic-10.0-3.x86_64.rpm file listed.</li>
+</ol>
+<p>To clear the browser cache in the virtual machine:</p>
+<ol start="372" class="exercise-step">
+  <li class="exercise-step">In Firefox, closed all tabs.</li>
+  <li class="exercise-step">Opened Firefox and went to the <strong>Open menu</strong> (three bars icon in upper right) - <strong>Preferences</strong> - <strong>Privacy</strong> <strong>&amp; Security</strong>.</li>
+  <li class="exercise-step">On the age, in the <strong>Cookies and Site Data</strong> section, clicked the <strong>Clear Data...</strong> button.</li>
+  <li class="exercise-step">Left both checkboxes selected and clicked the <strong>Clear</strong> button.</li>
+  <li class="exercise-step">Clicked the Clear Now button.</li>
+  <li class="exercise-step">In the <strong>History</strong> section, clicked the <strong>Clear History... </strong>button.</li>
+  <li class="exercise-step">For Time range to clear, selected <strong>Everything</strong>.</li>
+  <li class="exercise-step">Clicked the <strong>Clear Now </strong>button.</li>
+  <li class="exercise-step">Closed all tabs.</li>
+</ol>
+<p>To create a clone of the centos7_64 virtual machine:</p>
+<ol start="381" class="exercise-step">
+  <li class="exercise-step">Closed any open windows.</li>
+  <li class="exercise-step">Shut down the virtual machine, by clicking in the upper-right corner, clicking the <strong>shut down</strong> button, and clicking the <strong>Power Off </strong>button.</li>
+  <li class="exercise-step">In VirtualBox Manager, with the virtual machine selected, selected <strong>Machine</strong> - <strong>Clone...</strong>.</li>
+  <li class="exercise-step">For new machine name, entered <strong>centos7_64_fundamentals10</strong>. </li>
+  <li class="exercise-step">Selected the checkbox for <strong>Reinitialize the MAC address of all network cards</strong>.</li>
+  <li class="exercise-step">Clicked the Continue button.</li>
+  <li class="exercise-step">Left <strong>Full clone</strong> selected.</li>
+  <li class="exercise-step">Clicked the <strong>Clone</strong> button.</li>
+  <li class="exercise-step">Waited for the new virtual machine to be generated.</li>
+</ol>
+<p>To generate an .ova file for distribution:</p>
+<ol start="390" class="exercise-step">
+  <li class="exercise-step">Selected the <strong>centos7_64_fundamentals10</strong> virtual machine.</li>
+  <li class="exercise-step">Selected <strong>File</strong> - <strong>Export Appliance</strong>.</li>
+  <li class="exercise-step">With the new virtual machine highlighted (centos7_64_fundamentals10), clicked the Continue button.</li>
+  <li class="exercise-step">For File, specified a location and a file name of<span class="code"> centos7_64_fundamentals10.ova </span>(e.g. ﻿/Users/rstryker/Desktop/centos7_64_fundamentals10.ova).</li>
+  <li class="exercise-step">Clicked the Continue button.</li>
+  <li class="exercise-step">Clicked the <strong>Export</strong> button.</li>
+  <li class="exercise-step">Waited for the .ova file to be generated. </li>
+  <li class="exercise-step">Uploaded the .ova file for distribution. </li>
+</ol>
+<p>&nbsp;</p>
+<p>Appendix B  End: <a href="xb03_using_virtualbox.htm">Topic (Using VirtualBox)</a><a href="../index.htm"></a><a href="../index.htm"></a></p>
+<p>Back: <a href="xb02_creating_the_course_virtual_machine.htm">Previous</a></p>
+<hr>
+<p class="copyright">©2015-2020 MarkLogic Corporation. All rights reserved. Copying, selling, or otherwise distributing any part of this course without prior written consent of an authorized representative of MarkLogic Corporation is prohibited.</p>
+</body>
+</html>

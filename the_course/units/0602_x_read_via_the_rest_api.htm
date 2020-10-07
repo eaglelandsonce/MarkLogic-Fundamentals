@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>MarkLogic Fundamentals</title>
+<link href="../css/ml.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<p><img src="../images/general/Marklogic-University-RGB.png" alt="" width="130" height="38" class="logo-padding"/></p>
+<p class="exercise-heading">Exercise: <strong>Read via the REST API</strong></p>
+<p>In this walkthrough exercise, you use the REST API /v1/documents endpoint to read a document.</p>
+<p>&nbsp;</p>
+<ol class="exercise-step">
+  <li class="exercise-step">In the virtual machine, in a <strong>command prompt </strong>window, enter the following to read the /patents/waterski_drone.json document (unit06/<strong>ex02a.txt</strong>):<br>
+    <br>
+    <span class="code">curl --anyauth --user admin:admin -X GET &quot;http://localhost:8060/v1/documents?uri=/patents/waterski_drone.json&quot;</span><br>
+  </li>
+  <li class="exercise-step">See that the document is returned:<br>
+    <br>
+    <img src="../images/unit06/rest_api.png" width="700" height="107" class="image-border"><br>
+  </li>
+  <li class="exercise-step">Realize that this HTTP request can be made from any programming language that supports HTTP requests, which includes most  languages (e.g. Python, PHP, C#, Ruby, Java,  JavaScript, etc.).</li>
+  <li class="exercise-step">Modify the command, to make the call as  <strong>patents-user</strong> (<strong>ex02b.txt</strong>):<br>
+    <br>
+    <span class="code">curl --anyauth --user <strong>patents-user</strong>:<strong>user</strong> -X GET &quot;http://localhost:8060/v1/documents?uri=/patents/waterski_drone.json&quot;</span><br>
+  </li>
+  <li class="exercise-step">Press Enter, to run the command.</li>
+  <li class="exercise-step">See that  patents-user does not have the security privilege for being able to read the document via the REST API:<br>
+    <br>
+    <img src="../images/unit06/patents-user.png" width="673" height="94" class="image-border"><br>
+  </li>
+  <li class="exercise-step">In the <strong>Admin Interface</strong>, select <strong>Configure</strong> - <strong>Security</strong> - <strong>Roles</strong>.</li>
+  <li class="exercise-step">In the list of roles, locate <strong>patents-user-role</strong>.</li>
+  <li class="exercise-step"><strong>Click</strong> patents-user-role, to edit it.</li>
+  <li class="exercise-step">In the first set of checkboxes, select the checkbox for <strong>rest-reader</strong>, so that patents-user-role will inherit the privileges and document permissions of the rest-reader role:<br>
+    <br>
+    <img src="../images/unit06/rest-reader.png" width="160" height="43" class="image-border"><br>
+  </li>
+  <li class="exercise-step">Scroll up, to then select the <strong>ok</strong> button.</li>
+  <li class="exercise-step">Back in the <strong>command prompt</strong> window, press the <strong>up arrow </strong>on your keyboard, to display the last command.</li>
+  <li class="exercise-step">Press <strong>Enter</strong>.</li>
+  <li class="exercise-step">See that the command now runs:<br>
+    <br>
+  <img src="../images/unit06/patents-user_runs.png" width="700" height="108" class="image-border"></li>
+</ol>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Next: <a href="0603_hosting_an_application.htm">Topic (Hosting an Application)</a></p>
+<p>Back: <a href="0602_reading_via_the_rest_api.htm">Previous</a></p>
+<hr>
+<p class="copyright">©2015-2020 MarkLogic Corporation. All rights reserved. Copying, selling, or otherwise distributing any part of this course without prior written consent of an authorized representative of MarkLogic Corporation is prohibited.</p>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>MarkLogic Fundamentals</title>
+<link href="../css/ml.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<p><img src="../images/general/Marklogic-University-RGB.png" alt="" width="130" height="38" class="logo-padding"/></p>
+<p class="topic-heading"><strong>Searching Rows</strong></p>
+<p>Once rows have been created via a  template, queries can be made against the rows by using <strong>SQL</strong> or the <strong>Optic API</strong>.</p>
+<p class="topic-sub-heading">SQL</p>
+<p>MarkLogic  supports SQL-92 for making row queries. </p>
+<p><span class="code">﻿SELECT * <br>
+FROM characters <br>
+WHERE height &gt;= 1.7 <br>
+ORDER BY height DESC</span></p>
+<p>Result:</p>
+<p><img src="../images/unit07/sql_result_order_by.png" width="676" height="149" class="image-border"></p>
+<p>Detail on MarkLogic's SQL support is in the SQL Data Modeling Guide at docs.marklogic.com/guide/sql/SQLqueries.</p>
+<p><img src="../images/unit07/sql92.png" width="592" height="270" class="image-border"></p>
+<p class="topic-sub-heading">Optic API</p>
+<p>Introduced in MarkLogic 9, the Optic API provides a way for  JavaScript, XQuery,  Java, and REST API developers to write fluent queries against <strong>rows</strong> and <strong>triples</strong>, and even include <strong>document</strong> criteria.</p>
+<p>For example, a join could be made to use the result of querying triples as criteria for querying rows, to return  document data on characters that Harrison Ford has played.</p>
+<p class="code">﻿const op = require('/MarkLogic/optic');</p>
+<p class="code">const resource = op.prefixer('http://marklogic.com/mlu/resource/');<br>
+  const onto = op.prefixer('http://marklogic.com/mlu/star-wars/ontology/');<br>
+  const foaf = op.prefixer('http://xmlns.com/foaf/0.1/');</p>
+<p class="code">const c = op.col('character');<br>
+  const foafName = op.col('foafName');</p>
+<p class="code">const charactersRows = op.fromView('starwars', 'characters');</p>
+<p class="code">op.fromTriples([<br>
+  op.pattern(c, onto('playedBy'), resource('Harrison_Ford')),<br>
+  op.pattern(c, foaf('name'), foafName)<br>
+  ])<br>
+  .joinInner(charactersRows, op.on(foafName, charactersRows.col('name')))<br>
+  .select(['name', 'role', 'height', 'homeworld', 'alliance'])<br>
+  .result();</p>
+<p><br>
+Result:</p>
+<p><img src="../images/unit07/optic_result.png" width="446" height="172" class="image-border"></p>
+<p>Detail on the Optic API is available in the Application Developer's Guide at <strong>docs.marklogic.com/guide/app-dev/OpticAPI</strong>, as well as in the hands-on <strong>MarkLogic Data Integration course</strong> at www.marklogic.com/learn/courses/marklogic-data-integration.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Next: <a href="0704_x_search_rows.htm">Exercise (Search Rows)</a></p>
+<p>Back: <a href="0703_x_search_triples.htm">Previous</a><br>
+</p>
+<hr>
+<p class="copyright">©2015-2020 MarkLogic Corporation. All rights reserved. Copying, selling, or otherwise distributing any part of this course without prior written consent of an authorized representative of MarkLogic Corporation is prohibited.</p>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>MarkLogic Fundamentals</title>
+<link href="../css/ml.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<p><img src="../images/general/Marklogic-University-RGB.png" alt="" width="130" height="38" class="logo-padding"/></p>
+<p class="topic-heading"><strong>Searching Triples</strong></p>
+<p>Triples are most commonly used to express relationships between entities. And, by querying across triples, interesting discoveries can  be made.</p>
+<p>SPARQL (SPARQL Protocol and RDF Query Language) is the standard query language for  searching triples.</p>
+<p class="code">﻿SELECT ?o ?o2 <br>
+  WHERE {&lt;http://marklogic.com/mlu/star-wars/resource/Han_Solo&gt; &lt;http://marklogic.com/mlu/star-wars/ontology/playedBy&gt; ?o . <br>
+?o &lt;http://marklogic.com/mlu/ontology/birthDate&gt; ?o2}</p>
+<p>Result:</p>
+<p><img src="../images/unit07/birthdates.png" width="765" height="148" class="image-border"></p>
+<p>SPARQL also includes techniques for making query results human-readable (e.g. Harrison Ford instead of ﻿&lt;http://marklogic.com/mlu/resource/Harrison_Ford&gt;).</p>
+SPARQL is a W3C Recommendation, fully supported in MarkLogic.
+<p class="topic-sub-heading">Learning Resources</p>
+<p>The MarkLogic <strong>Semantics Developer's Guide</strong> (docs.marklogic.com/guide/semantics) provides documentation on loading  triples and using SPARQL in MarkLogic.</p>
+<p>In addition, MarkLogic University offers a 2-day <strong>Using MarkLogic Semantics</strong> hands-on training course, available in a self-paced or  instructor-led format (www.marklogic.com/learn/courses/using-marklogic-semantics), for learning the world of semantics, triples, writing SPARQL queries, and how triples can be used in applications.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Next: <a href="0703_x_search_triples.htm">Exercise (Search Triples)</a></p>
+<p>Back: <a href="0702_x_search_documents.htm">Previous</a><br>
+</p>
+<hr>
+<p class="copyright">©2015-2020 MarkLogic Corporation. All rights reserved. Copying, selling, or otherwise distributing any part of this course without prior written consent of an authorized representative of MarkLogic Corporation is prohibited.</p>
+</body>
+</html>

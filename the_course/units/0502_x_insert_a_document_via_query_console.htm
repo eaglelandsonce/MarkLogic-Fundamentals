@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>MarkLogic Fundamentals</title>
+<link href="../css/ml.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<p><img src="../images/general/Marklogic-University-RGB.png" alt="" width="130" height="38" class="logo-padding"/></p>
+<p class="exercise-heading">Exercise: <strong>Insert a Document via Query Console</strong></p>
+<p>In this walkthrough exercise, in Query Console, you first write a JavaScript expression to insert a couple documents into the <strong>playground</strong> database. Then you load documents into the <strong>patents</strong> database. </p>
+<p>&nbsp;</p>
+<ol class="exercise-step">
+  <li class="exercise-step">In a browser within the virtual machine, access <strong>Query Console</strong> (http://localhost:8000).<span class="code"> <br>
+  </span></li>
+  <li class="exercise-step">In  Query Console, click the <strong>+</strong> button, to create a new tab:<br>
+    <br>
+  <img src="../images/unit05/plus_button.png" width="148" height="38" class="image-border"></li>
+  <li class="exercise-step">In the Database drop-down list, select the <strong>playground</strong> database:<br>
+    <br>
+    <img src="../images/unit05/playground.png" width="171" height="511" class="image-border"><br>
+    <br>
+    <em>Note: If  the playground  database is not showing in the  list, refresh the browser page, to update the list. </em><br>
+  </li>
+  <li class="exercise-step">In the Query Type drop-down list, ensure <strong>JavaScript</strong> is selected:<br>
+    <br>
+  <img src="../images/unit05/query_type.png" width="238" height="48" class="image-border"></li>
+  <li class="exercise-step">Enter the following in the code area, below the 'use strict'; line (can copy from unit05/<strong>ex02a.txt</strong>):<br>
+    <br>
+    <span class="code">declareUpdate();<br>
+xdmp.documentInsert('/fun/hello.json', {'greeting': 'Hello World!'});</span><br>
+  </li>
+  <li class="exercise-step">Click the <strong>Run</strong> button:<br>
+    <br>
+    <img src="../images/unit05/run_button.png" width="82" height="33" class="image-border"><br>
+  </li>
+  <li class="exercise-step">See that <strong>null</strong> is returned, because we did not ask for anything to be returned from the database:<br>
+    <br>
+    <img src="../images/unit05/null.png" width="263" height="64" class="image-border"><br>
+  </li>
+  <li class="exercise-step">With the playground database still selected in the Database list, click the <strong>Explore</strong> button:<br>
+    <br>
+    <img src="../images/unit05/explore_button.png" width="293" height="38" class="image-border"><br>
+  </li>
+  <li class="exercise-step"><strong>See</strong> that the /fun/hello.json document is listed in the results area:<br>
+    <br>
+    <img src="../images/unit05/fun_hello.png" width="669" height="112" class="image-border"><br>
+  </li>
+  <li class="exercise-step">Realize that, although this document's URI includes a directory named fun, that the document isn't  physically stored in a directory named fun. (Documents are stored in a compressed format within a forest.)</li>
+  <li class="exercise-step">Click the URI for the document, <strong>/fun/hello.json</strong>, to view the contents of the document:<br>
+    <br>
+  <img src="../images/unit05/funhello_contents.png" width="336" height="67" class="image-border"></li>
+</ol>
+<p>Insert a document using the xdmp:document-insert() XQuery function: </p>
+<ol start="12" class="exercise-step">
+  <li class="exercise-step">Click the <strong>+</strong> button, to create a new tab in Query Console.</li>
+  <li class="exercise-step">Ensure <strong>playground</strong> is the selected database. </li>
+  <li class="exercise-step">In the Query Type drop-down list, select <strong>XQuery</strong>.</li>
+  <li class="exercise-step">Enter the following in the code area, below xquery version &quot;1.0-ml&quot;;  (can copy from unit05/<strong>ex02b.txt</strong>):<br>
+    <br>
+    <span class="code">xdmp:document-insert(&quot;/fun/hello.xml&quot;, &lt;greeting&gt;Hello World!&lt;/greeting&gt;)</span><br>
+  </li>
+  <li class="exercise-step">Click the <strong>Run</strong> button.</li>
+  <li class="exercise-step">Realize that   <em>your query returned an empty sequence</em> is returned because we did not request anything to be returned from the database.</li>
+  <li class="exercise-step">With the playground database still chosen, click the <strong>Explore</strong> button.</li>
+  <li class="exercise-step"><strong>See</strong> that the /fun/hello.xml document is listed in the results area:<br>
+    <br>
+    <img src="../images/unit05/twodocs.png" width="674" height="135" class="image-border"><br>
+  </li>
+  <li class="exercise-step">Click <strong>/fun/hello.xml</strong>, to see the contents of the document:<br>
+    <br>
+  <img src="../images/unit05/funsecond_contents.png" width="337" height="52" class="image-border"></li></ol>
+<p>Load documents from the file system: </p>
+<ol start="21" class="exercise-step">
+  <li class="exercise-step">On the desktop of the virtual machine, in the mls-fundamentals/<strong>data</strong>/<strong>patents</strong> folder, open <strong>airless_diving.json</strong>  in a text editor, to view the document   you will be loading:<br>
+    <br>
+    <img src="../images/unit05/view_airless.png" width="700" height="180" class="image-border"><br>
+  </li>
+  <li class="exercise-step">Close the file.</li>
+  <li class="exercise-step">In Query Console, click the <strong>+</strong> button to create a new tab.</li>
+  <li class="exercise-step">For Database, select <strong>patents</strong>.</li>
+  <li class="exercise-step">For Query Type, select <strong>JavaScript</strong>.</li>
+  <li class="exercise-step">Enter the following (can copy from mls-fundamentals/unit05/<strong>ex02c.txt</strong>):<br>
+    <br>
+    <span class="code">declareUpdate(); <br>
+xdmp.documentLoad('/home/cent/Desktop/mls-fundamentals/data/patents/airless_diving.json')</span><br>
+  </li>
+  <li class="exercise-step">With the <strong>patents</strong> database selected, press <strong>Run</strong>.</li>
+  <li class="exercise-step">With the <strong>patents</strong> database still selected, click the <strong>Explore</strong> button.</li>
+  <li class="exercise-step"><strong>See</strong> that the patents database now contains the /home/cent/Desktop/mls-fundamentals/data/patents/airless_diving.json document:<br>
+    <br>
+    <img src="../images/unit05/patents_explore.png" width="700" height="124" class="image-border"><br>
+  </li>
+  <li class="exercise-step"><strong>Notice</strong> the long URI.</li>
+  <li class="exercise-step">Modify the JavaScript expression, to specify a custom URI (<strong>ex02d.txt</strong>):<br>
+    <br>
+    <span class="code">declareUpdate();  <br>
+    xdmp.documentLoad('/home/cent/Desktop/mls-fundamentals/data/patents/airless_diving.json'<strong>, 
+    {'uri': '/patents/airless_diving.json'}</strong>)</span><br>
+  </li>
+  <li class="exercise-step">Press <strong>Run</strong>.</li>
+  <li class="exercise-step">Click the <strong>Explore</strong> button.</li>
+  <li class="exercise-step">See that the new document has a URI of /patents/airless_diving.json:<br>
+    <br>
+    <img src="../images/unit05/patents_uri.png" width="724" height="195" class="image-border"></li>
+</ol>
+<p>Delete a document:</p>
+<ol start="35" class="exercise-step">
+  <li class="exercise-step">Add a <strong>new tab</strong> and <strong>run</strong> the following, to delete the old document (<strong>ex02e.txt</strong>):<br>
+    <br>
+    <span class="code">declareUpdate();<br>
+    xdmp.documentDelete('/home/cent/Desktop/mls-fundamentals/data/patents/airless_diving.json')</span><br>
+  </li>
+  <li class="exercise-step">Click the <strong>Explore</strong> button, to see that the document has been deleted:<br>
+    <br>
+    <img src="../images/unit05/doc_deleted.png" width="512" height="114" class="image-border"></li>
+</ol>
+<p>Load all of the patents documents from the file system, specifying a custom URI for each: </p>
+<ol start="37" class="exercise-step">
+  <li class="exercise-step">Click the <strong>+</strong> button to add a new tab.</li>
+  <li class="exercise-step">Enter the following (<strong>ex02f.txt</strong>):<br>
+    <br>
+    <span class="code">declareUpdate(); <br>
+    <br>
+    const pathToDocs = '/home/cent/Desktop/mls-fundamentals/data/patents'; <br>
+    const docResults = xdmp.filesystemDirectory(pathToDocs); <br>
+    <br>
+    docResults.forEach(function(doc) {   <br>
+&nbsp;    xdmp.documentLoad(doc.pathname, {'uri': '/patents/' + doc.filename}) <br>
+});</span><br>
+  </li>
+  <li class="exercise-step">Click <strong>Run</strong>.</li>
+  <li class="exercise-step">Click the <strong>Explore</strong> button, to see that the documents  loaded:<br>
+    <br>
+    <img src="../images/unit05/patents_all.png" width="524" height="205" class="image-border"><br>
+  </li>
+</ol>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Next: <a href="0503_organizing_documents.htm" class="exercise-link">Topic (Organizing Documents)</a></p>
+<p>Back: <a href="0502_inserting_a_document_via_query_console.htm">Previous</a></p>
+<hr>
+<p class="copyright">©2015-2020 MarkLogic Corporation. All rights reserved. Copying, selling, or otherwise distributing any part of this course without prior written consent of an authorized representative of MarkLogic Corporation is prohibited.</p>
+</body>
+</html>

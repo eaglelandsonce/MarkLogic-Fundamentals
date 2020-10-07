@@ -1,0 +1,146 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>MarkLogic Fundamentals</title>
+<link href="../css/ml.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<p><img src="../images/general/Marklogic-University-RGB.png" alt="" width="130" height="38" class="logo-padding"/></p>
+<p class="exercise-heading">Exercise: <strong>Assign Document Permissions</strong></p>
+<p>In this walkthrough exercise, you assign document permissions so that a patents  user can read   the patents documents.</p>
+<p>&nbsp;</p>
+<ol class="exercise-step">
+  <li class="exercise-step">In <strong>Query Console</strong>, in the upper-right, select <strong>Workspace</strong> - <strong>Import Workspace...</strong>:<br>
+    <br>
+    <img src="../images/unit05/import_workspace.png" width="192" height="179" class="image-border"><br>
+  </li>
+  <li class="exercise-step">Click the <strong>Browse...</strong> button.</li>
+  <li class="exercise-step">Navigate to select <strong>mls-fundamentals</strong> - <strong>unit05</strong> - <strong>Assign Document Permissions.xml</strong>.</li>
+  <li class="exercise-step">Select <strong>Open</strong>.</li>
+  <li class="exercise-step">Click <strong>Import</strong>.</li>
+  <li class="exercise-step">Select the first tab, <strong>Read</strong> <strong>As admin</strong>:<br>
+    <br>
+    <span class="code">cts.doc('/patents/tuning_ukulele.json')</span>'<br>
+  </li>
+  <li class="exercise-step"><strong>Realize</strong> that, because you are logged into Query Console as the <strong>admin</strong> user, you will be running this query as the admin user, who has the admin role.</li>
+  <li class="exercise-step">With the <strong>patents</strong> database and <strong>JavaScript</strong> selected, click <strong>Run</strong>, to see that you can read the document:<br>
+    <br>
+    <img src="../images/unit05/patent.png" width="652" height="145" class="image-border"><br>
+  </li>
+  <li class="exercise-step">Select the second tab, <strong>Explicitly Read As admin</strong>:<br>
+    <br>
+    <span class="code">const admin = require('/MarkLogic/admin.xqy'); <br>
+    <br>
+    xdmp.invokeFunction(function(){<br>
+&nbsp;    return cts.doc('/patents/tuning_ukulele.json');},   <br>
+&nbsp; {'userId': xdmp.user('admin')<br>
+})</span><br>
+  </li>
+  <li class="exercise-step">With the <strong>patents</strong> database selected, click <strong>Run</strong>, to see that you can read the document as the admin user:<br>
+    <br>
+  <img src="../images/unit05/patent.png" width="652" height="145" class="image-border"></li>
+  <li class="exercise-step">Select the  <strong>Read As patents-user </strong> tab:<br>
+    <br>
+    <span class="code">const admin = require('/MarkLogic/admin.xqy'); <br>
+    <br>
+xdmp.invokeFunction(function(){<br>
+&nbsp;    return cts.doc('/patents/tuning_ukulele.json');}, <br>
+&nbsp; {'userId': xdmp.user('patents-user')<br>
+})</span><br>
+  </li>
+  <li class="exercise-step"><strong>Realize</strong> that this is an attempt to read the  document as a user that does not yet exist.</li>
+  <li class="exercise-step">With the <strong>patents</strong> database and <strong>JavaScript</strong> selected, click <strong>Run</strong>, to see that patents-user does not exist:<br>
+    <br>
+    <img src="../images/unit05/not_exists.png" width="700" height="106" class="image-border"><br>
+  </li>
+  <li class="exercise-step">Select the <strong>Create patents-user-role</strong> tab: <br>
+    <br>
+    <span class="code">declareUpdate(); <br>
+    <br>
+const sec = require(&quot;/MarkLogic/security.xqy&quot;); <br>
+<br>
+sec.createRole('patents-user-role', 'Role for reading patents documents', [], null, null);</span></li>
+  <li class="exercise-step"><strong>Notice</strong> that the <strong>Security</strong> database is selected.</li>
+  <li class="exercise-step">With the <strong>Security</strong> database selected, click <strong>Run</strong>.</li>
+  <li class="exercise-step">See that a role id is returned:<br>
+    <br>
+  <img src="../images/unit05/returned.png" width="278" height="63" class="image-border"></li>
+  <li class="exercise-step">Select the <strong>Create patents-user</strong> tab: <br>
+    <br>
+    <span class="code">declareUpdate(); <br>
+      <br>
+      const sec = require(&quot;/MarkLogic/security.xqy&quot;); <br>
+  <br>
+      sec.createUser('patents-user', 'User for reading patents documents', 'user', 'patents-user-role', null, null);</span><br>
+  </li>
+  <li class="exercise-step">With the <strong>Security</strong> database selected, click <strong>Run</strong>.</li>
+  <li class="exercise-step">See that a user id is returned:<br>
+    <br>
+  <img src="../images/unit05/user_id.png" width="240" height="80" class="image-border"></li>
+  <li class="exercise-step">If desired, in the <strong>Admin Interface</strong> (localhost:8001), select <strong>Configure</strong> - <strong>Security</strong> - <strong>Users</strong>:<br>
+    <br>
+  <img src="../images/unit05/users.png" width="206" height="201" class="image-border"></li>
+  <li class="exercise-step">See that  patents-user  exists and that it has  patents-user-role:<br>
+    <br>
+  <img src="../images/unit05/patents-user_admin.png" width="617" height="175" class="image-border"></li>
+  <li class="exercise-step">In Query Console, select the <strong>Assign Document Permissions</strong> tab:<br>
+    <br>
+    <span class="code">declareUpdate(); <br>
+xdmp.documentAddPermissions(<br>
+&nbsp; '/patents/tuning_ukulele.json', <br>
+&nbsp; [xdmp.permission('patents-user-role', 'read')]<br>
+);</span><br>
+  </li>
+  <li class="exercise-step">With the <strong>patents</strong> database selected, click <strong>Run</strong>.</li>
+  <li class="exercise-step">On the  <strong>Read As patents-user</strong> tab, click <strong>Run</strong>.</li>
+  <li class="exercise-step">See that  patents-user  can now view the document:<br>
+    <br>
+  <img src="../images/unit05/patent.png" width="652" height="145" class="image-border"></li>
+  <li class="exercise-step">With the patents database selected, click the <strong>Explore</strong> button.</li>
+  <li class="exercise-step">Click <strong>/patents/tuning_ukulele.json</strong>.</li>
+  <li class="exercise-step">Click <strong>Permissions</strong>.</li>
+  <li class="exercise-step">See the permissions for the document displayed:<br>
+    <br>
+    <img src="../images/unit05/doc_permissions.png" width="700" height="117" class="image-border"><br>
+  </li>
+  <li class="exercise-step">Select the <strong>Load with Permissions</strong> tab:<br>
+    <br>
+  <span class="code">﻿declareUpdate();  <br>
+  xdmp.documentLoad('/home/cent/Desktop/mls-fundamentals/data/patents/smart_racket.json', {'uri': '/patents/smart_racket.json', <strong>'permissions': [xdmp.permission('patents-user-role', 'read')]</strong>, 'collections': ['strings', 'racket', 'tennis']}); </span></li>
+  <li class="exercise-step"><strong>See</strong> that you will be assigning permissions to a document while loading it.</li>
+  <li class="exercise-step">Click <strong>Run</strong>.</li>
+  <li class="exercise-step">Click the <strong>Explore</strong> button.</li>
+  <li class="exercise-step">Click <strong>/patents/smart_racket.json</strong>.</li>
+  <li class="exercise-step">Click <strong>Permissions</strong>. </li>
+  <li class="exercise-step">See the permissions for the document displayed:<br>
+    <br>
+  <img src="../images/unit05/smart_racket_perms.png" width="700" height="130" class="image-border"></li>
+  <li class="exercise-step">Select the <strong>Assign All </strong>tab:<br>
+    <br>
+    ﻿<span class="code">declareUpdate(); <br>
+    <br>
+    const docs = xdmp.directory('/patents/'); <br>
+    <br>
+    docs.toArray().forEach(function(doc) {   <br>
+&nbsp;    let uri = fn.baseUri(doc);   <br>
+&nbsp; <strong>xdmp.documentAddPermissions(uri, [xdmp.permission('patents-user-role', 'read')]);</strong><br>
+});</span><br>
+  </li>
+  <li class="exercise-step"><strong>See</strong> that you will be assigning the read capability to patents-user-role for all of the documents in the /patents/ directory.</li>
+  <li class="exercise-step">With the <strong>patents</strong> database and <strong>JavaScript</strong> selected, click <strong>Run</strong>.</li>
+  <li class="exercise-step"><strong>View</strong> the permissions for any of the documents (e.g. /patents/waterski_drone).</li>
+  <li class="exercise-step"><strong>See</strong> that users with the patents-user-role have the  capability to read the document:<br>
+    <br>
+    <img src="../images/unit05/permissions_doc.png" width="700" height="122" class="image-border"><br>
+  </li>
+</ol>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Next: <a href="0505_modifying_documents.htm" class="exercise-link">Topic (Modifying Documents)</a></p>
+<p>Back: <a href="0504_assigning_document_permissions.htm">Previous</a></p>
+<hr>
+<p class="copyright">©2015-2020 MarkLogic Corporation. All rights reserved. Copying, selling, or otherwise distributing any part of this course without prior written consent of an authorized representative of MarkLogic Corporation is prohibited.</p>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>MarkLogic Fundamentals</title>
+<link href="../css/ml.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<p><img src="../images/general/Marklogic-University-RGB.png" alt="" width="130" height="38" class="logo-padding"/></p>
+<p class="exercise-heading">Exercise: <strong>Make a Geospatial Search</strong> (optional)</p>
+<p>In this walkthrough exercise, you load car listings, and then search for cars for sale within a given radius.</p>
+<p>&nbsp;</p>
+<ol class="exercise-step">
+  <li class="exercise-step">On the <strong>desktop</strong> of the virtual machine, in the mls-fundamentals/<strong>data/cars</strong> folder, see that there are documents for    car listings:<br>
+    <br>
+    <img src="../images/unit08/car_docs.png" width="480" height="227" class="image-border"><br>
+  </li>
+  <li class="exercise-step">Double-click  one of the listings (e.g. 890411.json), to see the contents:<br>
+    <br>
+  <img src="../images/unit08/car_contents.png" width="700" height="480" class="image-border"></li>
+  <li class="exercise-step"><strong>Notice</strong> the latitude and longitude values. </li>
+  <li class="exercise-step">In <strong>Query Console</strong>, import the <strong>Geospatial</strong>.xml workspace from the <strong>unit08</strong> folder.</li>
+  <li class="exercise-step">Select the first tab, <strong>Load Docs</strong>,  to see that you will be importing the car listings:<br>
+    <br>
+    <span class="code">﻿declareUpdate(); <br>
+    <br>
+    const pathToDocs = '/home/cent/Desktop/mls-fundamentals/data/cars'; <br>
+    const docResults = xdmp.filesystemDirectory(pathToDocs); <br>
+    <br>
+    docResults.forEach(function(doc) {   <br>
+&nbsp;    xdmp.documentLoad(doc.pathname, {'uri': '/cars/' + doc.filename}) <br>
+});</span><br>
+  </li>
+  <li class="exercise-step">With the <strong>playground</strong> database and <strong>JavaScript</strong> selected, click <strong>Run</strong>.</li>
+  <li class="exercise-step">Click the <strong>Explore</strong> button, to see that the documents loaded:<br>
+    <br>
+  <img src="../images/unit08/explore_docs.png" width="440" height="199" class="image-border"></li>
+  <li class="exercise-step">Click one of the documents (e.g. <strong>/cars/890411.json</strong>) to see the contents.</li>
+  <li class="exercise-step">Note the names of the latitude and longitude values (i.e. <strong>lat</strong> and <strong>long</strong>), and the parent property name (i.e. <strong>location</strong>):<br>
+    <br>
+    <img src="../images/unit08/doc_contents.png" width="562" height="416" class="image-border"><br>
+  </li>
+  <li class="exercise-step">In the <strong>Admin Interface</strong>, select <strong>Configure</strong> - <strong>Databases</strong> - <strong>playground</strong> - <strong>Geospatial Point Indexes</strong> - <strong>Geospatial Element Pair Indexes</strong>.</li>
+  <li class="exercise-step">Select the <strong>Add</strong> tab.</li>
+  <li class="exercise-step">For parent localname, enter<span class="code"> location</span>.</li>
+  <li class="exercise-step">For latitude localname, enter<span class="code"> lat</span>.</li>
+  <li class="exercise-step">For longitude localname, enter<span class="code"> long</span>.</li>
+  <li class="exercise-step">Leave the rest of the fields with their defaults. </li>
+  <li class="exercise-step">Click the <strong>ok</strong> button.</li>
+  <li class="exercise-step">See that the geospatial index has been defined:<br>
+    <br>
+  <img src="../images/unit08/geo_index.png" width="606" height="500" class="image-border"></li>
+  <li class="exercise-step">Back in Query Console, select the <strong> Geospatial Query</strong> tab, to search for cars within 120 miles of Portland, Oregon:<br>
+    <br>
+    <span class="code">﻿cts.search(   <br>
+&nbsp;    cts.jsonPropertyPairGeospatialQuery(&quot;location&quot;,      &quot;lat&quot;, &quot;long&quot;, <br>
+&nbsp;&nbsp;&nbsp; cts.circle(120, cts.point(44.561132, -123.317698))));</span><br>
+  </li>
+  <li class="exercise-step">With the <strong>playground</strong> database and <strong>JavaScript</strong> selected, click <strong>Run</strong>.</li>
+  <li class="exercise-step">See that three cars are returned:<br>
+    <br>
+    <img src="../images/unit08/results_three.png" width="572" height="254" class="image-border"><br>
+  </li>
+  <li class="exercise-step">Select the <strong>And Query</strong> tab:<br>
+    <br>
+    ﻿<span class="code">cts.search(cts.andQuery([   <br>
+&nbsp;    cts.jsonPropertyPairGeospatialQuery(&quot;location&quot;, &quot;lat&quot;, &quot;long&quot;,      <br>
+&nbsp;&nbsp;&nbsp; cts.circle(120, cts.point(44.561132, -123.317698))),   <br>
+&nbsp; cts.wordQuery(&quot;orange&quot;) <br>
+]));</span><br>
+  </li>
+  <li class="exercise-step">Realize that this query is to find cars that are within a 120-mile radius, and that contain the word orange.</li>
+  <li class="exercise-step">With the <strong>playground</strong> database and <strong>JavaScript</strong> selected, click <strong>Run</strong>.</li>
+  <li class="exercise-step">See that two cars are returned:<br>
+    <br>
+  <img src="../images/unit08/two_returned.png" width="261" height="30" class="image-border"></li>
+  <li class="exercise-step">If desired, navigate to <a href="http://docs.marklogic.com/js/cts" target="_blank">docs.marklogic.com/js/cts</a> to learn about the many cts functions:<br>
+    <br>
+  <img src="../images/unit08/cts_functions.png" width="680" height="335" class="image-border"></li>
+  <li class="exercise-step">Select the <strong>Geospatial Constructors</strong> link.</li>
+  <li class="exercise-step">Skim through the cts geospatial functions as desired:<br>
+    <br>
+    <img src="../images/unit08/cts_geospatial.png" width="700" height="388" class="image-border"><br>
+  </li>
+  <li class="exercise-step">If desired, view the Geospatial Search Applications section of the Search Developer's Guide at <a href="https://docs.marklogic.com/guide/search-dev/geospatial" target="_blank">docs.marklogic.com/guide/search-dev/geospatial</a>.</li>
+  <li class="exercise-step">Know that you could create an application that uses a mapping API (e.g. Google Maps, Bing Maps, Foursquare, etc.) to provide a graphical interface to users. </li>
+</ol>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Next: <a href="0803_understanding_alerting_applications.htm" class="exercise-link">Topic (Understanding Alerting)</a></p>
+<p>Back: <a href="0802_creating_geospatial_applications.htm">Previous</a></p>
+<hr>
+<p class="copyright">©2015-2020 MarkLogic Corporation. All rights reserved. Copying, selling, or otherwise distributing any part of this course without prior written consent of an authorized representative of MarkLogic Corporation is prohibited.</p>
+</body>
+</html>

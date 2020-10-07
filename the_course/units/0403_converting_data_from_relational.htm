@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>MarkLogic Fundamentals</title>
+<link href="../css/ml.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<p><img src="../images/general/Marklogic-University-RGB.png" alt="" width="130" height="38" class="logo-padding"/></p>
+<p class="topic-heading"><strong>Converting Data from Relational</strong></p>
+<p>To bring relational data into a MarkLogic database, it is important to understand the difference between modeling data in the relational world versus modeling data in the NoSQL world. </p>
+<p>Relational databases model data so that the content for a document (e.g. an order document) is often chopped up and spread across multiple tables (i.e. 'normalized'), whereas most NoSQL databases model the content for a document as a document (i.e. 'denormalized').</p>
+<p><strong>Relational</strong> database:<br>
+  <br>
+  <br>
+<img src="../images/unit04/relational_diagram.png" width="643" height="296"></p>
+<p>&nbsp;</p>
+<p><strong>Document</strong> database:<br>
+  <br>
+</p>
+<p><img src="../images/unit04/orders.png" width="639" height="210"></p>
+<p>&nbsp;</p>
+<p class="topic-sub-heading">Techniques for Converting Relational Data</p>
+<p>In a perfect scenario, the original documents (before they went into a relational database) are still available, and then loaded into MarkLogic. </p>
+<p>If the original documents are not available,  but the data is in a relational database, the next best option is to <strong>reconstitute the documents</strong> from the relational database (i.e. denormalize the data). </p>
+<p>To reconstitute documents from a relational database, a couple of techniques can be used, including running a SQL query against the relational database, to denormalize the documents, and then import the documents into MarkLogic, or to export the relational tables as .csv files and then, in MarkLogic, stitch the rows together, to reconstitute the documents. </p>
+<p><strong>Apache NiFi </strong>can make the process of converting relational data relatively easy, running a SQL query against a relational database, and then using the results to create and load the resulting documents into MarkLogic. For a 30-minute hands-on video that shows how to use Apache NiFi to bring relational data into MarkLogic, visit developer.marklogic.com/video/data-modeling.</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Next: <a href="0403_x_learn_about_a_tool.htm" class="exercise-link">Exercise (Learn About a Tool)</a></p>
+<p>Back: <a href="0402_x_view_documents.htm">Previous</a></p>
+<hr>
+<p class="copyright">©2015-2020 MarkLogic Corporation. All rights reserved. Copying, selling, or otherwise distributing any part of this course without prior written consent of an authorized representative of MarkLogic Corporation is prohibited.</p>
+</body>
+</html>

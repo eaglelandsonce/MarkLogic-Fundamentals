@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>MarkLogic Fundamentals</title>
+<link href="../css/ml.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<p><img src="../images/general/Marklogic-University-RGB.png" alt="" width="130" height="38" class="logo-padding"/></p>
+<p class="exercise-heading">Exercise: <strong>Search Documents</strong></p>
+<p>In this walkthrough exercise, you search star-wars documents using  cts.search(), JSearch, and the REST API.</p>
+<p>&nbsp;</p>
+<ol class="exercise-step">
+  <li class="exercise-step">In <strong>Query Console</strong>, import the <strong>Search Documents</strong>.xml workspace from the <strong>unit07</strong> folder.</li>
+  <li class="exercise-step">On the first tab, <strong>Word Query</strong>, see that you will be searching the star-wars database for documents that contain the word darth:<br>
+    <br>
+  <span class="code">cts.search('darth');</span></li>
+  <li class="exercise-step">With the <strong>star-wars</strong> database and <strong>JavaScript</strong> selected, click the <strong>Run</strong> button.</li>
+  <li class="exercise-step">See that 5 documents are returned:<br>
+    <br>
+    <img src="../images/unit07/darth.png" width="691" height="546" class="image-border"><br>
+  </li>
+  <li class="exercise-step">Select the <strong>Or Query</strong> tab:<br>
+    <br>
+    <span class="code">﻿cts.search(cts.orQuery([cts.wordQuery('darth'), cts.wordQuery('empire')]));</span><br>
+  </li>
+  <li class="exercise-step"><strong>Notice</strong> the use of the cts.orQuery() function.</li>
+  <li class="exercise-step">With the star-wars database and JavaScript selected, click <strong>Run</strong>. </li>
+  <li class="exercise-step">See that 8 documents are returned.</li>
+  <li class="exercise-step">Select the <strong>Word Query rebel</strong> tab:<br>
+    <br>
+    <span class="code">cts.search('rebel');</span><br>
+  </li>
+  <li class="exercise-step">Click <strong>Run</strong>.</li>
+  <li class="exercise-step">See that 12 documents are returned:<br>
+    <br>
+    <img src="../images/unit07/rebel.png" width="565" height="421" class="image-border"><br>
+  </li>
+  <li class="exercise-step">Imagine wanting to only return documents that have the word rebel in the alliance property.</li>
+  <li class="exercise-step">Edit the query to be:<br>
+    <br>
+    <span class="code">﻿cts.search(<strong>cts.jsonPropertyWordQuery('alliance', </strong>'rebel'<strong>)</strong>);</span><br>
+  </li>
+  <li class="exercise-step">Click Run.</li>
+  <li class="exercise-step">See that only 10 documents are returned:<br>
+    <br>
+    <img src="../images/unit07/alliance_rebel.png" width="604" height="534" class="image-border"><br>
+  </li>
+  <li class="exercise-step">On the <strong>Or Query </strong>tab, edit the code 
+to make it an 'and' query. <br>
+<br>
+<em>Hint: You should get 5 documents returned.</em></li>
+  <li class="exercise-step">In a browser, navigate to <a href="http://docs.marklogic.com" target="_blank">docs.marklogic.com</a>.</li>
+  <li class="exercise-step">Make the  window wide enough to see the left navigation drop-down menus:<br>
+    <br>
+    <img src="../images/unit07/docs_left-nav.png" width="700" height="325" class="image-border"><br>
+  </li>
+  <li class="exercise-step">In the left navigation, notice that the drop-down menu is set to <strong>Server-Side JavaScript APIs</strong>.</li>
+  <li class="exercise-step">Scroll down to locate the JavaScript Functions by Name category (near the bottom):<br>
+    <br>
+    <img src="../images/unit07/functions_by_name.png" width="318" height="25" class="image-border"><br>
+  </li>
+  <li class="exercise-step">Click the <strong>+ </strong>icon to expand the category.</li>
+  <li class="exercise-step">Locate and expand the <strong>cts.</strong> category:<br>
+    <br>
+    <img src="../images/unit07/cts_category.png" width="295" height="519" class="image-border"><br>
+  </li>
+  <li class="exercise-step">Skim through the list, selecting  any functions of interest, to learn more about them. </li>
+  <li class="exercise-step">In <strong>Query Console</strong>, select the <strong>JSearch</strong> tab.</li>
+  <li class="exercise-step">See that JSearch uses a fluent call chain pattern:<br>
+    <span class="code"><br>
+    ﻿const jsearch = require('/MarkLogic/jsearch.sjs'); <br>
+    <br>
+    jsearch.documents()        <br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.where(jsearch.byExample({alliance: 'rebel'})) <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.result() </span><br>
+  </li>
+  <li class="exercise-step">With the star-wars database  and JavaScript selected, click <strong>Run</strong>.</li>
+  <li class="exercise-step">Scroll down to see that  the 10 rebel documents are returned:<br>
+    <br>
+  <img src="../images/unit07/jsearch_results.png" width="470" height="281" class="image-border"></li>
+  <li class="exercise-step">Select the <strong>JSearch cts</strong> tab:<br>
+    <br>
+    <span class="code">﻿const jsearch = require('/MarkLogic/jsearch.sjs'); <br>
+    <br>
+    jsearch.documents()        <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    .where(cts.wordQuery('rebel'))        <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .result()</span><br>
+  </li>
+  <li class="exercise-step"><strong>Notice</strong> the cts function used in the where clause.  </li>
+  <li class="exercise-step">With the star-wars database and JavaScript selected, click <strong>Run</strong>.</li>
+  <li class="exercise-step">Scroll down to see that  the 12 documents with the word rebel anywhere in the document are returned:<br>
+    <br>
+  <img src="../images/unit07/jsearch_12docs.png" width="443" height="174" class="image-border"></li>
+</ol>
+<p>Search via the REST API:</p>
+<ol start="32" class="exercise-step">
+  <li class="exercise-step">In a new command prompt window, enter the following (unit07/<strong>ex02a.txt</strong>): <br>
+    <br>
+    <span class="code">curl --anyauth --user admin:admin -X GET &quot;http://localhost:8070/v1/search?q=tatooine&quot;</span><br>
+  </li>
+  <li class="exercise-step"><strong>Notice</strong> the star-wars database port of 8070 and REST API endpoint of /v1/search.</li>
+  <li class="exercise-step">Press the <strong>Enter</strong> key, to run the command.</li>
+  <li class="exercise-step">Scroll back up to see that there are 4 results:<br>
+    <br>
+    <img src="../images/unit07/results_4.png" width="700" height="141" class="image-border"><br>
+  </li>
+  <li class="exercise-step"> Press the <strong>up arrow </strong>key, to access the last command.</li>
+  <li class="exercise-step">Using your left arrow key, <strong>modify</strong> the command to query for tatooine OR naboo:<br>
+    <br>
+    <span class="code">curl --anyauth --user admin:admin -X GET &quot;http://localhost:8070/v1/search?q=tatooine <strong>OR naboo</strong>&quot;</span><br>
+  </li>
+  <li class="exercise-step"> See that there are 8 results:<br>
+    <br>
+  <img src="../images/unit07/results_8.png" width="700" height="140" class="image-border"></li>
+  <li class="exercise-step">Imagine displaying the  results for end users, in an application  you have created using your favorite programming language.</li>
+</ol>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Next: <a href="0703_searching_triples.htm" class="exercise-link">Topic (Searching Triples)</a></p>
+<p>Back: <a href="0702_searching_documents.htm">Previous</a></p>
+<hr>
+<p class="copyright">©2015-2020 MarkLogic Corporation. All rights reserved. Copying, selling, or otherwise distributing any part of this course without prior written consent of an authorized representative of MarkLogic Corporation is prohibited.</p>
+</body>
+</html>

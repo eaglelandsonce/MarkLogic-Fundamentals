@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>MarkLogic Fundamentals</title>
+<link href="../css/ml.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<p><img src="../images/general/Marklogic-University-RGB.png" alt="" width="130" height="38" class="logo-padding"/></p>
+<p class="exercise-heading">Exercise: <strong>Search Triples</strong></p>
+<p>In this walkthrough exercise, you query the triples that you  loaded into the star-wars database in Unit 5.</p>
+<p>&nbsp;</p>
+<ol class="exercise-step">
+  <li class="exercise-step">In <strong>Query Console</strong>, with the star-wars database selected, click the <strong>Explore</strong> button.</li>
+  <li class="exercise-step">Locate the <strong>/triplestore/</strong> document:<br>
+    <br>
+  <img src="../images/unit07/triplestore_document.png" width="494" height="35" class="image-border"></li>
+  <li class="exercise-step"><strong>Click</strong> the document name, to view the contents:<br>
+    <br>
+    <img src="../images/unit07/triples_doc.png" width="700" height="230" class="image-border"><br>
+  </li>
+  <li class="exercise-step">Know that, instead of viewing a /triplestore/ document, it is more common to use SPARQL to query triples.</li>
+  <li class="exercise-step"><strong>Import</strong> the <strong>Search Triples</strong>.xml workspace from the <strong>unit07</strong> folder.</li>
+  <li class="exercise-step">On the first tab, <strong>Han Solo</strong>, see that you are searching  your triples for information about Han Solo:<br>
+    <br>
+    ﻿<span class="code">SELECT ?p ?o <br>
+    WHERE {&lt;http://marklogic.com/mlu/star-wars/resource/Han_Solo&gt; ?p ?o}</span><br>
+  </li>
+  <li class="exercise-step">With the <strong>star-wars</strong> database selected, and <strong>SPARQL Query</strong> selected as the Query Type, click <strong>Run</strong>.</li>
+  <li class="exercise-step">See that  the names of actors who played Han Solo are returned:<br>
+    <br>
+    <img src="../images/unit07/han_data.png" width="700" height="169" class="image-border"><br>
+  </li>
+  <li class="exercise-step">Select the <strong>More</strong> tab:<br>
+    <span class="code"><br>
+    ﻿SELECT ?o ?p2 ?o2 <br>
+    WHERE {&lt;http://marklogic.com/mlu/star-wars/resource/Han_Solo&gt; &lt;http://marklogic.com/mlu/star-wars/ontology/playedBy&gt; ?o . ?o ?p2 ?o2}</span><br>
+  </li>
+  <li class="exercise-step">Realize that this query is to find any data in the triples about the actors that played Han Solo.</li>
+  <li class="exercise-step">Click <strong>Run</strong>.</li>
+  <li class="exercise-step">See that data about the actors that played Han Solo is returned:<br>
+    <br>
+    <img src="../images/unit07/actors_detail.png" width="700" height="164" class="image-border"><br>
+  </li>
+  <li class="exercise-step">Select the <strong>Just Alma</strong> <strong>Mater</strong> tab:<br>
+    <br>
+    <span class="code">﻿SELECT ?o ?o2 <br>
+    WHERE {&lt;http://marklogic.com/mlu/star-wars/resource/Han_Solo&gt; &lt;http://marklogic.com/mlu/star-wars/ontology/playedBy&gt; ?o . ?o &lt;http://marklogic.com/mlu/ontology/almaMater&gt; ?o2}</span><br>
+  </li>
+  <li class="exercise-step">Click <strong>Run</strong>.</li>
+  <li class="exercise-step">See that just the alma maters for actors that played Han Solo are returned:<br>
+    <br>
+  <img src="../images/unit07/alma_mater.png" width="700" height="95" class="image-border"></li>
+  <li class="exercise-step">Imagine querying to find out what other famous actors have the same alma mater as actors who played Han Solo.<br>
+  </li>
+  <li class="exercise-step">In a browser window, navigate to <a href="https://www.marklogic.com/learn/courses/using-marklogic-semantics/" target="_blank">www.marklogic.com/learn/courses/using-marklogic-semantics</a>.</li>
+  <li class="exercise-step">Scroll down to skim the table of contents:<br>
+    <br>
+  <img src="../images/unit07/semantics_course_contents.png" width="428" height="485" class="image-border"></li>
+  <li class="exercise-step">If desired, sign up for the self-paced (or instructor-led) version of the course. <br>
+  </li>
+</ol>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>Next: <a href="0704_searching_rows.htm" class="exercise-link">Topic (Searching Rows)</a></p>
+<p>Back: <a href="0703_searching_triples.htm">Previous<br>
+</a></p>
+<hr>
+<p class="copyright">©2015-2020 MarkLogic Corporation. All rights reserved. Copying, selling, or otherwise distributing any part of this course without prior written consent of an authorized representative of MarkLogic Corporation is prohibited.</p>
+</body>
+</html>

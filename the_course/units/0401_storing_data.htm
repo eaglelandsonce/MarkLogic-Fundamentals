@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>MarkLogic Fundamentals</title>
+<link href="../css/ml.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<p><img src="../images/general/Marklogic-University-RGB.png" alt="" width="130" height="38" class="logo-padding"/></p>
+<p class="topic-heading"><strong>Storing Data</strong></p>
+<p>Data is stored in a MarkLogic database as documents, triples, or both. </p>
+<p class="topic-sub-heading">Document</p>
+<p>Modeling data as a <strong>document</strong> is the most common way to store data in MarkLogic. In MarkLogic, a schema is not required. </p>
+<p>Example JSON document:</p>
+<p class="code">{<br>
+  	&nbsp;&quot;orderNum&quot;: &quot;10072&quot;, <br>
+  &nbsp;&quot;orderDate&quot;: &quot;2017-01-14&quot;, <br>
+  &nbsp;&quot;items&quot;: <br>
+&nbsp;&nbsp;&nbsp;[{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;item&quot;: <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;product&quot;: &quot;SpeedPro Ultimate&quot;,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;price&quot;: 999,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;quantity&quot;: 1 <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;},<br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;item&quot;: <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;product&quot;: &quot;Mens Racer Helmet&quot;,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;price&quot;: 95,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;quantity&quot;: 1 <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;}], <br>
+&nbsp;&quot;shipTo&quot;: <br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;firstName&quot;: &quot;Dave&quot;,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;lastName&quot;: &quot;Delansantos&quot;,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;company&quot;: &quot;Rolling Fast Deliveries&quot;,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;street&quot;: &quot;800 Market Street&quot;,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;city&quot;: &quot;San Francisco&quot;,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;state&quot;: &quot;California&quot;,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;zipcode&quot;: &quot;94111&quot;,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;phone&quot;: &quot;415-787-1212&quot;,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;email&quot;: &quot;dave@rollingfast.com&quot;<br>
+&nbsp;&nbsp;&nbsp;}, <br>
+&nbsp;&quot;billing&quot;: <br>
+&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;firstName&quot;: &quot;Graham&quot;,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;lastName&quot;: &quot;Warman&quot;,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;company&quot;: &quot;Rolling Fast Deliveries&quot;,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;street&quot;: &quot;800 Market Street&quot;,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;city&quot;: &quot;San Francisco&quot;,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;state&quot;: &quot;California&quot;,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;zipcode&quot;: &quot;94111&quot;<br>
+&nbsp;&nbsp;&nbsp;} <br>
+}</p>
+<p><strong><br>
+Envelope Technique</strong></p>
+<p>For storing additional data about a document, it is common to 'envelope' a document, so that the source data can be preserved, and yet also allow for additional data to  be stored in the document (e.g. metadata).</p>
+<p class="code">{&nbsp;&nbsp;<br>
+&nbsp;&quot;envelope&quot;: <br>
+  	&nbsp;&nbsp;&nbsp;{<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;extraContent&quot;: {...},<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;source&quot;: <br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&quot;orderNum&quot;: &quot;10072&quot;,<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;...<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+  &nbsp;&nbsp;&nbsp;}<br>
+  }<br>
+</p>
+<p class="topic-sub-heading"> Triple</p>
+<p><strong>Triples </strong>are  useful for describing relationships between entities.</p>
+<p><br>
+<img src="../images/unit04/triples_graph.png" width="700" height="309"></p>
+<p><br>
+SPARQL queries can be run across  triples (e.g. to make interesting discoveries).</p>
+<p><br>
+Resources on understanding MarkLogic as a multi-model database include <strong>Rethink Data Modeling</strong> at www.marklogic.com/resources/rethink-data-modeling, <strong>Benefits of a Multi-Model Database</strong> at www.marklogic.com/product/marklogic-database-overview/database-features/product-features-flexible-data-model, and <span class="exercise-step">the <strong>Building on Multi-Model Databases</strong> book</span> at www.marklogic.com/resources/building-multi-model-databases.</p>
+<p><br>
+</p>
+<p>&nbsp;</p>
+<p>Next: <a href="0401_x_access_multi-model_resources.htm" class="exercise-link">Exercise (Access a Multi-Model Resource)</a></p>
+<hr>
+<p class="copyright">©2015-2020 MarkLogic Corporation. All rights reserved. Copying, selling, or otherwise distributing any part of this course without prior written consent of an authorized representative of MarkLogic Corporation is prohibited.</p>
+</body>
+</html>
