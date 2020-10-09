@@ -2,169 +2,62 @@
 
 Recommended prerequisites for this course, as well as the course description, are in the [course overview](the_course/overview.htm).
 
-| Module                         | Topic Discussion                                                                                              | Lab (Exercise)                                                                                        | Quiz                                                |
-| ------------------------------ | ------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------- | --------------------------------------------------- |
-| **1: Understanding MarkLogic** | Topic: [Understanding What MarkLogic Is](the_course/units/0101_understanding_what_marklogic_is.htm)           | Exercise: [Access an eBook](the_course/../the_course/units/0101_x_access_an_ebook.htm)                |                                                     |
-|                                | Topic: [Learning How MarkLogic Is Being Used](the_course/units/0102_learning_how_marklogic_is_being_used.htm) | Exercise: [See How MarkLogic Is Used](the_course/units/0102_x_see_how_marklogic_is_being_used.htm)    |                                                     |
-|                                | Topic: [Getting Started With How It Works](the_course/units/0103_getting_started_with_how_it_works.htm)       | Exercise: [View the Documentation](the_course/units/0103_x_view_the_documentation.htm)                |                                                     |
-|                                | Summary: [Unit 1 Summary](the_course/units/01f1_summary.htm)                                                  | Lab: [Open the Course Virtual Machine](the_course/units/01f4_lab_open_the_course_virtual_machine.htm) | Quiz: [Unit 1 Quiz](the_course/units/01f2_quiz.htm) |
+| Module                                       | Topic Discussion                                                                                                       | Exercise/Lab                                                                                           | Quiz                                          |
+| -------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | --------------------------------------------- |
+| **Unit 1: Understanding MarkLogic**          | [Understanding What MarkLogic Is](the_course/units/0101_understanding_what_marklogic_is.htm)                           | [Access an eBook](the_course/../the_course/units/0101_x_access_an_ebook.htm)                           |                                               |
+|                                              | [Learning How MarkLogic Is Being Used](the_course/units/0102_learning_how_marklogic_is_being_used.htm)                 | [See How MarkLogic Is Used](the_course/units/0102_x_see_how_marklogic_is_being_used.htm)               |                                               |
+|                                              | [Getting Started With How It Works](the_course/units/0103_getting_started_with_how_it_works.htm)                       | [View the Documentation](the_course/units/0103_x_view_the_documentation.htm)                           |                                               |
+|                                              | [Unit 1 Summary](the_course/units/01f1_summary.htm)                                                                    | [Lab - Open the Course Virtual Machine](the_course/units/01f4_lab_open_the_course_virtual_machine.htm) | [Unit 1 Quiz](the_course/units/01f2_quiz.htm) |
+| **Unit 2: Installing MarkLogic**             | [Understanding the Environment](the_course/units/0201_understanding_the_environment.htm)                               | [View the System Requirements](the_course/units/0201_x_view_the_system_requirements.htm)               |                                               |
+|                                              | [Downloading the Installer](the_course/units/0202_downloading_the_installer.htm)                                       | [Access the Installer](the_course/units/0202_x_access_the_installer.htm)                               |                                               |
+|                                              | [Installing MarkLogic](the_course/units/0203_installing_marklogic.htm)                                                 | [Install MarkLogic](the_course/units/0203_x_install_marklogic.htm)                                     |                                               |
+|                                              | [Starting the Service](the_course/units/0204_starting_the_service.htm)                                                 | [Start the Service](the_course/units/0204_x_start_the_service.htm)                                     |                                               |
+|                                              | [Initializing the Instance](the_course/units/0205_initializing_the_instance.htm)                                       | [Initialize the Instance](the_course/units/0205_x_initialize_the_instance.htm)                         |                                               |
+|                                              | [Accessing MarkLogic](the_course/units/0206_accessing_marklogic.htm)                                                   | [Access MarkLogic](the_course/units/0206_x_access_marklogic.htm)                                       |                                               |
+|                                              | [Unit 2 Summary](the_course/units/02f1_summary.htm)                                                                    |                                                                                                        | [Unit 2 Quiz](the_course/units/02f2_quiz.htm) |
+| **Unit 3: Creating a Database**              | [Understanding a Database](the_course/units/0301_understanding_a_database.htm)                                         |                                                                                                        |                                               |
+|                                              | [Creating a Forest](the_course/units/0302_creating_a_forest.htm)                                                       | [Create a Forest](the_course/units/0302_x_create_a_forest.htm)                                         |                                               |
+|                                              | [Creating a Database](the_course/units/0303_creating_a_database.htm)                                                   | [Create a Database](the_course/units/0303_x_create_a_database.htm)                                     |                                               |
+|                                              | [Creating a Database via REST](the_course/units/0304_creating_a_database_via_rest.htm)                                 | [Create a Database via REST](the_course/units/0304_x_create_a_database_via_rest.htm)                   |                                               |
+|                                              | [Unit 3 Summary](the_course/units/03f1_summary.htm)                                                                    | [Lab - Create a Database](the_course/units/03f4_lab_create_a_database.htm)                             | [Unit 3 Quiz](the_course/units/03f2_quiz.htm) |
+| **Unit 4: Modeling Data**                    | [Storing Data](the_course/units/0401_storing_data.htm)                                                                 | [Access a Multi-Model Resource](the_course/units/0401_x_access_multi-model_resources.htm)              |                                               |
+|                                              | [Understanding Document Types](the_course/units/0402_understanding_document_types.htm)                                 | [View Documents](the_course/units/0402_x_view_documents.htm)                                           |                                               |
+|                                              | [Converting Data From Relational](the_course/units/0403_converting_data_from_relational.htm)                           | [Learn About a Tool](the_course/units/0403_x_learn_about_a_tool.htm)                                   |                                               |
+|                                              | [Unit 4 Summary](the_course/units/04f1_summary.htm)                                                                    |                                                                                                        | [Unit 4 Quiz](the_course/units/04f2_quiz.htm) |
+| **Unit 5: Bringing In Data**                 | [Bringing In Documents](the_course/units/0501_bringing_in_documents.htm)                                               |                                                                                                        |                                               |
+|                                              | [Inserting a Document via Query Console](the_course/units/0502_inserting_a_document_via_query_console.htm)             | [Insert a Document via Query Console](the_course/units/0502_x_insert_a_document_via_query_console.htm) |                                               |
+|                                              | [Organizing Documents](the_course/units/0503_organizing_documents.htm)                                                 | [Organize Documents](the_course/units/0503_x_organize_documents.htm)                                   |                                               |
+|                                              | [Assigning Document Permissions](the_course/units/0504_assigning_document_permissions.htm)                             | [Assign Document Permissions](the_course/units/0504_assigning_document_permissions.htm)                |                                               |
+|                                              | [Modifying Documents](the_course/units/0505_modifying_documents.htm)                                                   | [Modify a Document](the_course/units/0505_x_modify_a_document.htm)                                     |                                               |
+|                                              | [Using MarkLogic Content Pump](the_course/units/0506_using_marklogic_content_pump.htm)                                 | [Use MarkLogic Content Pump](the_course/units/0506_x_use_marklogic_content_pump.htm)                   |                                               |
+|                                              | [Unit 5 Summary](the_course/units/05f1_summary.htm)                                                                    |                                                                                                        | [Unit 5 Quiz](the_course/units/05f2_quiz.htm) |
+| **Unit 6: Accessing Data**                   | [Accessing Data](the_course/units/0601_accessing_data.htm)                                                             |                                                                                                        |                                               |
+|                                              | [Reading via the REST API](the_course/units/0602_reading_via_the_rest_api.htm)                                         | [Read via the REST API](the_course/units/0602_x_read_via_the_rest_api.htm)                             |                                               |
+|                                              | [Hosting an Application](the_course/units/0603_hosting_an_application.htm)                                             | [Host an Application](the_course/units/0603_x_host_an_application.htm)                                 |                                               |
+|                                              | [Using the Java API](the_course/units/0604_using_the_java_api.htm)                                                     | [Use the Java API](the_course/units/0604_x_use_the_java_api.htm)                                       |                                               |
+|                                              | [Using the Node.js API](the_course/units/0605_using_the_nodejs_api.htm)                                                | [Use the Node.js API](the_course/units/0605_x_use_the_node.js_api.htm)                                 |                                               |
+|                                              | [Serving Data to a BI Tool](the_course/units/0606_serving_data_to_a_bi_tool.htm)                                       | [Serve Data to a BI Tool](the_course/units/0606_x_serve_data_to_a_bi_tool.htm)                         |                                               |
+|                                              | [Unit 6 Summary](the_course/units/06f1_summary.htm)                                                                    |                                                                                                        | [Unit 6 Quiz](the_course/units/06f2_quiz.htm) |
+| **Unit 7: Searching Data**                   | [Introducing Search](the_course/units/0701_introducing_search.htm)                                                     | [Learn About Search](the_course/units/0701_x_learn_about_search.htm)                                   |                                               |
+|                                              | [Searching Documents](the_course/units/0702_searching_documents.htm)                                                   | [Search Documents](the_course/units/0702_x_search_documents.htm)                                       |                                               |
+|                                              | [Searching Triples](the_course/units/0703_searching_triples.htm)                                                       | [Search Triples](the_course/units/0703_x_search_triples.htm)                                           |                                               |
+|                                              | [Searching Rows](the_course/units/0704_searching_rows.htm)                                                             | [Search Rows](the_course/units/0704_x_search_rows.htm)                                                 |                                               |
+|                                              | [Understanding Indexes](the_course/units/0705_understanding_indexes.htm)                                               | [Add an Index](the_course/units/0705_x_add_an_index.htm)                                               |                                               |
+|                                              | [Unit 7 Summary](the_course/units/07f1_summary.htm)                                                                    |                                                                                                        | [Unit 7 Quiz](the_course/units/07f2_quiz.htm) |
+| **Unit 8: Learning About More Capabilities** | [Learning About Machine Learning](the_course/units/0801_learning_about_machine_learning.htm)                           | [Learn About Machine Learning](the_course/units/0801_x_learn_about_machine_learning.htm)               |                                               |
+|                                              | [Creating Geospatial Applications](the_course/units/0802_creating_geospatial_applications.htm)                         | [Make a Geospatial Search](the_course/units/0802_x_make_a_geospatial_search.htm)                       |                                               |
+|                                              | [Understanding Alerting Applications](the_course/units/0803_understanding_alerting_applications.htm)                   | [Learn About Alerting](the_course/units/0803_x_learn_about_alerting.htm)                               |                                               |
+|                                              | [Unit 8 Summary](the_course/units/08f1_summary.htm)                                                                    |                                                                                                        | [Unit 8 Quiz](the_course/units/08f2_quiz.htm) |
 
-### 2: Installing MarkLogic
-Topic: [Understanding the Environment](the_course/units/0201_understanding_the_environment.htm)  
-Exercise: [View the System Requirements](the_course/units/0201_x_view_the_system_requirements.htm)
-
-Topic: [Downloading the Installer](the_course/units/0202_downloading_the_installer.htm)  
-Exercise: [Access the Installer](the_course/units/0202_x_access_the_installer.htm)
-
-Topic: [Installing MarkLogic](the_course/units/0203_installing_marklogic.htm)  
-Exercise: [Install MarkLogic](the_course/units/0203_x_install_marklogic.htm)
-
-Topic: [Starting the Service](the_course/units/0204_starting_the_service.htm)  
-Exercise: [Start the Service](the_course/units/0204_x_start_the_service.htm)
-
-Topic: [Initializing the Instance](the_course/units/0205_initializing_the_instance.htm)  
-Exercise: [Initialize the Instance](the_course/units/0205_x_initialize_the_instance.htm)
-
-Topic: [Accessing MarkLogic](the_course/units/0206_accessing_marklogic.htm)  
-Exercise: [Access MarkLogic](the_course/units/0206_x_access_marklogic.htm)
-
-Summary: [Unit 2 Summary](the_course/units/02f1_summary.htm)  
-Quiz: [Unit 2 Quiz](the_course/units/02f2_quiz.htm)
-
-### 3: Creating a Database
-Topic: [Understanding a Database]()
-
-Topic: [Creating a Forest]()  
-Exercise: [Create a Forest]()
-
-Topic: [Creating a Database]()  
-Exercise: [Create a Database]()
-
-Topic: [Creating a Database via REST]()  
-Exercise: [Create a Database via REST]()
-
-Summary: [Unit 3 Summary]()  
-Quiz: [Unit 3 Quiz]()  
-Lab: [Create a Database]()
-
-### 4: Modeling Data
-Topic: [Storing Data]()  
-Exercise: [Access a Multi-Model Resource]()
-
-Topic: [Understanding Document Types]()  
-Exercise: [View Documents]()
-
-Topic: [Converting Data From Relational]()  
-Exercise: [Learn About a Tool]()
-
-Summary: [Unit 4 Summary]()  
-Quiz: [Unit 4 Quiz]()
-
-### 5: Bringing In Data
-Topic: [Bringing In Documents]()
-
-Topic: [Inserting a Document via Query Console]()  
-Exercise: [Insert a Document via Query Console]()
-
-Topic: [Organizing Documents]()  
-Exercise: [Organize Documents]()
-
-Topic: [Assigning Document Permissions]()  
-Exercise: [Assign Document Permissions]()
-
-Topic: [Modifying Documents]()  
-Exercise: [Modify a Document]()
-
-Topic: [Using MarkLogic Content Pump]()  
-Exercise: [Use MarkLogic Content Pump]()
-
-Summary: [Unit 5 Summary]()  
-Quiz: [Unit 5 Quiz]()
-
-### 6: Accessing Data
-Topic: [Accessing Data]()
-
-Topic: [Reading via the REST API]()  
-Exercise: [Read via the REST API]()
-
-Topic: [Hosting an Application]()  
-Exercise: [Host an Application]()
-
-Topic: [Using the Java API]()  
-Exercise: [Use the Java API]()
-
-Topic: [Using the Node.js API]()  
-Exercise: [Use the Node.js API]()
-
-Topic: [Serving Data to a BI Tool]()  
-Exercise: [Serve Data to a BI Tool]()
-
-Summary: [Unit 6 Summary]()  
-Quiz: [Unit 6 Quiz]()
-
-### 7: Searching Data
-Topic: [Introducing Search]()  
-Exercise: [Learn About Search]()
-
-Topic: [Searching Documents]()  
-Exercise: [Search Documents]()
-
-Topic: [Searching Triples]()  
-Exercise: [Search Triples]()
-
-Topic: [Searching Rows]()  
-Exercise: [Search Rows]()
-
-Topic: [Understanding Indexes]()  
-Exercise: [Add an Index]()
-
-Summary: [Unit 7 Summary]()  
-Quiz: [Unit 7 Quiz]()
-
-### 8: Learning About More Capabilities
-Topic: [Learning About Machine Learning]()  
-Exercise: [Learn About Machine Learning]()
-
-Topic: [Creating Geospatial Applications]()  
-Exercise: [Make a Geospatial Search]()
-
-Topic: [Understanding Alerting Applications]()  
-Exercise: [Learn About Alerting]()
-
-Summary: [Unit 8 Summary]()  
-Quiz: [Unit 8 Quiz]()
-
-<br>
-
----
-### A: Learning Resources
-Topic: [Accessing Documentation]()  
-Exercise: [Access Documentation]()
-
-Topic: [Using Global Search]()  
-Exercise: [Use Global Search]()
-
-Topic: [Watching Webinars and Video Tutorials]()  
-Exercise: [Watch Video Tutorials]()
-
-Topic: [Attending In-Person MarkLogic Events]()  
-Exercise: [Access Conference Recordings]()
-
-Topic: [Posting Questions]()  
-Exercise: [Post a Question]()
-
-Topic: [Attending MLU Training Classes]()  
-Exercise: [Access Upcoming Classes]()
-
-### B: Student Computer Setup
-Topic: [Understanding the Course System Requirements]()  
-Exercise: [Check for Hardware Requirements]()
-
-Topic: [Creating the Course Virtual Machine]()  
-Exercise: [See the Steps That Were Done]()
-
-Topic: [Using VirtualBox]()  
-Exercise: [Use VirtualBox]()
-
-Topic: [Getting Set Up]()  
-Exercise: [Get Set Up]()
+| Module                                       | Topic Discussion                                                                                                       | Exercise/Lab                                                                                           | Quiz                                          |
+| -------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | --------------------------------------------- |
+| **Unit A: Learning Resources**               | [Accessing Documentation](the_course/units/xa01_accessing_documentation.htm)                                           | [Access Documentation](the_course/units/xa01_x_access_documentation.htm)                               |                                               |
+|                                              | [Using Global Search](the_course/units/xa02_using_global_search.htm)                                                   | [Use Global Search](the_course/units/xa02_x_use_global_search.htm)                                     |                                               |
+|                                              | [Watching Webinars and Video Tutorials](the_course/units/xa03_watching_webinars_and_video_tutorials.htm)               | [Watch Video Tutorials](the_course/units/xa03_x_watch_video_tutorials.htm)                             |                                               |
+|                                              | [Attending In-Person MarkLogic Events](the_course/units/xa04_attending_in-person_marklogic_events.htm)                 | [Access Conference Recordings](the_course/units/xa04_x_access_conference_recordings.htm)               |                                               |
+|                                              | [Posting Questions](the_course/units/xa05_posting_questions.htm)                                                       | [Post a Question](the_course/units/xa05_x_post_a_question.htm)                                         |                                               |
+|                                              | [Attending MLU Training Classes](the_course/units/xa06_attending_mlu_training_classes.htm)                             | [Access Upcoming Classes](the_course/units/xa06_x_access_upcoming_classes.htm)                         |                                               |
+| **Unit B: Student Computer Setup**           | [Understanding the Course System Requirements](the_course/units/xb01_understanding_the_course_system_requirements.htm) | [Check for Hardware Requirements](the_course/units/xb01_x_check_for_hardware_requirements.htm)         |                                               |
+|                                              | [Creating the Course Virtual Machine](the_course/units/xb02_creating_the_course_virtual_machine.htm)                   | [See the Steps That Were Done](the_course/units/xb02_x_see_the_steps_that_were_done.htm)               |                                               |
+|                                              | [Using VirtualBox](the_course/units/xb03_using_virtualbox.htm)                                                         | [Use VirtualBox](the_course/units/xb03_x_use_virtualbox.htm)                                           |                                               |
+|                                              | [Getting Set Up](the_course/units/xb04_getting_set_up.htm)                                                             | [Get Set Up](the_course/units/xb04_x_get_set_up.htm)                                                   |                                               |
